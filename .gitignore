@@ -1,0 +1,58 @@
+# macOS specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbs.db and other Windows specifics (if developed in a team)
+Thumbs.db
+Desktop.ini
+
+# macOS specific directories
+.Trashes
+._*
+.Spotlight-V100
+.fseventsd
+
+# Node.js specific files
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python specific files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Ruby specific files
+*.gem
+.bundle/
+Gemfile.lock
+
+# IDE/Editor specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Image and video cache (e.g., ffmpeg)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.flv
+*.webm
+
+# Other unwanted files
+*.bak
+*.orig
+*.old
+
+# Directories specifically excluded by you
+.obsidian/
+.media/

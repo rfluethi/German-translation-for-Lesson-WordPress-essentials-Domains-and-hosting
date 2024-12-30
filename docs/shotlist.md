@@ -15,6 +15,8 @@ The timecodes are given in the Audio Timecode Format (ATF) "hours:minutes:second
 
 ### 00-01 Thumbnail
 
+<img src="../src/assets/00-01-Thumbnail.png" width="300">
+
 Created using the Thumbnail Generator, based on the original English version thumbnail.
 Further information about the Thumbnail Generator can be found on the [Video Thumbnail Generator](https://make.wordpress.org/design/handbook/resources/figma-thumbnail-generator/) website.
 

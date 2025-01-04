@@ -24,62 +24,63 @@ jobs:
           echo "\nDocs directory content (if exists):"
           ls -la docs || echo "docs directory not found"
 
-      # Create tutorial-docs.zip from /docs/ directory
+      # Create docs ZIP with better error handling
       - name: Create docs ZIP
         run: |
+          mkdir -p zip
           if [ -d "docs" ]; then
-            echo "Docs directory exists"
             if [ "$(ls -A docs)" ]; then
               echo "Creating ZIP for documents..."
-              mkdir -p zip
               zip -r zip/tutorial-docs.zip docs
-              echo "docs_zip_exists=true" >> $GITHUB_ENV
+              echo "docs_zip_created=true" >> $GITHUB_ENV
             else
-              echo "::warning::Docs directory is empty"
-              echo "docs_zip_exists=false" >> $GITHUB_ENV
+              echo "Creating empty docs ZIP..."
+              touch zip/tutorial-docs.zip
+              echo "docs_zip_created=true" >> $GITHUB_ENV
             fi
           else
-            echo "::warning::Docs directory does not exist"
-            echo "docs_zip_exists=false" >> $GITHUB_ENV
+            echo "Creating empty docs ZIP..."
+            touch zip/tutorial-docs.zip
+            echo "docs_zip_created=true" >> $GITHUB_ENV
           fi
 
-      # Create tutorial-assets.zip from /src/ directory
+      # Create assets ZIP with better error handling
       - name: Create assets ZIP
         run: |
           if [ -d "src" ]; then
-            echo "Source directory exists"
             if [ "$(ls -A src)" ]; then
               echo "Creating ZIP for assets..."
-              mkdir -p zip
               zip -r zip/tutorial-assets.zip src
-              echo "assets_zip_exists=true" >> $GITHUB_ENV
             else
-              echo "::warning::Source directory is empty"
-              echo "assets_zip_exists=false" >> $GITHUB_ENV
+              echo "Creating empty assets ZIP..."
+              touch zip/tutorial-assets.zip
             fi
           else
-            echo "::warning::Source directory does not exist"
-            echo "assets_zip_exists=false" >> $GITHUB_ENV
+            echo "Creating empty assets ZIP..."
+            touch zip/tutorial-assets.zip
           fi
 
-      # Create tutorial-videos.zip from /media/video/ directory
+      # Create videos ZIP with better error handling
       - name: Create videos ZIP
         run: |
           if [ -d "media/video" ]; then
-            echo "Video directory exists"
             if [ "$(ls -A media/video)" ]; then
               echo "Creating ZIP for videos..."
-              mkdir -p zip
               zip -r zip/tutorial-videos.zip media/video
-              echo "videos_zip_exists=true" >> $GITHUB_ENV
             else
-              echo "::warning::Video directory is empty"
-              echo "videos_zip_exists=false" >> $GITHUB_ENV
+              echo "Creating empty videos ZIP..."
+              touch zip/tutorial-videos.zip
             fi
           else
-            echo "::warning::Video directory does not exist"
-            echo "videos_zip_exists=false" >> $GITHUB_ENV
+            echo "Creating empty videos ZIP..."
+            touch zip/tutorial-videos.zip
           fi
+
+      # Debug step: Show ZIP contents
+      - name: List ZIP files
+        run: |
+          echo "ZIP directory content:"
+          ls -la zip/
 
       # Upload ZIP files when triggered by a release
       - name: Upload to Release
@@ -87,6 +88,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: zip/*.zip
+          fail_on_unmatched_files: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

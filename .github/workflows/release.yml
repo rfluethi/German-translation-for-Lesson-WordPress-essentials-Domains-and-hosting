@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Debugging: Zeige Verzeichnisstruktur
+      # Debug step: Show directory structure for troubleshooting
       - name: List repository structure
         run: |
           echo "Current directory content:"
@@ -24,18 +24,15 @@ jobs:
           echo "\nDocs directory content (if exists):"
           ls -la docs || echo "docs directory not found"
 
-      # Create ZIP files
+      # Create tutorial-docs.zip from /docs/ directory
       - name: Create docs ZIP
         run: |
           if [ -d "docs" ]; then
             echo "Docs directory exists"
             if [ "$(ls -A docs)" ]; then
-              echo "Docs directory is not empty"
               echo "Creating ZIP for documents..."
               mkdir -p zip
               zip -r zip/tutorial-docs.zip docs
-              echo "ZIP file created. Content of zip directory:"
-              ls -la zip/
               echo "docs_zip_exists=true" >> $GITHUB_ENV
             else
               echo "::warning::Docs directory is empty"
@@ -46,18 +43,56 @@ jobs:
             echo "docs_zip_exists=false" >> $GITHUB_ENV
           fi
 
-      # Upload nur bei einem Release
+      # Create tutorial-assets.zip from /src/ directory
+      - name: Create assets ZIP
+        run: |
+          if [ -d "src" ]; then
+            echo "Source directory exists"
+            if [ "$(ls -A src)" ]; then
+              echo "Creating ZIP for assets..."
+              mkdir -p zip
+              zip -r zip/tutorial-assets.zip src
+              echo "assets_zip_exists=true" >> $GITHUB_ENV
+            else
+              echo "::warning::Source directory is empty"
+              echo "assets_zip_exists=false" >> $GITHUB_ENV
+            fi
+          else
+            echo "::warning::Source directory does not exist"
+            echo "assets_zip_exists=false" >> $GITHUB_ENV
+          fi
+
+      # Create tutorial-videos.zip from /media/video/ directory
+      - name: Create videos ZIP
+        run: |
+          if [ -d "media/video" ]; then
+            echo "Video directory exists"
+            if [ "$(ls -A media/video)" ]; then
+              echo "Creating ZIP for videos..."
+              mkdir -p zip
+              zip -r zip/tutorial-videos.zip media/video
+              echo "videos_zip_exists=true" >> $GITHUB_ENV
+            else
+              echo "::warning::Video directory is empty"
+              echo "videos_zip_exists=false" >> $GITHUB_ENV
+            fi
+          else
+            echo "::warning::Video directory does not exist"
+            echo "videos_zip_exists=false" >> $GITHUB_ENV
+          fi
+
+      # Upload ZIP files when triggered by a release
       - name: Upload to Release
-        if: github.event_name == 'release' && env.docs_zip_exists == 'true'
+        if: github.event_name == 'release'
         uses: softprops/action-gh-release@v1
         with:
           files: zip/*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Artifact Upload für manuelle Ausführung
+      # Upload ZIP files when manually triggered
       - name: Upload Artifact
-        if: github.event_name == 'workflow_dispatch' && env.docs_zip_exists == 'true'
+        if: github.event_name == 'workflow_dispatch'
         uses: actions/upload-artifact@v4
         with:
           name: tutorial-zips

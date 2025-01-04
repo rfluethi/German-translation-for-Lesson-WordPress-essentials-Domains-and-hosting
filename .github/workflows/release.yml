@@ -20,20 +20,33 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # List files to check structure (for debugging)
+      # Debugging: Zeige Verzeichnisstruktur
       - name: List repository structure
-        run: ls -R
+        run: |
+          echo "Current directory content:"
+          ls -la
+          echo "\nDocs directory content (if exists):"
+          ls -la docs || echo "docs directory not found"
 
-      # Create a ZIP for documents from /docs/ if the directory exists
+      # Create ZIP files with mehr Debug-Output
       - name: Create docs ZIP
         run: |
-          if [ -d "docs" ] && [ "$(ls -A docs)" ]; then
-            echo "Creating ZIP for documents..."
-            mkdir -p zip
-            zip -r zip/tutorial-docs.zip docs
-            echo "docs_zip_exists=true" >> $GITHUB_ENV
+          if [ -d "docs" ]; then
+            echo "Docs directory exists"
+            if [ "$(ls -A docs)" ]; then
+              echo "Docs directory is not empty"
+              echo "Creating ZIP for documents..."
+              mkdir -p zip
+              zip -r zip/tutorial-docs.zip docs
+              echo "ZIP file created. Content of zip directory:"
+              ls -la zip/
+              echo "docs_zip_exists=true" >> $GITHUB_ENV
+            else
+              echo "::warning::Docs directory is empty"
+              echo "docs_zip_exists=false" >> $GITHUB_ENV
+            fi
           else
-            echo "::warning::Docs directory does not exist or is empty."
+            echo "::warning::Docs directory does not exist"
             echo "docs_zip_exists=false" >> $GITHUB_ENV
           fi
 
@@ -126,7 +139,7 @@ jobs:
 
       # Upload ZIP files
       - name: Upload Release Assets
-        if: github.event_name == 'release' && env.docs_zip_exists == 'true'
+        if: env.docs_zip_exists == 'true'
         uses: softprops/action-gh-release@v1
         with:
           files: zip/*.zip

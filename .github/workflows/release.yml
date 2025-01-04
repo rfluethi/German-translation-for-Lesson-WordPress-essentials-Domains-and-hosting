@@ -1,22 +1,18 @@
 name: Create and upload ZIP files for release
 
-# The workflow can be triggered by a release or manually
 on:
   release:
     types: [created]
-  workflow_dispatch:  # Allows manual triggering through GitHub Actions
+  workflow_dispatch:
 
 permissions:
   contents: write
   packages: write
-  issues: write
-  deployments: write
 
 jobs:
   zip_and_upload:
     runs-on: ubuntu-latest
     steps:
-      # Checkout the repository to access the files
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -28,7 +24,7 @@ jobs:
           echo "\nDocs directory content (if exists):"
           ls -la docs || echo "docs directory not found"
 
-      # Create ZIP files with mehr Debug-Output
+      # Create ZIP files
       - name: Create docs ZIP
         run: |
           if [ -d "docs" ]; then
@@ -50,98 +46,19 @@ jobs:
             echo "docs_zip_exists=false" >> $GITHUB_ENV
           fi
 
-      # Create a ZIP for assets from /src/ if the directory exists
-      - name: Create assets ZIP
-        run: |
-          if [ -d "src" ] && [ "$(ls -A src)" ]; then
-            echo "Creating ZIP for assets..."
-            zip -r zip/tutorial-assets.zip src || true
-          else
-            echo "::warning::Assets directory does not exist or is empty. Skipping assets ZIP creation."
-          fi
-
-      # Create a ZIP for videos from /media/video/ if the directory exists
-      - name: Create videos ZIP
-        run: |
-          if [ -d "media/video" ] && [ "$(ls -A media/video)" ]; then
-            echo "Creating ZIP for videos..."
-            mkdir -p zip
-            zip -r zip/tutorial-videos.zip media/video || true
-          else
-            echo "::warning::Media/video directory does not exist or is empty. Skipping video ZIP creation."
-          fi
-
-      # Check if ZIP for docs was created
-      - name: Check if docs ZIP exists
-        id: docs_zip
-        run: |
-          if [ -f zip/tutorial-docs.zip ]; then
-            echo "docs_zip_exists=true" >> $GITHUB_ENV
-          else
-            echo "docs_zip_exists=false" >> $GITHUB_ENV
-          fi
-
-      # Check if ZIP for assets was created
-      - name: Check if assets ZIP exists
-        id: assets_zip
-        run: |
-          if [ -f zip/tutorial-assets.zip ]; then
-            echo "assets_zip_exists=true" >> $GITHUB_ENV
-          else
-            echo "assets_zip_exists=false" >> $GITHUB_ENV
-          fi
-
-      # Check if ZIP for videos was created
-      - name: Check if videos ZIP exists
-        id: videos_zip
-        run: |
-          if [ -f zip/tutorial-videos.zip ]; then
-            echo "videos_zip_exists=true" >> $GITHUB_ENV
-          else
-            echo "videos_zip_exists=false" >> $GITHUB_ENV
-          fi
-
-      # Upload the docs ZIP to the release (with asset_content_type)
-      - name: Upload docs ZIP to the release
-        if: github.event_name == 'release' && github.event.action == 'created' && env.docs_zip_exists == 'true'
-        uses: softprops/action-gh-release@v1
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: zip/tutorial-docs.zip
-          asset_name: tutorial-docs.zip
-          asset_content_type: application/zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # Upload the assets ZIP to the release (with asset_content_type)
-      - name: Upload assets ZIP to the release
-        if: github.event_name == 'release' && github.event.action == 'created' && env.assets_zip_exists == 'true'
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: zip/tutorial-assets.zip
-          asset_name: tutorial-assets.zip
-          asset_content_type: application/zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # Upload the videos ZIP to the release (with asset_content_type)
-      - name: Upload videos ZIP to the release
-        if: github.event_name == 'release' && github.event.action == 'created' && env.videos_zip_exists == 'true'
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: zip/tutorial-videos.zip
-          asset_name: tutorial-videos.zip
-          asset_content_type: application/zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # Upload ZIP files
-      - name: Upload Release Assets
-        if: env.docs_zip_exists == 'true'
+      # Upload nur bei einem Release
+      - name: Upload to Release
+        if: github.event_name == 'release' && env.docs_zip_exists == 'true'
         uses: softprops/action-gh-release@v1
         with:
           files: zip/*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Artifact Upload für manuelle Ausführung
+      - name: Upload Artifact
+        if: github.event_name == 'workflow_dispatch' && env.docs_zip_exists == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: tutorial-zips
+          path: zip/*.zip

@@ -45,6 +45,6 @@ We welcome your contributions to this translation! You can either create a fork 
    ```
 
 7. **Submit a Pull Request:**
-   - Go to the original repository at `https://github.com/rfluethi/German-translation-for-Lesson-WordPress-essentials-Domains-and-hosting
+   - Go to the original repository at `https://github.com/rfluethi/German-translation-for-Lesson-WordPress-essentials-Domains-and-hosting`.
    - Click on the "Pull Requests" tab, then click the "New Pull Request" button.
    - Select your branch from the "compare" dropdown and submit your pull request for review.

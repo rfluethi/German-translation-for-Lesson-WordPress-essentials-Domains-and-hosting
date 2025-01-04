@@ -5,8 +5,9 @@ This repository hosts the German translation and redesign of the "WordPress Esse
 ## Table of Contents
 
 - [Original Resources](#original-resources)
-- [Repository Structure](#repository-structure)
+- [Produced Resources](#produced-resources)
 - [Contributing](#contributing)
+- [Downloadable Release Files](#downloadable-release-files)
 - [Licenses](#licenses)
 - [Contact](#contact)
 
@@ -43,7 +44,7 @@ The "[Subtitles](src/subtitles)" directory contains the subtitle files for the i
 
 ### Quiz
 
-The [Quiz](docs/quize.md) includes a series of questions related to the video content. The questions are adapted from the English version and translated into German.
+The [Quiz](docs/quiz.md) includes a series of questions related to the video content. The questions are adapted from the English version and translated into German.
 
 ## Contributing
 We welcome contributions! For detailed instructions, please refer to the [CONTRIBUTING](CONTRIBUTING.md) file.

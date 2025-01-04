@@ -7,13 +7,7 @@ This repository hosts the German translation and redesign of the "WordPress Esse
 - [German Translation of 'WordPress essentials: Domains and hosting' Lesson.](#german-translation-of-wordpress-essentials-domains-and-hosting-lesson)
   - [Table of Contents](#table-of-contents)
   - [Original Resources](#original-resources)
-    - [English Resources (original)](#english-resources-original)
-    - [German Resources](#german-resources)
   - [Produced Resources](#produced-resources)
-    - [Video](#video)
-    - [Text Materials](#text-materials)
-    - [Subtitles](#subtitles)
-    - [Quiz](#quiz)
   - [Contributing](#contributing)
   - [Downloadable Release Files](#downloadable-release-files)
   - [License](#license)
@@ -59,7 +53,7 @@ We welcome contributions! For detailed instructions, please refer to the [CONTRI
 
 ## Downloadable Release Files
 
-The latest versions and change history are documented in the [CHANGELOG](https://chatgpt.com/c/CHANGELOG.md).
+The latest versions and change history are documented in the [CHANGELOG](CHANGELOG.md).
 
 ### Current Working Version
 

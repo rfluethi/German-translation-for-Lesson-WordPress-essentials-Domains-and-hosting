@@ -34,14 +34,10 @@ jobs:
               zip -r zip/tutorial-docs.zip docs
               echo "docs_zip_created=true" >> $GITHUB_ENV
             else
-              echo "Creating empty docs ZIP..."
-              touch zip/tutorial-docs.zip
-              echo "docs_zip_created=true" >> $GITHUB_ENV
+              echo "Docs directory is empty. Skipping ZIP creation."
             fi
           else
-            echo "Creating empty docs ZIP..."
-            touch zip/tutorial-docs.zip
-            echo "docs_zip_created=true" >> $GITHUB_ENV
+            echo "Docs directory does not exist. Skipping ZIP creation."
           fi
 
       # Create assets ZIP with better error handling
@@ -52,12 +48,10 @@ jobs:
               echo "Creating ZIP for assets..."
               zip -r zip/tutorial-assets.zip src
             else
-              echo "Creating empty assets ZIP..."
-              touch zip/tutorial-assets.zip
+              echo "Source directory is empty. Skipping ZIP creation."
             fi
           else
-            echo "Creating empty assets ZIP..."
-            touch zip/tutorial-assets.zip
+            echo "Source directory does not exist. Skipping ZIP creation."
           fi
 
       # Create videos ZIP with better error handling
@@ -68,12 +62,10 @@ jobs:
               echo "Creating ZIP for videos..."
               zip -r zip/tutorial-videos.zip media/video
             else
-              echo "Creating empty videos ZIP..."
-              touch zip/tutorial-videos.zip
+              echo "Video directory is empty. Skipping ZIP creation."
             fi
           else
-            echo "Creating empty videos ZIP..."
-            touch zip/tutorial-videos.zip
+            echo "Video directory does not exist. Skipping ZIP creation."
           fi
 
       # Debug step: Show ZIP contents

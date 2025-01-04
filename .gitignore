@@ -40,14 +40,6 @@ Gemfile.lock
 *.swp
 *.swo
 
-# Image and video cache (e.g., ffmpeg)
-*.mp4
-*.mov
-*.avi
-*.mkv
-*.flv
-*.webm
-
 # Other unwanted files
 *.bak
 *.orig

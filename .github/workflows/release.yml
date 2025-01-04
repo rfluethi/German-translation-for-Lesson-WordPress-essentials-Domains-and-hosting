@@ -30,9 +30,11 @@ jobs:
           if [ -d "docs" ] && [ "$(ls -A docs)" ]; then
             echo "Creating ZIP for documents..."
             mkdir -p zip
-            zip -r zip/tutorial-docs.zip docs || true
+            zip -r zip/tutorial-docs.zip docs
+            echo "docs_zip_exists=true" >> $GITHUB_ENV
           else
-            echo "::warning::Docs directory does not exist or is empty. Skipping docs ZIP creation."
+            echo "::warning::Docs directory does not exist or is empty."
+            echo "docs_zip_exists=false" >> $GITHUB_ENV
           fi
 
       # Create a ZIP for assets from /src/ if the directory exists
@@ -119,5 +121,14 @@ jobs:
           asset_path: zip/tutorial-videos.zip
           asset_name: tutorial-videos.zip
           asset_content_type: application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Upload ZIP files
+      - name: Upload Release Assets
+        if: github.event_name == 'release' && env.docs_zip_exists == 'true'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: zip/*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

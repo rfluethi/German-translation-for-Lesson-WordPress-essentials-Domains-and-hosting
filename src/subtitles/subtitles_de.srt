@@ -1,0 +1,208 @@
+1
+00:00:00,001 --> 00:00:03,200
+Hallo und herzlich willkommen bei Learn WordPress.
+
+2
+00:00:03,200 --> 00:00:07,280
+Sag Hallo zu deiner neuen WordPress-Webseite.
+
+3
+00:00:07,280 --> 00:00:11,520
+Sie hat leider noch kein Zuhause und fühlt sich einsam.
+
+4
+00:00:11,520 --> 00:00:13,560
+Das ändern wir jetzt.
+
+5
+00:00:13,560 --> 00:00:22,120
+In dieser Lektion erfährst du, wie du einen guten Hosting-Anbieter findest
+
+6
+00:00:22,120 --> 00:00:23,320
+ und die passende Domain bekommst.
+
+7
+00:00:23,320 --> 00:00:27,200
+Falls du nicht weißt, was das bedeutet, kein Problem.
+
+8
+00:00:27,200 --> 00:00:30,000
+Wir werden dir das detailliert erklären.
+
+9
+00:00:30,000 --> 00:00:39,840
+Nach dieser Lektion wirst du wissen, was Hosting und Domains sind, 
+
+10
+00:00:39,840 --> 00:00:44,760
+warum du beides zusammen brauchst, wie du den richtigen Anbieter auswählst.
+
+11
+00:00:44,760 --> 00:00:48,880
+Lass uns zuerst das Hosting genauer anschauen.
+
+12
+00:00:48,880 --> 00:00:52,160
+Deine Webseite braucht eine Unterkunft.
+
+13
+00:00:52,160 --> 00:00:55,160
+Diese Unterkunft nennt sich Hosting.
+
+14
+00:00:55,160 --> 00:01:01,600
+Der Ort, an dem alle Inhalte gespeichert sind und sie arbeiten kann.
+
+15
+00:01:01,600 --> 00:01:07,680
+Es gibt viele verschiedene Arten von Hosting und wenn es nötig ist,
+
+16
+00:01:07,680 --> 00:01:08,680
+kann deine Webseite auch umziehen.
+
+17
+00:01:08,680 --> 00:01:12,200
+Hier gefällt es deiner Webseite.
+
+18
+00:01:12,200 --> 00:01:15,600
+Aber ist das wirklich der richtige Anbieter?
+
+19
+00:01:15,600 --> 00:01:20,640
+Lass uns die Webseite mal fragen, was für sie wichtig ist.
+
+20
+00:01:20,640 --> 00:01:21,640
+Zuverlässigkeit.
+
+21
+00:01:21,640 --> 00:01:24,800
+Deine Webseite muss immer online sein.
+
+22
+00:01:24,800 --> 00:01:32,080
+Ein guter Anbieter garantiert eine stabile Erreichbarkeit und bietet zuverlässigen Support.
+
+23
+00:01:32,080 --> 00:01:33,080
+Skalierbarkeit.
+
+24
+00:01:33,080 --> 00:01:37,840
+Wächst deine Webseite, sollte dein Hosting-Anbieter mitwachsen können.
+
+25
+00:01:37,840 --> 00:01:38,840
+Sicherheit.
+
+26
+00:01:38,840 --> 00:01:48,160
+Ein guter Anbieter schützt deine Webseite mit SSL-Zertifikaten und Firewalls.
+
+27
+00:01:48,160 --> 00:01:49,560
+Benutzerfreundlichkeit.
+
+28
+00:01:49,560 --> 00:01:53,920
+Die Verwaltung sollte einfach und intuitiv sein.
+
+29
+00:01:53,920 --> 00:01:54,920
+Preisleistung.
+
+30
+00:01:54,920 --> 00:02:00,560
+Dein Anbieter sollte ein gutes Preis-Leistungs-Verhältnis bieten.
+
+31
+00:02:00,560 --> 00:02:07,960
+Jetzt weiß deine Webseite, worauf es ankommt,
+
+32
+00:02:07,960 --> 00:02:08,960
+und hat sich für den richtigen Hosting-Anbieter entschieden.
+
+33
+00:02:08,960 --> 00:02:15,160
+Aber wie können die Leute deine Webseite finden?
+
+34
+00:02:15,160 --> 00:02:20,640
+Dafür braucht sie eine Domain, also ihre Adresse im Internet.
+
+35
+00:02:20,640 --> 00:02:24,240
+Eins kannst du bei einem Domain-Registrar mieten.
+
+36
+00:02:24,240 --> 00:02:27,640
+Die meisten Hosting-Anbieter übernehmen das für dich.
+
+37
+00:02:27,640 --> 00:02:29,280
+So wird das ganz einfach.
+
+38
+00:02:29,280 --> 00:02:34,720
+Falls du den Anbieter wechselst, kannst du deine Domain problemlos mitnehmen.
+
+39
+00:02:34,720 --> 00:02:40,960
+So bleibt deine Webseite immer unter derselben Adresse erreichbar.
+
+40
+00:02:40,960 --> 00:02:42,400
+Fassen wir zusammen.
+
+41
+00:02:42,400 --> 00:02:44,520
+Hosting.
+
+42
+00:02:44,520 --> 00:02:53,720
+Das Hosting speichert deine WordPress-Webseite auf einem Server,
+
+43
+00:02:53,720 --> 00:02:54,720
+ sodass sie jederzeit verfügbar ist.
+
+44
+00:02:54,720 --> 00:02:55,720
+Domain.
+
+45
+00:02:55,720 --> 00:03:02,280
+Die Domain ist die Adresse deiner Webseite im Internet.
+
+46
+00:03:02,280 --> 00:03:06,800
+Sie zeigt Besuchern den Weg zu deiner Webseite.
+
+47
+00:03:06,800 --> 00:03:13,360
+Beides zusammen stellt sicher, dass deine Webseite immer online ist
+
+48
+00:03:13,360 --> 00:03:15,680
+ und problemlos erreicht werden kann.
+
+49
+00:03:15,680 --> 00:03:21,240
+Sobald du eine Domain registriert und einen Hosting-Anbieter ausgewählt hast,
+
+50
+00:03:21,240 --> 00:03:24,400
+kannst du mit der Gestaltung deiner Webseite loslegen.
+
+51
+00:03:24,400 --> 00:03:28,320
+Du fragst dich jetzt sicher, wie du das machen kannst?
+
+52
+00:03:28,320 --> 00:03:32,880
+Das zeigen wir dir auf Learn.WordPress.org.
+

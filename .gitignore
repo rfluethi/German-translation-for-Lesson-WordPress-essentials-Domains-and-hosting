@@ -1,3 +1,6 @@
+# NAS specific files
+**/@eaDir/
+
 # macOS specific files
 .DS_Store
 .AppleDouble

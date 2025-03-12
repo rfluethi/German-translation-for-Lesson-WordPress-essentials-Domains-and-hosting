@@ -1,0 +1,42 @@
+;FFMETADATA1
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=30000
+title=Einführung
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=30000
+END=45133
+title=Was du in dieser Lektion lernst
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=45133
+END=76033
+title=Was ist Hosting?
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=76033
+END=130966
+title=Kriterien für das richtige Hosting
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=130966
+END=160600
+title=Die Rolle der Domain
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=160600
+END=195166
+title=Zusammenfassung
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=195166
+END=999999999
+title=Fazit

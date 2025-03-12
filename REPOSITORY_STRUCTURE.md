@@ -9,17 +9,14 @@ This document provides an overview of the repository's structure, including the 
 │   ├── /images/            # Images used within the documentation
 │   ├── quiz.md             # Quiz questions for the project, adapted from the original lesson
 │   ├── shotlist.md         # Details on scenes, including references to files used in production
-│   ├── storyboard-de.md    # Visual overview of the German video sequences
-│   ├── storyboard-en.md    # Visual overview of the original English video sequences
-│   ├── text-material-de.md # German adaptation of the learning material text
-│   └── text-material-en.md # Original English text for the learning material
+│   ├── storyboard.md       # Visual overview of the video sequences
+│   └── text-material.md    # Text of the learning material
 │
 ├── /src/                   # Working files used in creating the learning materials
 │   ├── /assets/            # Icons, graphics, and reusable assets for production
 │   ├── /audio/             # Audio files used in the videos
-│   ├── /subtitles/         # Subtitle files for the videos
-│       ├── /english/       # English subtitles (adapted from the German version)
-│       └── /german/        # German subtitles matching the spoken video content
+│   ├── /capters/           # Chapter data of the video
+│   └── /subtitles/         # Subtitle files for the videos
 │
 ├── /media/                 # Media resources for the learning materials
 │   └── /video/             # Finalized video files for the learning materials
@@ -38,9 +35,6 @@ This repository includes essential production documents for creating and localiz
 ### Storyboard
 
 The **Storyboard** provides a visual representation of the video sequences and is a key guide for production:
-
-- **[storyboard-en](https://chatgpt.com/c/docs/storyboard-en.md):** Original English storyboard.
-- **[storyboard-de](https://chatgpt.com/c/docs/storyboard-de.md):** Adapted German storyboard.
 
 ### Shot List
 

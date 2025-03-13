@@ -30,7 +30,7 @@ This document provides an overview of the repository's structure, including the 
 
 ## Production Documents
 
-This repository includes essential production documents for creating and localizing the learning materials. For details about specific content such as **Text Materials** and **Quiz**, refer to the [README](https://chatgpt.com/c/README.md) file.
+This repository includes essential production documents for creating and localizing the learning materials. For details about specific content such as **Text Materials** and **Quiz**, refer to the [README](README.md) file.
 
 ### Storyboard
 
@@ -38,7 +38,7 @@ The **Storyboard** provides a visual representation of the video sequences and i
 
 ### Shot List
 
-The **Shot List** ([shotlist](https://chatgpt.com/c/docs/shotlist.md)) includes:
+The **Shot List** ([shotlist](docs/shotlist.md)) includes:
 
 - A detailed list of scenes and corresponding resources.
 - References to media files and their licenses.

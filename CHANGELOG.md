@@ -8,7 +8,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
-- 
+
+## [0.1.01] - 2025-03-14
+
+### Fixed
+- Bug fixes
+
+## [0.1.00] - 2025-03-13
+
+### Changed
+- Updated storyboard
+
+### Added
+- Created the first version of the animated short film
+- Added missing text materials
+- Translated quizzes
 
 
 ## [0.0.01] - 2025-01-04

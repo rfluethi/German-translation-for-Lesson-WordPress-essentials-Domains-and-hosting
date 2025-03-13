@@ -1,11 +1,9 @@
 # German Translation of 'WordPress essentials: Domains and hosting' Lesson.
 
-This repository hosts the German translation and redesign of the "WordPress Essentials: Domains and Hosting" lesson. Developed by the [Training Team](https://make.wordpress.org/training/) for [Learn WordPress](https://learn.wordpress.org/), this project offers accessible and culturally adapted learning materials for German-speaking audiences. As part of the [Open Educational Resources (OER)](https://en.wikipedia.org/wiki/Open_educational_resources) initiative, it ensures free and adaptable educational content to promote lifelong learning.
+This repository contains the German translation and localization of the "WordPress Essentials: Domains and Hosting" lesson. Created by the [Training Team](https://make.wordpress.org/training/) for [Learn WordPress](https://learn.wordpress.org/), this project provides culturally adapted learning materials for German-speaking users. As part of the [Open Educational Resources (OER)](https://en.wikipedia.org/wiki/Open_educational_resources) initiative, it offers freely available, adaptable content to promote lifelong learning.
 
 ## Table of Contents
 
-- [German Translation of 'WordPress essentials: Domains and hosting' Lesson.](#german-translation-of-wordpress-essentials-domains-and-hosting-lesson)
-  - [Table of Contents](#table-of-contents)
   - [Original Resources](#original-resources)
   - [Produced Resources](#produced-resources)
   - [Contributing](#contributing)
@@ -20,7 +18,7 @@ This section lists the original English resources alongside their German adaptat
 ### English Resources (original)
 - Learning Path / Lesson: [WordPress essentials: Domains and hosting | Learn WordPress](https://learn.wordpress.org/lesson/wordpress-essentials-domains-and-hosting/)
 - YouTube Video: [WordPress essentials: Domains and hosting - YouTube](https://www.youtube.com/watch?v=stbR6Tf7tCg)
-- WordPress.tv Video: [WordPress essentials: Domains and hosting - YouTube](https://www.youtube.com/watch?v=stbR6Tf7tCg)
+- WordPress.tv Video: [WordPress essentials: Domains and hosting – WordPress.tv](https://wordpress.tv/2023/12/07/wordpress-essentials-domains-and-hosting/)
 - Original GitHub Issue for the English Video: [Tutorial - Choosing a domain name and hosting service · Issue #1963 · WordPress/Learn](https://github.com/WordPress/Learn/issues/1963)
 
 ### German Resources
@@ -31,33 +29,30 @@ This section lists the original English resources alongside their German adaptat
 
 This section provides the German translations of the learning materials.
 
-Production documents for the learning materials, along with a detailed overview of the directory structure, are available in [REPOSITORY_STRUCTURE](REPOSITORY_STRUCTURE.md).
-
+For a detailed overview of the production process and directory structure, refer to [REPOSITORY_STRUCTURE](REPOSITORY_STRUCTURE.md).
 ### Video
-The “[Video](media/video)” directory contains the finished learning videos that have been created in the current version.
+
+The [Video](media/video) directory contains the latest finalized learning videos.
 
 ### Text Materials
 
-The text materials include the complete transcript of the instructional video, encompassing all spoken passages. Additionally, they contain summaries, chapter overviews, and other content. The material is available both in the [original English version](docs/text-material-en.md) and in a [German version](docs/text-material-de.md), which has not only been translated but also adapted to align with German learning materials.
+The file _"[Text Material](docs/text-material.md)"_ contains all the texts related to the lesson. This includes the audio transcript of the instructional video as well as the texts for the website, including summaries for both the website and WordPress.tv.
 
 ### Subtitles
 
-The "[Subtitles](src/subtitles)" directory contains the subtitle files for the instructional video. The [German version]((src/subtitles/german)) matches the spoken text in the video, while the [English version]((src/subtitles/english)) is a translation of the German subtitles and does not correspond to the original English subtitles of the video.
+The "[Subtitles](src/subtitles)" directory contains the subtitle files for the instructional video. 
 
 ### Quiz
 
-The [Quiz](docs/quiz.md) includes a series of questions related to the video content. The questions are adapted from the English version and translated into German.
+The [Quiz](docs/quiz.md) contains questions based on the video content, translated and adapted from the original English version.
 
 ## Contributing
-We welcome contributions! For detailed instructions, please refer to the [CONTRIBUTING](CONTRIBUTING.md) file.
+
+Contributions are highly welcome! If you'd like to help, please check the [CONTRIBUTING](CONTRIBUTING.md) file for details.
 
 ## Downloadable Release Files
 
 The latest versions and change history are documented in the [CHANGELOG](CHANGELOG.md).
-
-### Current Working Version
-
-The **[main.zip](https://github.com/rfluethi/German-translation-for-Lesson-WordPress-essentials-Domains-and-hosting/archive/refs/heads/main.zip)** file contains the latest working version of all files.
 
 ### Releases
 
@@ -69,7 +64,7 @@ The **[current release](https://github.com/rfluethi/German-translation-for-Lesso
 - **Source code (zip)**: The entire repository at the time of release in ZIP format.
 - **Source code (tar.gz)**: The entire repository at the time of release in TAR format.
 
-These files are generated by the `release.yml` script (“Create and upload ZIP files for release”).
+These files are automatically generated by the `release.yml` script ('Create and upload ZIP files for release').
 
 ## License
 
@@ -79,9 +74,8 @@ This repository uses different licenses for its components:
 - **Content:** Licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.  
   You can read the full license text [here](https://creativecommons.org/licenses/by/4.0/legalcode).
 
-
-Note: Certain assets, such as logos or third-party media, may be subject to separate copyright restrictions. Refer to the documentation or original resources for more details.
+Note: Please note that certain assets, such as logos or third-party media, may have separate copyright restrictions. Check the documentation or original sources for details.
 
 ## Contact
 
-For questions or suggestions, please contact the project maintainer at [mail@rfluethi.com](mailto:mail@rfluethi.com). You can also join community discussions on [WordPress Slack](https://make.wordpress.org/chat/) for interactive support.
+For any questions or suggestions, feel free to reach out to the project maintainer at [mail@rfluethi.com](mailto:mail@rfluethi.com). You can also join the discussion on [WordPress Slack](https://make.wordpress.org/chat/) for community support.

@@ -1,4 +1,4 @@
-# Text material
+# Text Material
 
 The audio script for the lesson "Introduction to WordPress" from learn.wordpress.org is available here. It is offered in two languages: English and German.
 

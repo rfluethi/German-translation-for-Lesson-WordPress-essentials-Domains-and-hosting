@@ -1,6 +1,7 @@
 # NAS specific files
 **/@eaDir/
 .trash/
+.smbdelete*/
 
 # macOS specific files
 .DS_Store

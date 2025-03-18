@@ -7,8 +7,6 @@ This repository contains the German translation and localization of the "WordPre
 - [German Translation of 'WordPress essentials: Domains and hosting' Lesson.](#german-translation-of-wordpress-essentials-domains-and-hosting-lesson)
   - [Table of Contents](#table-of-contents)
   - [Original Resources](#original-resources)
-    - [English Resources (original)](#english-resources-original)
-    - [German Resources](#german-resources)
   - [Produced Resources](#produced-resources)
     - [Video](#video)
     - [Text Materials](#text-materials)
@@ -44,15 +42,6 @@ For a detailed overview of the production process and directory structure, refer
 ### Video
 
 The [Video](media/video) directory contains the latest finalized learning videos.
-
-#### Version v0.1.00
-
-<video width="640" height="360" controls>
-  <source src="https://github.com/rfluethi/German-translation-for-Lesson-WordPress-essentials-Domains-and-hosting/raw/main/media/video/video-v-0-1-00.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-If the language selection and subtitle options are not visible, the video must first be saved locally and opened with a different player.
 
 ### Text Materials
 

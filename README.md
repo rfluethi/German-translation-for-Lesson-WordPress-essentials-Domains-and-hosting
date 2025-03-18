@@ -6,6 +6,7 @@ This repository contains the German translation and localization of the "WordPre
 
   - [Original Resources](#original-resources)
   - [Produced Resources](#produced-resources)
+  - [Contributors](#contributors)
   - [Contributing](#contributing)
   - [Downloadable Release Files](#downloadable-release-files)
   - [License](#license)
@@ -46,6 +47,19 @@ The "[Subtitles](src/subtitles)" directory contains the subtitle files for the i
 
 The [Quiz](docs/quiz.md) contains questions based on the video content, translated and adapted from the original English version.
 
+## Contributors
+
+This project was made possible thanks to the contributions of the following people:
+
+- **[Wes Theron](https://profiles.wordpress.org/west7/)** – _Producer (Original English Version)_
+- **[Rico F. Lüthi](https://profiles.wordpress.org/rfluethi/)** – _Producer (German Version), including Design, Animation & Scriptwriting_
+- **XXX** – _Content Reviewer & Proofreader_
+- **XXX** – _German Voice Talent_ oder _German Voice Actor_
+
+A huge thank you to all contributors who helped bring this project to life! 🚀  
+
+> If you contributed but are not listed here, feel free to submit a PR to update the list! 😊
+
 ## Contributing
 
 Contributions are highly welcome! If you'd like to help, please check the [CONTRIBUTING](CONTRIBUTING.md) file for details.
@@ -74,7 +88,7 @@ This repository uses different licenses for its components:
 - **Content:** Licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.  
   You can read the full license text [here](https://creativecommons.org/licenses/by/4.0/legalcode).
 
-Note: Please note that certain assets, such as logos or third-party media, may have separate copyright restrictions. Check the documentation or original sources for details.
+Note: Please note that separate copyright restrictions may apply to certain content, such as logos or media from third-party providers. A list of the material used with references to the licences can be found in the [Shot List](docs/shotlist.md). Check the documentation or the original sources for details.
 
 ## Contact
 

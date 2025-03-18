@@ -40,9 +40,19 @@ This section lists the original English resources alongside their German adaptat
 This section provides the German translations of the learning materials.
 
 For a detailed overview of the production process and directory structure, refer to [REPOSITORY_STRUCTURE](REPOSITORY_STRUCTURE.md).
+
 ### Video
 
 The [Video](media/video) directory contains the latest finalized learning videos.
+
+#### Version v0.1.00
+
+<video width="640" height="360" controls>
+  <source src="https://github.com/rfluethi/German-translation-for-Lesson-WordPress-essentials-Domains-and-hosting/raw/main/media/video/video-v-0-1-00.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+If the language selection and subtitle options are not visible, the video must first be saved locally and opened with a different player.
 
 ### Text Materials
 

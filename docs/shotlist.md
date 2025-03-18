@@ -12,7 +12,7 @@ Unless stated otherwise, all images were specifically created for this video.
 
 The static vector graphics and designs for the animated elements were created using [Affinity Designer 2.6.0](https://affinity.serif.com/en-us/designer/).
 
-The image material can be found in the directory [src/assets/image-material](src/assets/image-material) in the formats [Affinity Designer](src/assets/image-material/domain-hosting-design-material.afdesign), [SVG](src/assets/image-material/domain-hosting-design-material.svg) and [PDF](src/assets/image-material/domain-hosting-design-material.pdf).
+The image material can be found in the directory [../src/assets/image-material](../src/assets/image-material) in the formats [Affinity Designer](../src/assets/image-material/domain-hosting-design-material.afdesign), [SVG](src/assets/image-material/domain-hosting-design-material.svg) and [PDF](src/assets/image-material/domain-hosting-design-material.pdf).
 
 ### Animation Software
 

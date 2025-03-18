@@ -12,7 +12,7 @@ Unless stated otherwise, all images were specifically created for this video.
 
 The static vector graphics and designs for the animated elements were created using [Affinity Designer 2.6.0](https://affinity.serif.com/en-us/designer/).
 
-The image material can be found in the directory [../src/assets/image-material](../src/assets/image-material) in the formats [Affinity Designer](../src/assets/image-material/domain-hosting-design-material.afdesign), [SVG](src/assets/image-material/domain-hosting-design-material.svg) and [PDF](src/assets/image-material/domain-hosting-design-material.pdf).
+The image material can be found in the directory [../src/assets/image-material](../src/assets/image-material) in the formats [Affinity Designer](../../src/assets/image-material/domain-hosting-design-material.afdesign), [SVG](../src/assets/image-material/domain-hosting-design-material.svg) and [PDF](../src/assets/image-material/domain-hosting-design-material.pdf).
 
 ### Animation Software
 
@@ -20,7 +20,7 @@ The animation sequences were produced using [Moho Pro 14](https://moho.lostmarbl
 
 Animations are organised into chapter-based scenes, each stored in separate directories. Each scene directory contains the corresponding Moho file, a video of the scene, and folders containing the images and videos used. Vector graphics are integrated directly into the Moho file.
 
-All animations can be found in the chapter directories under [src/assets/animation/chapters](src/assets/animation/chapters).
+All animations can be found in the chapter directories under [../src/assets/animation/chapters](../src/assets/animation/chapters).
 
 ### Audio Software
 
@@ -33,12 +33,12 @@ The text used can be found in the [Text Material](docs/text-material.md) file.
 #### Audio German
 
 **Voice:** Sara B. | **Speed:** 0.80  
-Files are stored in [src/audio/voices/synthetic-DE](src/audio/voices/synthetic-DE).
+Files are stored in [../src/audio/voices/synthetic-DE](../src/audio/voices/synthetic-DE).
 
 #### Audio English (UK)
 
 **Voice:** Rebecca E. | **Speed:** 0.80  
-Files are stored in [src/audio/voices/synthetic-EN](src/audio/voices/synthetic-EN) .
+Files are stored in [../src/audio/voices/synthetic-EN](../src/audio/voices/synthetic-EN) .
 
 ### Video Editing
 
@@ -46,7 +46,7 @@ The sequences were assembled, and audio was added using [Camtasia 2025](https://
 
 The final video was produced in 1920x1080 resolution at 30 frames per second.
 
-Production files can be found in [src/assets/video](src/assets/video)
+Production files can be found in [../src/assets/video](../src/assets/video)
 
 ## Reuse of Figures and Scenes
 
@@ -54,7 +54,7 @@ Figures and scenes developed centrally were integrated into the sequences.
 
 ### Figures and Characters
 
-The figures are stored in the file [wp-figure-main.moho](src/assets/animation/basis-elements/wp-figure-main/wp-figure-main.moho) within the directory [src/assets/animation/basis-elements/wp-figure-main](src/assets/animation/basis-elements/wp-figure-main).
+The figures are stored in the file [wp-figure-main.moho](../src/assets/animation/basis-elements/wp-figure-main/wp-figure-main.moho) within the directory [../src/assets/animation/basis-elements/wp-figure-main](../src/assets/animation/basis-elements/wp-figure-main).
 
 #### Character Usage
 
@@ -71,7 +71,7 @@ The figures are stored in the file [wp-figure-main.moho](src/assets/animation/ba
 
 ### Scenery
 
-The front view of the house, including all elements used in the scenes, is stored in [scenery.moho](src/assets/animation/basis-elements/scenery/scenery.moho) within the directory [src/assets/animation/basis-elements/scenery](src/assets/animation/basis-elements/scenery).
+The front view of the house, including all elements used in the scenes, is stored in [scenery.moho](../src/assets/animation/basis-elements/scenery/scenery.moho) within the directory [../src/assets/animation/basis-elements/scenery](../src/assets/animation/basis-elements/scenery).
 
 ### Frequently Used Material
 
@@ -83,7 +83,7 @@ The WordPress character carries a bag featuring the WordPress logo, which is sub
 
 This section describes scene-specific materials not previously mentioned. Only scenes that contain additional materials outside the general licence are listed.
 
-Non-vector-based materials are stored in the respective scene directories. Chapter directories are located at [src/assets/animation/chapters](src/assets/animation/chapters).
+Non-vector-based materials are stored in the respective scene directories. Chapter directories are located at [../src/assets/animation/chapters](../src/assets/animation/chapters).
 
 ### Scene-Specific Materials
 

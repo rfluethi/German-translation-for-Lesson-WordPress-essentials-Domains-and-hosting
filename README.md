@@ -4,11 +4,20 @@ This repository contains the German translation and localization of the "WordPre
 
 ## Table of Contents
 
+- [German Translation of 'WordPress essentials: Domains and hosting' Lesson.](#german-translation-of-wordpress-essentials-domains-and-hosting-lesson)
+  - [Table of Contents](#table-of-contents)
   - [Original Resources](#original-resources)
+    - [English Resources (original)](#english-resources-original)
+    - [German Resources](#german-resources)
   - [Produced Resources](#produced-resources)
+    - [Video](#video)
+    - [Text Materials](#text-materials)
+    - [Subtitles](#subtitles)
+    - [Quiz](#quiz)
   - [Contributors](#contributors)
   - [Contributing](#contributing)
   - [Downloadable Release Files](#downloadable-release-files)
+    - [Releases](#releases)
   - [License](#license)
   - [Contact](#contact)
 
@@ -53,8 +62,8 @@ This project was made possible thanks to the contributions of the following peop
 
 - **[Wes Theron](https://profiles.wordpress.org/west7/)** – _Producer (Original English Version)_
 - **[Rico F. Lüthi](https://profiles.wordpress.org/rfluethi/)** – _Producer (German Version), including Design, Animation & Scriptwriting_
-- **XXX** – _Content Reviewer & Proofreader_
-- **XXX** – _German Voice Talent_ oder _German Voice Actor_
+- **???** – _Content Reviewer & Proofreader_
+- **???** – _German Voice Actor_
 
 A huge thank you to all contributors who helped bring this project to life! 🚀  
 
@@ -93,3 +102,6 @@ Note: Please note that separate copyright restrictions may apply to certain cont
 ## Contact
 
 For any questions or suggestions, feel free to reach out to the project maintainer at [mail@rfluethi.com](mailto:mail@rfluethi.com). You can also join the discussion on [WordPress Slack](https://make.wordpress.org/chat/) for community support.
+
+![Status](https://img.shields.io/badge/Status-In%20Development-yellow)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue)

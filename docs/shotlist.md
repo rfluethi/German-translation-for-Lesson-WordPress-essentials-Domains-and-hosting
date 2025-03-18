@@ -95,7 +95,7 @@ Non-vector-based materials are stored in the respective scene directories. Chapt
 #### c04-s05
 
 - Depicts a spaceship command centre inspired by various "Star Trek" designs.
-- WordPress logos appear on some background screens, subject to the [WordPress trademark policy](https://wordpressfoundation.org/trademark-policy/).
+- [WordPress logos](https://wordpress.org/about/logos/) appear on some background screens, subject to the [WordPress trademark policy](https://wordpressfoundation.org/trademark-policy/).
 
 #### c04-s07
 
@@ -108,29 +108,29 @@ Non-vector-based materials are stored in the respective scene directories. Chapt
 
 #### c06-s01
 
-- **Person Holding Clear Drinking Glass** – Based on an image by [Ready Made - Photography](https://www.pexels.com/@readymade/) from [Pexels](https://www.pexels.com/).
+- **[Person Holding Clear Drinking Glass](https://www.pexels.com/photo/person-holding-clear-drinking-glass-3851040/)** – Based on an image by [Ready Made - Photography](https://www.pexels.com/@readymade/) from [Pexels](https://www.pexels.com/).
 
 #### c06-s02
 
-- **Close-up of a CPU (Video)** – From [MrColo - Photography](https://www.pexels.com/@mrcolo-12653218/) on [Pexels](https://www.pexels.com/).
+- **[Close-up of a CPU (Video)](https://www.pexels.com/video/close-up-of-a-cpu-7140928/)** – From [MrColo - Photography](https://www.pexels.com/@mrcolo-12653218/) on [Pexels](https://www.pexels.com/).
 
 #### c06-s03
 
-- **Person Holding Clear Drinking Glass** – Based on an image by [Ready Made - Photography](https://www.pexels.com/@readymade/) from [Pexels](https://www.pexels.com/).
+- **[Person Holding Clear Drinking Glass](https://www.pexels.com/photo/person-holding-clear-drinking-glass-3851040/)** – Based on an image by [Ready Made - Photography](https://www.pexels.com/@readymade/) from [Pexels](https://www.pexels.com/).
 
 #### c06-s04
 
-- **Coffee, iPhone, and Laptop (Video)** – From [Ketut Subiyanto - Photography](https://www.pexels.com/de-de/@ketut-subiyanto/) on [Pexels](https://www.pexels.com/).
+- **[Three Women Breaking Into Laughter (Video)](https://www.pexels.com/video/three-women-breaking-into-laughter-4391550/)** – From [Ketut Subiyanto - Photography](https://www.pexels.com/de-de/@ketut-subiyanto/) on [Pexels](https://www.pexels.com/).
 
 #### c06-s05
 
-- **Spectacular Night-time Fireworks Display (Video)** – From [정규송 Nui MALAMA - Photography](https://www.pexels.com/@nui-malama-169330637/) on [Pexels](https://www.pexels.com/).
+- **[Spectacular Night-time Fireworks Display (Video)](https://www.pexels.com/de-de/video/29374040/)** – From [정규송 Nui MALAMA - Photography](https://www.pexels.com/@nui-malama-169330637/) on [Pexels](https://www.pexels.com/).
 
 #### c07-s01
 
-- **Portrait of a Woman** – Based on an image by [Bestbe Models - Photography](https://www.pexels.com/@bestbe-models-975242/) on [Pexels](https://www.pexels.com/).
+- **[Portrait of a Woman](https://www.pexels.com/photo/portrait-photo-of-topless-woman-in-maroon-and-black-headscarf-and-maroon-fabric-choker-2412691/)** – Based on an image by [Bestbe Models - Photography](https://www.pexels.com/@bestbe-models-975242/) on [Pexels](https://www.pexels.com/).
 
 #### c07-s02
 
 - **Puzzle Effect Transition** – From Camtasia.
-- **WordPress Logo** – Subject to the [WordPress trademark policy](https://wordpressfoundation.org/trademark-policy/).
+- **[WordPress Logo](https://wordpress.org/about/logos/)** – Subject to the [WordPress trademark policy](https://wordpressfoundation.org/trademark-policy/).

@@ -102,6 +102,3 @@ Note: Please note that separate copyright restrictions may apply to certain cont
 ## Contact
 
 For any questions or suggestions, feel free to reach out to the project maintainer at [mail@rfluethi.com](mailto:mail@rfluethi.com). You can also join the discussion on [WordPress Slack](https://make.wordpress.org/chat/) for community support.
-
-![Status](https://img.shields.io/badge/Status-In%20Development-yellow)
-![Version](https://img.shields.io/badge/Version-1.0.0-blue)

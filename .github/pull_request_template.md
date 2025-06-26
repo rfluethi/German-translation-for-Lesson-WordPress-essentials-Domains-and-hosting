@@ -1,3 +1,5 @@
+# Pull Request Template
+
 ## Beschreibung
 Bitte beschreiben Sie die Änderungen, die Sie vorgenommen haben.
 

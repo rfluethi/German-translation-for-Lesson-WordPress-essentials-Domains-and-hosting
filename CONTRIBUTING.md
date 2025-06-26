@@ -1,5 +1,5 @@
 
-## Contributing
+# Contributing
 
 We welcome all forms of contribution! Whether you're interested in improving the
 translation, adapting the lesson for another language, or enhancing the video
@@ -54,4 +54,5 @@ of the repository or contact the project maintainer at
    - Go to the original repository at `https://github.com/rfluethi/German-translation-for-Lesson-WordPress-essentials-Domains-and-hosting`.
    - Click on the "Pull Requests" tab, then click the "New Pull Request" button.
    - Select your branch from the "compare" dropdown and submit your pull request for review.
+
 

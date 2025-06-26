@@ -50,3 +50,4 @@ The **Shot List** ([shotlist](docs/shotlist.md)) includes:
 - References to media files and their licenses.
 - Notes on timing, transitions, and production requirements.
 
+

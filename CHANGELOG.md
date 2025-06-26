@@ -1,3 +1,4 @@
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -9,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.00] - 2025-06-26
 
-### Added
+### Features Added
 
 - New scene `c05-s03` providing detailed domain explanation
 - Complete synthetic audio files for both German and English versions
@@ -17,14 +18,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated video project files with latest configurations
 - Comprehensive documentation updates including shotlist and text materials
 
-### Changed
+### Changes Made
 
 - Extended various scenes based on user feedback from previous version
 - Updated character positioning in scene `c05-s04` for better visual flow
 - Refined video timing and chapter synchronization
 - Enhanced overall video quality and production standards
 
-### Fixed
+### Issues Fixed
 
 - Corrected various spelling errors throughout the content
 - Resolved timing issues in subtitle synchronization
@@ -56,17 +57,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.01] - 2025-03-14
 
-### Fixed
+### Issues Fixed
 
 - General bug fixes and stability improvements
 
 ## [0.1.00] - 2025-03-13
 
-### Changed
+### Changes Made
 
 - Updated storyboard with improved visual flow
 
-### Added
+### Features Added
 
 - Initial animated short film version
 - Complete text materials in both languages
@@ -74,7 +75,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.01] - 2025-01-04
 
-### Added
+### Features Added
 
 - Initial repository structure and project setup
 - English text material creation
@@ -82,4 +83,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - English published version as baseline
 - Storyboard development (English and German drafts)
 - Initial shot list documentation
+
 

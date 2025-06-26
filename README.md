@@ -122,3 +122,4 @@ details.
 
 For any questions or suggestions, feel free to reach out to the project maintainer at [mail@rfluethi.com](mailto:mail@rfluethi.com). You can also join the discussion on [WordPress Slack](https://make.wordpress.org/chat/) for community support.
 
+

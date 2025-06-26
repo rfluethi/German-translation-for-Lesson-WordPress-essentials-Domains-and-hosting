@@ -1,8 +1,13 @@
+
 # Shot List
 
-This document provides a detailed list of the software and materials used in the video, along with their respective licences.
+This document provides a detailed list of the software and materials used in the
+video, along with their respective licences.
 
-Timecodes are given in either the Audio Timecode Format (ATF) "hours:minutes:seconds.milliseconds" or the Video Timecode Format (VTF) "hours:minutes:seconds;frames". Unless otherwise specified, this file follows the Video Timecode Format (VTF).
+Timecodes are given in either the Audio Timecode Format (ATF)
+"hours:minutes:seconds.milliseconds" or the Video Timecode Format (VTF)
+"hours:minutes:seconds;frames". Unless otherwise specified, this file follows
+the Video Timecode Format (VTF).
 
 ## Production Software
 
@@ -12,33 +17,47 @@ Unless stated otherwise, all images were specifically created for this video.
 
 The static vector graphics and designs for the animated elements were created using [Affinity Designer 2.6.0](https://affinity.serif.com/en-us/designer/).
 
-The image material can be found in the directory [../src/assets/image-material](../src/assets/image-material) in the formats [Affinity Designer](../../src/assets/image-material/domain-hosting-design-material.afdesign), [SVG](../src/assets/image-material/domain-hosting-design-material.svg) and [PDF](../src/assets/image-material/domain-hosting-design-material.pdf).
+The image material can be found in the directory
+[../src/assets/image-material](../src/assets/image-material) in the formats
+[Affinity
+Designer](../../src/assets/image-material/domain-hosting-design-material.afdesign),
+[SVG](../src/assets/image-material/domain-hosting-design-material.svg) and
+[PDF](../src/assets/image-material/domain-hosting-design-material.pdf).
 
 ### Animation Software
 
 The animation sequences were produced using [Moho Pro 14](https://moho.lostmarble.com/).
 
-Animations are organised into chapter-based scenes, each stored in separate directories. Each scene directory contains the corresponding Moho file, a video of the scene, and folders containing the images and videos used. Vector graphics are integrated directly into the Moho file.
+Animations are organised into chapter-based scenes, each stored in separate
+directories. Each scene directory contains the corresponding Moho file, a video
+of the scene, and folders containing the images and videos used. Vector graphics
+are integrated directly into the Moho file.
 
-All animations can be found in the chapter directories under [../src/assets/animation/chapters](../src/assets/animation/chapters).
+All animations can be found in the chapter directories under
+[../src/assets/animation/chapters](../src/assets/animation/chapters).
 
 ### Audio Software
 
 The initial voice recordings in German and English were generated using [Soundly-Voices 2025.01.42](https://getsoundly.com/).
 
-To ensure precise synchronisation of the animation and accessibility for non-German speakers, the speaker’s voice was initially recorded in both German and English using artificial speech synthesis. This also simplifies later dubbing by a real speaker.
+To ensure precise synchronisation of the animation and accessibility for
+non-German speakers, the speaker’s voice was initially recorded in both German
+and English using artificial speech synthesis. This also simplifies later
+dubbing by a real speaker.
 
 The text used can be found in the [Text Material](docs/text-material.md) file.
 
 #### Audio German
 
-**Voice:** Sara B. | **Speed:** 0.80  
-Files are stored in [../src/audio/voices/synthetic-DE](../src/audio/voices/synthetic-DE).
+**Voice:** Sara B. | **Speed:** 0.80
+Files are stored in
+[../src/audio/voices/synthetic-DE](../src/audio/voices/synthetic-DE).
 
 #### Audio English (UK)
 
-**Voice:** Rebecca E. | **Speed:** 0.80  
-Files are stored in [../src/audio/voices/synthetic-EN](../src/audio/voices/synthetic-EN) .
+**Voice:** Rebecca E. | **Speed:** 0.80
+Files are stored in
+[../src/audio/voices/synthetic-EN](../src/audio/voices/synthetic-EN) .
 
 ### Video Editing
 
@@ -54,7 +73,10 @@ Figures and scenes developed centrally were integrated into the sequences.
 
 ### Figures and Characters
 
-The figures are stored in the file [wp-figure-main.moho](../src/assets/animation/basis-elements/wp-figure-main/wp-figure-main.moho) within the directory [../src/assets/animation/basis-elements/wp-figure-main](../src/assets/animation/basis-elements/wp-figure-main).
+The figures are stored in the file
+[wp-figure-main.moho](../src/assets/animation/basis-elements/wp-figure-main/wp-figure-main.moho)
+within the directory
+[../src/assets/animation/basis-elements/wp-figure-main](../src/assets/animation/basis-elements/wp-figure-main).
 
 #### Character Usage
 
@@ -71,7 +93,11 @@ The figures are stored in the file [wp-figure-main.moho](../src/assets/animation
 
 ### Scenery
 
-The front view of the house, including all elements used in the scenes, is stored in [scenery.moho](../src/assets/animation/basis-elements/scenery/scenery.moho) within the directory [../src/assets/animation/basis-elements/scenery](../src/assets/animation/basis-elements/scenery).
+The front view of the house, including all elements used in the scenes, is
+stored in
+[scenery.moho](../src/assets/animation/basis-elements/scenery/scenery.moho)
+within the directory
+[../src/assets/animation/basis-elements/scenery](../src/assets/animation/basis-elements/scenery).
 
 ### Frequently Used Material
 
@@ -81,9 +107,12 @@ The WordPress character carries a bag featuring the WordPress logo, which is sub
 
 ## Chapters and Scenes
 
-This section describes scene-specific materials not previously mentioned. Only scenes that contain additional materials outside the general licence are listed.
+This section describes scene-specific materials not previously mentioned. Only
+scenes that contain additional materials outside the general licence are listed.
 
-Non-vector-based materials are stored in the respective scene directories. Chapter directories are located at [../src/assets/animation/chapters](../src/assets/animation/chapters).
+Non-vector-based materials are stored in the respective scene directories.
+Chapter directories are located at
+[../src/assets/animation/chapters](../src/assets/animation/chapters).
 
 ### Scene-Specific Materials
 
@@ -102,7 +131,7 @@ Non-vector-based materials are stored in the respective scene directories. Chapt
 - **WordPress Logo in a Frame** – Subject to the [WordPress trademark policy](https://wordpressfoundation.org/trademark-policy/).
 - **Blue Police Box** – Public domain image from [Public Domain Pictures](https://www.publicdomainpictures.net/en/view-image.php?image=37746&picture=blue-police-box-clipart&large=1).
 
-#### c05-s03
+#### c05-s04
 
 - **Blue Police Box** – Public domain image from [Public Domain Pictures](https://www.publicdomainpictures.net/en/view-image.php?image=37746&picture=blue-police-box-clipart&large=1).
 
@@ -134,3 +163,5 @@ Non-vector-based materials are stored in the respective scene directories. Chapt
 
 - **Puzzle Effect Transition** – From Camtasia.
 - **[WordPress Logo](https://wordpress.org/about/logos/)** – Subject to the [WordPress trademark policy](https://wordpressfoundation.org/trademark-policy/).
+
+

@@ -1,3 +1,4 @@
+
 # Sicherheitsrichtlinien
 
 ## Unterstützte Versionen
@@ -8,7 +9,10 @@
 
 ## Sicherheitslücken melden
 
-Wenn Sie eine Sicherheitslücke gefunden haben, melden Sie diese bitte direkt an [mail@rfluethi.com](mailto:mail@rfluethi.com). Bitte veröffentlichen Sie keine Details der Sicherheitslücke öffentlich, bis eine Lösung bereitgestellt wurde.
+Wenn Sie eine Sicherheitslücke gefunden haben, melden Sie diese bitte direkt an
+[mail@rfluethi.com](mailto:mail@rfluethi.com). Bitte veröffentlichen Sie keine
+Details der Sicherheitslücke öffentlich, bis eine Lösung bereitgestellt
+wurde.
 
 ## Verantwortungsvolle Offenlegung
 
@@ -21,4 +25,7 @@ Wenn Sie eine Sicherheitslücke gefunden haben, melden Sie diese bitte direkt an
 
 ## Sicherheitsupdates
 
-Wir veröffentlichen regelmäßig Sicherheitsupdates. Bitte halten Sie Ihre Installation immer auf dem neuesten Stand. 
+Wir veröffentlichen regelmäßig Sicherheitsupdates. Bitte halten Sie Ihre
+Installation immer auf dem neuesten Stand.
+
+

@@ -8,6 +8,9 @@
 .AppleDouble
 .LSOverride
 
+# Sync conflict files
+*.sync-conflict-*
+
 # Thumbs.db and other Windows specifics (if developed in a team)
 Thumbs.db
 Desktop.ini

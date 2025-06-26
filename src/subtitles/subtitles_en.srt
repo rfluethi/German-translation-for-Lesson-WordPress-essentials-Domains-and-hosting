@@ -1,212 +1,220 @@
 1
-00:00:00,001 --> 00:00:02,320
-Hello and welcome to Learn WordPress.
+00:00:00,020 --> 00:00:01,940
+Hello and welcome to learn WordPress.
 
 2
-00:00:02,320 --> 00:00:06,400
+00:00:04,000 --> 00:00:06,100
 Say hello to your new WordPress website.
 
 3
-00:00:06,400 --> 00:00:12,320
+00:00:08,000 --> 00:00:11,680
 At the moment, it doesn't have a home and feels a bit lonely.
 
 4
-00:00:12,320 --> 00:00:13,520
-Let's change that now.
+00:00:12,380 --> 00:00:17,780
+Let's change that now. In this lesson, you'll learn how to find a good hosting provider.
 
 5
-00:00:13,520 --> 00:00:18,000
-In this lesson, you'll learn how to find a good hosting provider,
+00:00:21,280 --> 00:00:25,820
+And get the right domain. If you're not sure what that means, don't worry.
 
 6
-00:00:18,000 --> 00:00:22,720
-and get the right domain.
-
-7
-00:00:22,720 --> 00:00:26,000
-If you're not sure what that means, don't worry.
-
-8
-00:00:27,520 --> 00:00:30,000
+00:00:27,540 --> 00:00:29,500
 We'll explain everything in detail.
 
+7
+00:00:30,880 --> 00:00:38,700
+By the end of this lesson, you'll understand what hosting and domains are, why you need
+
+8
+00:00:40,040 --> 00:00:44,000
+both, and how to choose the right provider.
+
 9
-00:00:30,000 --> 00:00:35,920
-By the end of this lesson, you'll understand what hosting and domains are,
-
-10
-00:00:35,920 --> 00:00:39,200
-why you need both,
-
-11
-00:00:39,200 --> 00:00:44,320
-and how to choose the right provider.
-
-12
-00:00:44,320 --> 00:00:48,560
+00:00:45,800 --> 00:00:48,280
 Let's start by taking a closer look at hosting.
 
-13
-00:00:48,560 --> 00:00:51,440
+10
+00:00:49,440 --> 00:00:51,180
 Your website needs a place to stay.
 
-14
-00:00:51,440 --> 00:00:54,320
+11
+00:00:52,860 --> 00:00:54,020
 This place is called hosting.
 
-15
-00:00:56,160 --> 00:00:59,360
+12
+00:00:56,260 --> 00:00:59,040
 It's where all your content is stored and where it functions.
 
-16
-00:00:59,360 --> 00:01:03,680
-There are many different types of hosting.
+13
+00:01:01,340 --> 00:01:07,360
+There are many different types of hosting and if needed, your website can even be moved.
 
-17
-00:01:03,680 --> 00:01:07,520
-And if needed, your website can even be moved.
-
-18
-00:01:07,520 --> 00:01:11,280
+14
+00:01:09,740 --> 00:01:11,140
 Your website likes it here.
 
-19
-00:01:11,280 --> 00:01:15,200
+15
+00:01:12,640 --> 00:01:14,880
 But is this really the right provider?
 
-20
-00:01:15,200 --> 00:01:18,880
+16
+00:01:16,320 --> 00:01:18,860
 Let's ask your website what's important for it.
 
-21
-00:01:18,880 --> 00:01:22,000
+17
+00:01:20,800 --> 00:01:21,440
 Reliability.
 
-22
-00:01:22,000 --> 00:01:25,040
+18
+00:01:22,240 --> 00:01:24,480
 Your website needs to be online at all times.
 
-23
-00:01:25,040 --> 00:01:30,960
+19
+00:01:24,900 --> 00:01:30,520
 A good provider guarantees stable availability and offers reliable support.
 
-24
-00:01:30,960 --> 00:01:33,440
+20
+00:01:31,960 --> 00:01:32,840
 Scalability.
 
-25
-00:01:33,440 --> 00:01:37,920
+21
+00:01:33,300 --> 00:01:37,920
 If your website grows, your hosting provider should be able to grow with it.
 
-26
-00:01:37,920 --> 00:01:39,920
+22
+00:01:38,760 --> 00:01:39,460
 Security.
 
-27
-00:01:39,920 --> 00:01:45,840
+23
+00:01:40,360 --> 00:01:45,800
 A good provider protects your website with SSL certificates and firewalls.
 
-28
-00:01:45,840 --> 00:01:49,200
+24
+00:01:47,660 --> 00:01:48,920
 User-friendliness.
 
-29
-00:01:49,200 --> 00:01:53,920
+25
+00:01:50,480 --> 00:01:53,640
 Managing your hosting should be simple and intuitive.
 
-30
-00:01:54,880 --> 00:01:56,640
+26
+00:01:55,010 --> 00:01:55,920
 Value for money.
 
-31
-00:01:56,640 --> 00:02:00,640
+27
+00:01:56,570 --> 00:02:00,400
 Your provider should offer a good balance of cost and quality.
 
-32
-00:02:00,640 --> 00:02:03,600
+28
+00:02:01,500 --> 00:02:03,420
 Now your website knows what matters.
 
-33
-00:02:03,600 --> 00:02:08,000
+29
+00:02:05,180 --> 00:02:07,760
 And it has chosen the right hosting provider.
 
-34
-00:02:08,000 --> 00:02:13,120
+30
+00:02:10,960 --> 00:02:12,760
 But how can people find your website?
 
-35
-00:02:13,120 --> 00:02:18,560
+31
+00:02:15,040 --> 00:02:18,260
 For that, it needs a domain, its address on the internet.
 
-36
-00:02:18,560 --> 00:02:22,640
+32
+00:02:20,100 --> 00:02:22,500
 You can rent one from a domain registrar.
 
-37
-00:02:24,080 --> 00:02:26,960
+33
+00:02:24,080 --> 00:02:26,880
 Most hosting providers will handle this for you.
 
-38
-00:02:26,960 --> 00:02:29,040
+34
+00:02:27,600 --> 00:02:28,820
 So it's really easy.
 
+35
+00:02:30,200 --> 00:02:31,880
+A domain is unique worldwide.
+
+36
+00:02:32,640 --> 00:02:34,480
+No one else can use it at the same time.
+
+37
+00:02:35,960 --> 00:02:38,740
+It's made up of the second-level domain name you choose,
+
+38
+00:02:38,870 --> 00:02:40,200
+for example, my website,
+
 39
-00:02:29,040 --> 00:02:33,040
-If you switch providers, you can take your domain with you.
+00:02:40,890 --> 00:02:45,540
+and a top-level domain extension like.com.de or.net.
 
 40
-00:02:33,040 --> 00:02:39,360
-This way, your website will always be available at the same address.
+00:02:47,140 --> 00:02:52,640
+You've got hundreds of top-level domain options, as long as the one you want is still available.
 
 41
-00:02:39,360 --> 00:02:41,760
-Let's summarize.
+00:02:54,380 --> 00:02:57,600
+If you switch providers, you can take your domain with you.
 
 42
-00:02:41,760 --> 00:02:44,000
-Hosting.
+00:02:59,700 --> 00:03:03,440
+This way, your website will always be available at the same address.
 
 43
-00:02:44,000 --> 00:02:49,840
-Hosting stores your WordPress website on a server.
+00:03:05,360 --> 00:03:06,060
+Let's summarize.
 
 44
-00:02:51,760 --> 00:02:54,160
-So that it's accessible at all times.
+00:03:07,960 --> 00:03:08,640
+Hosting
 
 45
-00:02:54,160 --> 00:02:55,920
-Domain.
+00:03:11,280 --> 00:03:14,280
+Hosting stores your WordPress website on a server.
 
 46
-00:02:55,920 --> 00:03:01,440
-Your domain is your website's address on the internet.
+00:03:16,340 --> 00:03:18,620
+so that it's accessible at all times.
 
 47
-00:03:01,440 --> 00:03:04,800
-It helps visitors find your website.
+00:03:20,100 --> 00:03:20,560
+Domain
 
 48
-00:03:04,800 --> 00:03:11,040
-Together, hosting and a domain ensure that your website stays online,
+00:03:22,700 --> 00:03:25,840
+Your domain is your website's address on the internet.
 
 49
-00:03:11,040 --> 00:03:13,520
-and is always accessible.
+00:03:27,120 --> 00:03:29,080
+It helps visitors find your website.
 
 50
-00:03:13,520 --> 00:03:19,280
-Once you've registered a domain and chosen a hosting provider,
+00:03:31,180 --> 00:03:35,340
+Together, hosting and a domain ensure that your website stays online
 
 51
-00:03:20,720 --> 00:03:22,960
-you can start designing your website.
+00:03:35,840 --> 00:03:37,840
+and is always accessible.
 
 52
-00:03:22,960 --> 00:03:27,440
-Are you wondering how to do that?
+00:03:39,940 --> 00:03:43,740
+Once you've registered a domain and chosen a hosting provider,
 
 53
-00:03:27,440 --> 00:03:32,400
-We'll show you on Learn.WordPress.org.
+00:03:45,300 --> 00:03:47,280
+You can start designing your website.
+
+54
+00:03:49,930 --> 00:03:52,080
+Are you wondering how to do that?
+
+55
+00:03:54,660 --> 00:03:56,780
+We'll show you on learnwordpress.org.
 

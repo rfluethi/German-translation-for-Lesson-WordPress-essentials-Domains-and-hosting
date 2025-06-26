@@ -4,11 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.00] - 2025-06-XX
+
+### Added
+- Created new scene `c05-s03` to provide a more detailed explanation of the domain.
+
+### Improved
+- Refined character positioning in scene `c05-s04`.
+
+
 ## [0.1.02] - 2025-03-18
 
 ### Improved
-- Optimized the walking animation of the WordPress character in scenes c03-s01 and c03-s03.
-- Optimized the fireworks video for the background of scene c06-s05 to reduce file size.
+- Optimized the walking animation of the WordPress character in scenes `c03-s01` and `c03-s03`.
+- Optimized the fireworks video for the background of scene `c06-s05` to reduce file size.
 - The image material inserted in various formats.
 - The shot list revised and completed.
 
@@ -38,4 +47,3 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - English version of the storyboard created.
 - Rough draft of the storyboard in German.
 - Rough draft of the shortlist.
-

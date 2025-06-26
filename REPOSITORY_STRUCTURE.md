@@ -30,7 +30,7 @@ This document provides an overview of the repository's structure, including the 
 
 ## Production Documents
 
-This repository includes essential production documents for creating and localizing the learning materials. For details about specific content such as **Text Materials** and **Quiz**, refer to the [README](README.md) file.
+This repository includes essential production documents for creating and localizing the learning materials. For details about specific content such as **Text Materials** and **Quiz**, refer to the [README](WordPress-essentials-Domains-and-hosting/Git-Repro/German-translation-for-Lesson-WordPress-essentials-Domains-and-hosting/README.md) file.
 
 ### Storyboard
 

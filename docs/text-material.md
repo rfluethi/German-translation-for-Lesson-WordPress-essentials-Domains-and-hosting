@@ -25,8 +25,8 @@ The file **[chapters.txt](../src/capters/chapters.txt)** can be found in the dir
 | What Is Hosting?                        | Was ist Hosting?                   | 0:00:45;04 | 45133        |
 | Criteria for Choosing the Right Hosting | Kriterien für das richtige Hosting | 0:01:16;06 | 76033        |
 | The Role of the Domain                  | Die Rolle der Domain               | 0:02:10;28 | 130966       |
-| Summary                                 | Zusammenfassung                    | 0:02:40;18 | 160600       |
-| Conclusion                              | Fazit                              | 0:03:15;05 | 195166       |
+| Summary                                 | Zusammenfassung                    | 0:03:05;08 | 185267       |
+| Conclusion                              | Fazit                              | 0:03:39;26 | 219867       |
 
 ## Audio transcript
 
@@ -118,17 +118,19 @@ Aber wie können die Leute deine Webseite finden?
 
 Dafür braucht sie eine Domain, also ihre Adresse im Internet.
 
-Eins kannst du bei einem Domain-Registrar mieten.
+Du kannst sie bei einem Domain-Registrar mieten.
 
 Die meisten Hosting-Anbieter übernehmen das für dich.
 
 So wird das ganz einfach.
 
-Falls du den Anbieter wechselst,
+Die Domain ist weltweit einzigartig: Niemand sonst kann sie zur selben Zeit nutzen.
 
-kannst du deine Domain problemlos mitnehmen.
+Sie besteht aus der von dir gewählten Second-Level-Domain, zum Beispiel meine Webseite und einer Top-Level-Domain wie .com .de oder .net.
 
-So bleibt deine Webseite immer unter derselben Adresse erreichbar.
+Für die Top-Level-Domain stehen dir Hunderte Optionen offen, solange sie noch frei ist. 
+
+Wechselst du den Anbieter, nimmst du deine Domain einfach mit – so bleibt deine Webseite immer unter derselben Adresse erreichbar.
 
 #### Kapitel 06: Zusammenfassung
 
@@ -242,7 +244,7 @@ And it has chosen the right hosting provider.
 
 But how can people find your website? 
 
-For that, it needs a domain, its address on the internet. 
+For that, it needs a domain—its address on the internet.
 
 You can rent one from a domain registrar. 
 
@@ -250,9 +252,13 @@ Most hosting providers will handle this for you.
 
 So it's really easy. 
 
-If you switch providers, you can take your domain with you. 
+A domain is unique worldwide—no one else can use it at the same time.
 
-This way, your website will always be available at the same address. 
+It’s made up of the second-level-domain name you choose (for example, “my-website”) and a top-level-domain extension like “.com,” “.de,” or “.net.”
+
+You’ve got hundreds of top-level-domain options, as long as the one you want is still available.
+
+If you switch providers, you simply take your domain with you—so your site stays at the same address.
 
 #### Chapter 06: Summary
 

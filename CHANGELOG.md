@@ -34,10 +34,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Repository Maintenance**: Removed all system-generated files
   (.DS_Store, @eaDir directories)
+
 - **Version Control**: Enhanced .gitignore configuration to prevent future
   system file inclusion
+
 - **Code Quality**: Resolved sync-conflict files and improved repository
   cleanliness
+
 - **Documentation**: Updated project documentation to reflect current state
 
 ## [0.1.02] - 2025-03-18
@@ -46,6 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Optimized WordPress character walking animation in scenes `c03-s01` and
   `c03-s03`
+
 - Reduced file size of fireworks video background in scene `c06-s05`
 - Enhanced image material integration across various formats
 - Completed and revised shot list documentation
@@ -78,3 +82,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - English published version as baseline
 - Storyboard development (English and German drafts)
 - Initial shot list documentation
+

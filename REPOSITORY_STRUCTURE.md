@@ -1,6 +1,8 @@
+
 # Repository Structure
 
-This document provides an overview of the repository's structure, including the purpose of each directory and file.
+This document provides an overview of the repository's structure, including the
+purpose of each directory and file.
 
 ```plaintext
 /repository-root
@@ -27,14 +29,18 @@ This document provides an overview of the repository's structure, including the 
 ├── REPOSITORY_STRUCTURE.md # This file, detailing the repository's structure
 └── README.md               # Main description of the GitHub repository
 ```
-
 ## Production Documents
 
-This repository includes essential production documents for creating and localizing the learning materials. For details about specific content such as **Text Materials** and **Quiz**, refer to the [README](WordPress-essentials-Domains-and-hosting/Git-Repro/German-translation-for-Lesson-WordPress-essentials-Domains-and-hosting/README.md) file.
+This repository includes essential production documents for creating and
+localizing the learning materials. For details about specific content such as
+**Text Materials** and **Quiz**, refer to the
+[README](WordPress-essentials-Domains-and-hosting/Git-Repro/German-translation-for-Lesson-WordPress-essentials-Domains-and-hosting/README.md)
+file.
 
 ### Storyboard
 
-The **Storyboard** provides a visual representation of the video sequences and is a key guide for production:
+The **Storyboard** provides a visual representation of the video sequences and
+is a key guide for production:
 
 ### Shot List
 
@@ -43,3 +49,4 @@ The **Shot List** ([shotlist](docs/shotlist.md)) includes:
 - A detailed list of scenes and corresponding resources.
 - References to media files and their licenses.
 - Notes on timing, transitions, and production requirements.
+

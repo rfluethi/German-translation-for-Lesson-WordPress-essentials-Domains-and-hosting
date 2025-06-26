@@ -1,38 +1,51 @@
+
 # Text Material
 
-The audio script for the lesson "Introduction to WordPress" from learn.wordpress.org is available here. It is offered in two languages: English and German.
+The audio script for the lesson "Introduction to WordPress" from
+learn.wordpress.org is available here. It is offered in two languages: English
+and German.
 
-An overview of all documents and files related to this project can be found in the [README](../README.md) file.
+An overview of all documents and files related to this project can be found in
+the [README](../README.md) file.
 
 ## Excerpt
 
 ### Learn.Wordpress.org
 
-Ein wesentlicher Schritt beim Einrichten deiner Website ist die Wahl des richtigen Domainnamens und Hosting-Anbieters…
+Ein wesentlicher Schritt beim Einrichten deiner Website ist die Wahl des
+richtigen Domainnamens und Hosting-Anbieters…
 
 ### WordPress.tv
 
-Erfahre, wie sich die wichtigsten Elemente voneinander unterscheiden, verstehe das Zusammenspiel von Domains und Hosting und entdecke, worauf es bei der Wahl des optimalen Hosting-Anbieters ankommt. Lerne, entscheidende Faktoren richtig zu bewerten und die beste Lösung für dich zu finden!
+Erfahre, wie sich die wichtigsten Elemente voneinander unterscheiden, verstehe
+das Zusammenspiel von Domains und Hosting und entdecke, worauf es bei der Wahl
+des optimalen Hosting-Anbieters ankommt. Lerne, entscheidende Faktoren richtig
+zu bewerten und die beste Lösung für dich zu finden!
 
 ## Chapters
 
-The file **[chapters.txt](../src/capters/chapters.txt)** can be found in the directory **../src/chapters/**.
+The file **[chapters.txt](../src/capters/chapters.txt)** can be found in the
+directory **../src/chapters/**.
 
-| English                                 | German                             | VTF        | Milliseconds |
-| --------------------------------------- | ---------------------------------- | ---------- | ------------ |
-| Introduction                            | Einführung                         | 0:00:00;00 | 0            |
-| What You Will Learn in This Lesson      | Was du in dieser Lektion lernst    | 0:00:30;00 | 30000        |
-| What Is Hosting?                        | Was ist Hosting?                   | 0:00:45;03 | 45100        |
-| Criteria for Choosing the Right Hosting | Kriterien für das richtige Hosting | 0:01:17;25 | 77833        |
-| The Role of the Domain                  | Die Rolle der Domain               | 0:02:17;06 | 137200       |
-| Summary                                 | Zusammenfassung                    | 0:03:11;19 | 191633       |
-| Conclusion                              | Fazit                              | 0:03:47;00 | 227000       |
+| English | German | VTF | Milliseconds |
+| --------------------------------------- | ---------------------------------- |
+---------- | ------------ |
+| Introduction | Einführung | 0:00:00;00 | 0 |
+| What You Will Learn in This Lesson | Was du in dieser Lektion lernst |
+0:00:30;00 | 30000 |
+| What Is Hosting? | Was ist Hosting? | 0:00:45;03 | 45100 |
+| Criteria for Choosing the Right Hosting | Kriterien für das richtige Hosting
+| 0:01:17;25 | 77833 |
+| The Role of the Domain | Die Rolle der Domain | 0:02:17;06 | 137200 |
+| Summary | Zusammenfassung | 0:03:11;19 | 191633 |
+| Conclusion | Fazit | 0:03:47;00 | 227000 |
 
 ## Audio transcript
 
-The subtitle files can be found under ‘[Subtitles](../src/subtitles)’.  
+The subtitle files can be found under ‘[Subtitles](../src/subtitles)’.
 
-The following transcripts are divided into lines to ensure the correct timing and alignment for the voice recording.
+The following transcripts are divided into lines to ensure the correct timing
+and alignment for the voice recording.
 
 ### German
 
@@ -56,7 +69,7 @@ Wir werden dir das detailliert erklären.
 
 #### Kapitel 02: Was du in dieser Lektion lernst
 
-Nach dieser Lektion wirst du wissen, 
+Nach dieser Lektion wirst du wissen,
 
 was Hosting und Domains sind,
 
@@ -90,7 +103,8 @@ Zuverlässigkeit.
 
 Deine Webseite muss immer online sein.
 
-Ein guter Anbieter garantiert eine stabile Erreichbarkeit und bietet zuverlässigen Support.
+Ein guter Anbieter garantiert eine stabile Erreichbarkeit und bietet
+zuverlässigen Support.
 
 Skalierbarkeit.
 
@@ -124,13 +138,17 @@ Die meisten Hosting-Anbieter übernehmen das für dich.
 
 So wird das ganz einfach.
 
-Die Domain ist weltweit einzigartig: Niemand sonst kann sie zur selben Zeit nutzen.
+Die Domain ist weltweit einzigartig: Niemand sonst kann sie zur selben Zeit
+nutzen.
 
-Sie besteht aus der von dir gewählten Second-Level-Domain, zum Beispiel meine Webseite und einer Top-Level-Domain wie .com .de oder .net.
+Sie besteht aus der von dir gewählten Second-Level-Domain, zum Beispiel meine
+Webseite und einer Top-Level-Domain wie .com .de oder .net.
 
-Für die Top-Level-Domain stehen dir Hunderte Optionen offen, solange sie noch frei ist. 
+Für die Top-Level-Domain stehen dir Hunderte Optionen offen, solange sie noch
+frei ist. 
 
-Wechselst du den Anbieter, nimmst du deine Domain einfach mit – so bleibt deine Webseite immer unter derselben Adresse erreichbar.
+Wechselst du den Anbieter, nimmst du deine Domain einfach mit – so bleibt
+deine Webseite immer unter derselben Adresse erreichbar.
 
 #### Kapitel 06: Zusammenfassung
 
@@ -166,135 +184,142 @@ Das zeigen wir dir auf Learn.WordPress.org.
 
 #### Chapter 01: Introduction
 
-Hello and welcome to Learn WordPress. 
+Hello and welcome to Learn WordPress.
 
-Say hello to your new WordPress website. 
+Say hello to your new WordPress website.
 
-At the moment, it doesn't have a home and feels a bit lonely. 
+At the moment, it doesn't have a home and feels a bit lonely.
 
-Let's change that now. 
+Let's change that now.
 
-In this lesson, you'll learn how to find a good hosting provider. 
+In this lesson, you'll learn how to find a good hosting provider.
 
-And get the right domain. 
+And get the right domain.
 
-If you're not sure what that means, don't worry. 
+If you're not sure what that means, don't worry.
 
-We'll explain everything in detail. 
+We'll explain everything in detail.
 
 #### Chapter 02: What You Will Learn in This Lesson
 
 By the end of this lesson,
 
-you'll understand what hosting and domains are, 
+you'll understand what hosting and domains are,
 
-why you need both, 
+why you need both,
 
-and how to choose the right provider. 
+and how to choose the right provider.
 
 #### Chapter 03: What Is Hosting?
 
-Let's start by taking a closer look at hosting. 
+Let's start by taking a closer look at hosting.
 
-Your website needs a place to stay. 
+Your website needs a place to stay.
 
-This place is called hosting. 
+This place is called hosting.
 
-It's where all your content is stored and where it functions. 
+It's where all your content is stored and where it functions.
 
-There are many different types of hosting. 
+There are many different types of hosting.
 
-And if needed, your website can even be moved. 
+And if needed, your website can even be moved.
 
-Your website likes it here. 
+Your website likes it here.
 
-But is this really the right provider? 
+But is this really the right provider?
 
 #### Chapter 04: Criteria for Choosing the Right Hosting
 
-Let's ask your website what's important for it. 
+Let's ask your website what's important for it.
 
-Reliability. 
+Reliability.
 
-Your website needs to be online at all times. 
+Your website needs to be online at all times.
 
-A good provider guarantees stable availability and offers reliable support. 
+A good provider guarantees stable availability and offers reliable support.
 
-Scalability. 
+Scalability.
 
-If your website grows, your hosting provider should be able to grow with it. 
+If your website grows, your hosting provider should be able to grow with it.
 
-Security. 
+Security.
 
-A good provider protects your website with SSL certificates and firewalls. 
+A good provider protects your website with SSL certificates and firewalls.
 
-User-friendliness. 
+User-friendliness.
 
-Managing your hosting should be simple and intuitive. 
+Managing your hosting should be simple and intuitive.
 
-Value for money. 
+Value for money.
 
-Your provider should offer a good balance of cost and quality. 
+Your provider should offer a good balance of cost and quality.
 
-Now your website knows what matters. 
+Now your website knows what matters.
 
-And it has chosen the right hosting provider. 
+And it has chosen the right hosting provider.
 
 #### Chapter 05: The Role of the Domain
 
-But how can people find your website? 
+But how can people find your website?
 
 For that, it needs a domain—its address on the internet.
 
-You can rent one from a domain registrar. 
+You can rent one from a domain registrar.
 
-Most hosting providers will handle this for you. 
+Most hosting providers will handle this for you.
 
-So it's really easy. 
+So it's really easy.
 
 A domain is unique worldwide—no one else can use it at the same time.
 
-It’s made up of the second-level-domain name you choose (for example, “my-website”) and a top-level-domain extension like “.com,” “.de,” or “.net.”
+It’s made up of the second-level-domain name you choose (for example,
+“my-website”) and a top-level-domain extension like “.com,” “.de,”
+or “.net.”
 
-You’ve got hundreds of top-level-domain options, as long as the one you want is still available.
+You’ve got hundreds of top-level-domain options, as long as the one you want
+is still available.
 
-If you switch providers, you simply take your domain with you—so your site stays at the same address.
+If you switch providers, you simply take your domain with you—so your site
+stays at the same address.
 
 #### Chapter 06: Summary
 
-Let's summarize. 
+Let's summarize.
 
-Hosting. 
+Hosting.
 
-Hosting stores your WordPress website on a server. 
+Hosting stores your WordPress website on a server.
 
-So that it's accessible at all times. 
+So that it's accessible at all times.
 
-Domain. 
+Domain.
 
-Your domain is your website's address on the internet. 
+Your domain is your website's address on the internet.
 
-It helps visitors find your website. 
+It helps visitors find your website.
 
 Together, hosting and a domain ensure that your website stays online,
 
-and is always accessible. 
+and is always accessible.
 
 #### Chapter 07: Conclusion
 
-Once you've registered a domain and chosen a hosting provider, 
+Once you've registered a domain and chosen a hosting provider,
 
-you can start designing your website. 
+you can start designing your website.
 
-Are you wondering how to do that? 
+Are you wondering how to do that?
 
-We'll show you on Learn.WordPress.org. 
+We'll show you on Learn.WordPress.org.
 
 ## Text for the website
 
 ### German
 
-In dieser Lektion heißen wir dich willkommen und zeigen dir die Grundlagen, die du brauchst, um deine eigene WordPress-Webseite online zu bringen. Du erfährst Schritt für Schritt, was es mit **Domains** und **Hosting** auf sich hat – ganz einfach und anschaulich erklärt.
+In dieser Lektion heißen wir dich willkommen und zeigen dir die Grundlagen, die
+du brauchst, um deine eigene WordPress-Webseite online zu bringen. Du erfährst
+Schritt für Schritt, was es mit **Domains** und **Hosting** auf sich hat –
+ganz einfach und anschaulich erklärt.
 
 #### Was dich in dieser Lektion erwartet
 
@@ -307,13 +332,19 @@ Nach dem Durcharbeiten dieser Lektion wirst du:
 
 #### Deine Webseite braucht ein Zuhause
 
-Stell dir vor, deine Webseite ist bereit, in die Welt hinauszugehen – aber sie hat noch keinen Ort, an dem sie leben kann. Genau hier kommt das Hosting ins Spiel: Es bietet deiner Webseite ein Zuhause im Internet. Hosting bedeutet, dass deine Website auf einem Server gespeichert wird, der rund um die Uhr erreichbar ist.
+Stell dir vor, deine Webseite ist bereit, in die Welt hinauszugehen – aber sie
+hat noch keinen Ort, an dem sie leben kann. Genau hier kommt das Hosting ins
+Spiel: Es bietet deiner Webseite ein Zuhause im Internet. Hosting bedeutet, dass
+deine Website auf einem Server gespeichert wird, der rund um die Uhr erreichbar
+ist.
 
-Ein Host – also ein Hosting-Anbieter – speichert die Inhalte deiner Website und stellt sicher, dass sie online erreichbar ist.
+Ein Host – also ein Hosting-Anbieter – speichert die Inhalte deiner Website
+und stellt sicher, dass sie online erreichbar ist.
 
 #### Die richtige Unterkunft finden
 
-Ein guter Hosting-Anbieter ist entscheidend. In der Lektion lernst du die wichtigsten Kriterien kennen.
+Ein guter Hosting-Anbieter ist entscheidend. In der Lektion lernst du die
+wichtigsten Kriterien kennen.
 
 Es gibt fünf zentrale Faktoren, auf die du bei der Auswahl achten solltest:
 
@@ -325,27 +356,38 @@ Es gibt fünf zentrale Faktoren, auf die du bei der Auswahl achten solltest:
 
 #### Domains und Hosting kombinieren
 
-Viele Hosting-Anbieter bieten Domains und Hosting in einem Paket an. Das bedeutet:
+Viele Hosting-Anbieter bieten Domains und Hosting in einem Paket an. Das
+bedeutet:
 
 * Du hast alles an einem Ort.
 * Du musst dich nur mit einem Anbieter beschäftigen.
 * Die Einrichtung ist oft einfacher.
 
-Diese Bündelung von Domain und Hosting in einem Paket erleichtert den Einstieg besonders für Einsteiger.
+Diese Bündelung von Domain und Hosting in einem Paket erleichtert den Einstieg
+besonders für Einsteiger.
 
-Du kannst eine Domain aber auch separat kaufen. Das gibt dir mehr Kontrolle und ermöglicht einen einfacheren Wechsel des Hosting-Anbieters.
+Du kannst eine Domain aber auch separat kaufen. Das gibt dir mehr Kontrolle und
+ermöglicht einen einfacheren Wechsel des Hosting-Anbieters.
 
-Wichtig: Achte darauf, dass deine Domain regelmäßig verlängert wird, damit du sie nicht verlierst.
+Wichtig: Achte darauf, dass deine Domain regelmäßig verlängert wird, damit du
+sie nicht verlierst.
 
 #### Und wie finden Besucher deine Webseite?
 
-Damit andere deine Webseite im Internet finden können, brauchst du eine **Domain** – also eine eindeutige Adresse wie **meine-webseite.de**. Sie zeigt den Weg zu deinem Webauftritt.
+Damit andere deine Webseite im Internet finden können, brauchst du eine
+**Domain** – also eine eindeutige Adresse wie **meine-webseite.de**. Sie zeigt
+den Weg zu deinem Webauftritt.
 
-Domains kannst du separat oder direkt bei deinem Hosting-Anbieter registrieren. Viele Anbieter machen dir das einfach und bieten Domain und Hosting im Paket an.
+Domains kannst du separat oder direkt bei deinem Hosting-Anbieter registrieren.
+Viele Anbieter machen dir das einfach und bieten Domain und Hosting im Paket an.
 
-Gut zu wissen: Deine Domain ist einzigartig und du kannst sie bei einem Anbieterwechsel einfach mitnehmen.
+Gut zu wissen: Deine Domain ist einzigartig und du kannst sie bei einem
+Anbieterwechsel einfach mitnehmen.
 
-Eine Domain besteht in der Regel aus zwei Teilen: der Second-Level-Domain (z. B. „meine-webseite“) und der Top-Level-Domain (z. B. „.de“ oder „.com“). Es gibt viele Endungen, die du wählen kannst – solange sie noch verfügbar sind.
+Eine Domain besteht in der Regel aus zwei Teilen: der Second-Level-Domain (z. B.
+„meine-webseite“) und der Top-Level-Domain (z. B. „.de“ oder
+„.com“). Es gibt viele Endungen, die du wählen kannst – solange sie noch
+verfügbar sind.
 
 #### Alles im Zusammenspiel
 
@@ -365,11 +407,17 @@ Beides gehört zusammen – wie Adresse und Wohnung.
 
 #### Und was kommt danach?
 
-Sobald du Domain und Hosting eingerichtet hast, kann es losgehen: Du kannst deine WordPress-Webseite gestalten und mit Inhalten füllen. Wie das funktioniert, zeigen wir dir auf **Learn.WordPress.org** – Schritt für Schritt.
+Sobald du Domain und Hosting eingerichtet hast, kann es losgehen: Du kannst
+deine WordPress-Webseite gestalten und mit Inhalten füllen. Wie das
+funktioniert, zeigen wir dir auf **Learn.WordPress.org** – Schritt für
+Schritt.
 
 ### English
 
-In this lesson, we welcome you and guide you through the basics you need to bring your own WordPress website online. You'll learn step by step what **domains** and **hosting** are all about – clearly explained and easy to follow.
+In this lesson, we welcome you and guide you through the basics you need to
+bring your own WordPress website online. You'll learn step by step what
+**domains** and **hosting** are all about – clearly explained and easy to
+follow.
 
 #### What You'll Learn in This Lesson
 
@@ -382,13 +430,18 @@ By the end of this lesson, you will:
 
 #### Your Website Needs a Home
 
-Imagine your website is ready to go live – but it doesn’t have a place to live yet. That’s where hosting comes in: it gives your website a home on the internet. Hosting means your website is stored on a server that’s accessible around the clock.
+Imagine your website is ready to go live – but it doesn’t have a place to
+live yet. That’s where hosting comes in: it gives your website a home on the
+internet. Hosting means your website is stored on a server that’s accessible
+around the clock.
 
-A host – or hosting provider – stores your website's content and ensures it can be accessed online.
+A host – or hosting provider – stores your website's content and ensures it
+can be accessed online.
 
 #### Finding the Right Home
 
-A good hosting provider is essential. In this lesson, you’ll learn the key criteria to look for.
+A good hosting provider is essential. In this lesson, you’ll learn the key
+criteria to look for.
 
 There are five main factors you should consider:
 
@@ -400,27 +453,35 @@ There are five main factors you should consider:
 
 #### Bundling Domains and Hosting
 
-Many hosting providers offer domain registration and hosting as a package. This means:
+Many hosting providers offer domain registration and hosting as a package. This
+means:
 
 * Everything is in one place.
 * You only have to deal with one provider.
 * Setup is often easier.
 
-Bundling your domain and hosting in one package makes it especially easy for beginners to get started.
+Bundling your domain and hosting in one package makes it especially easy for
+beginners to get started.
 
-However, you can also purchase your domain separately. This gives you more flexibility and makes it easier to change hosting providers later.
+However, you can also purchase your domain separately. This gives you more
+flexibility and makes it easier to change hosting providers later.
 
 Important: Make sure to renew your domain regularly so you don’t lose it.
 
 #### How Do Visitors Find Your Website?
 
-To help others find your website on the internet, you need a **domain** – a unique address like **my-website.com**. It points visitors to your site.
+To help others find your website on the internet, you need a **domain** – a
+unique address like **my-website.com**. It points visitors to your site.
 
-You can register a domain separately or directly through your hosting provider. Many providers make this easy by offering both services in one package.
+You can register a domain separately or directly through your hosting provider.
+Many providers make this easy by offering both services in one package.
 
-Good to know: Your domain is unique, and you can take it with you if you switch providers.
+Good to know: Your domain is unique, and you can take it with you if you switch
+providers.
 
-A domain usually has two parts: the second-level domain (e.g., "my-website") and the top-level domain (e.g., ".com" or ".org"). There are many extensions to choose from – as long as they’re still available.
+A domain usually has two parts: the second-level domain (e.g., "my-website") and
+the top-level domain (e.g., ".com" or ".org"). There are many extensions to
+choose from – as long as they’re still available.
 
 #### How It All Works Together
 
@@ -440,4 +501,7 @@ They go hand in hand – just like an address and a home.
 
 #### What's Next?
 
-Once you’ve set up your domain and chosen a hosting provider, you’re ready to start building your WordPress site. To learn how, visit **Learn.WordPress.org** – we’ll walk you through it step by step.
+Once you’ve set up your domain and chosen a hosting provider, you’re ready
+to start building your WordPress site. To learn how, visit
+**Learn.WordPress.org** – we’ll walk you through it step by step.
+

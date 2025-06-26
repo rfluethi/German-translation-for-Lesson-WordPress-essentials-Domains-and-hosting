@@ -1,6 +1,9 @@
+
 ## Contributing
 
-We welcome all forms of contribution! Whether you're interested in improving the translation, adapting the lesson for another language, or enhancing the video production, your input is valuable.
+We welcome all forms of contribution! Whether you're interested in improving the
+translation, adapting the lesson for another language, or enhancing the video
+production, your input is valuable.
 
 For suggestions and feedback on the German version, please comment on **[Issue #2955](https://github.com/WordPress/Learn/issues/2955)**.
 
@@ -8,7 +11,9 @@ If you would like to translate this content into your own language, you can clon
 
 ### How to Contribute
 
-We welcome your contributions to this translation! You can either create a fork of the repository or contact the project maintainer at [mail@rfluethi.com](mailto:mail@rfluethi.com) to coordinate the next steps.
+We welcome your contributions to this translation! You can either create a fork
+of the repository or contact the project maintainer at
+[mail@rfluethi.com](mailto:mail@rfluethi.com) to coordinate the next steps.
 
 1. **Fork the Repository:**
    - Click the "Fork" button at the top right of the repository page to create your own copy of the repository.
@@ -18,6 +23,7 @@ We welcome your contributions to this translation! You can either create a fork 
    ```bash
    git clone https://github.com/rfluethi/German-translation-for-Lesson-WordPress-essentials-Domains-and-hosting.git
    ```
+
    - Navigate into the cloned directory:
    ```bash
    cd German-translation-for-Lesson-WordPress-essentials-Domains-and-hosting
@@ -48,3 +54,4 @@ We welcome your contributions to this translation! You can either create a fork 
    - Go to the original repository at `https://github.com/rfluethi/German-translation-for-Lesson-WordPress-essentials-Domains-and-hosting`.
    - Click on the "Pull Requests" tab, then click the "New Pull Request" button.
    - Select your branch from the "compare" dropdown and submit your pull request for review.
+

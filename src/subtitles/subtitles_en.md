@@ -113,7 +113,8 @@ So it's really easy.
 A domain is unique worldwide, no one else can use it at the same time.
 
 **00:02:42,280 --> 00:02:47,045**
-It's made up of the second level domain name you choose, for example,  “My-Website”,
+It's made up of the second level domain name you choose, for example,
+“My-Website”,
 
 **00:02:47,045 --> 00:02:53,499**
 and a top-level domain extension like .com .de or .net.
@@ -137,7 +138,8 @@ Let's summarize:
 Hosting
 
 **00:03:18,600 --> 00:03:26,959**
-Hosting stores your WordPress website on a server so that it's accessible at all times.
+Hosting stores your WordPress website on a server so that it's accessible at all
+times.
 
 **00:03:26,959 --> 00:03:30,025**
 Domain
@@ -165,3 +167,4 @@ Are you wondering how to do that?
 
 **00:04:01,690 --> 00:04:04,520**
 We'll show you on Learn.WordPress.org.
+

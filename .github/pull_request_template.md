@@ -22,4 +22,4 @@ Bitte beschreiben Sie die Änderungen, die Sie vorgenommen haben.
 ## Zusätzliche Notizen
 
 Fügen Sie hier zusätzliche Informationen hinzu, die für die Reviewer
-wichtig sein könnten. 
+wichtig sein könnten.

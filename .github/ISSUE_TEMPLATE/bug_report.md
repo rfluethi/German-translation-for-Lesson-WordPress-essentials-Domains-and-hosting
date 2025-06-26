@@ -40,4 +40,4 @@ Fügen Sie hier weiteren Kontext zum Problem hinzu.
 
 - [ ] Ich habe die Dokumentation überprüft
 - [ ] Ich habe nach ähnlichen Issues gesucht
-- [ ] Ich habe die Issue-Richtlinien gelesen 
+- [ ] Ich habe die Issue-Richtlinien gelesen

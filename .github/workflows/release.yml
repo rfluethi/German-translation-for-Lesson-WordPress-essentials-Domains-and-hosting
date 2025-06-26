@@ -17,66 +17,79 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true
+          fetch-depth: 0
 
-      # Debug step: Show directory structure for troubleshooting
-      - name: List repository structure
+      - name: Setup Git LFS
         run: |
-          echo "Current directory content:"
-          ls -la
-          echo "\nDocs directory content (if exists):"
-          ls -la docs || echo "docs directory not found"
-          echo "\nMedia/video directory content (if exists):"
-          ls -la media/video || echo "media/video directory not found"
+          git lfs install
+          git lfs pull
 
-      # Create docs ZIP with better error handling
+      - name: Debug - Show file sizes
+        run: |
+          echo "=== Checking file sizes ==="
+          echo "Main video file:"
+          ls -lh media/video/video-v-0-02-00.mp4 || echo "Video file not found"
+          echo ""
+          echo "LFS status:"
+          git lfs ls-files | head -5
+          echo ""
+          echo "Directory contents:"
+          find media/video -type f -exec ls -lh {} \;
+
+      # Create docs ZIP
       - name: Create docs ZIP
         run: |
           mkdir -p zip
-          if [ -d "docs" ]; then
-            if [ "$(ls -A docs)" ]; then
-              echo "Creating ZIP for documents..."
-              zip -r zip/tutorial-docs.zip docs
-              echo "docs_zip_created=true" >> $GITHUB_ENV
-            else
-              echo "Docs directory is empty. Skipping ZIP creation."
-            fi
+          if [ -d "docs" ] && [ "$(ls -A docs)" ]; then
+            echo "Creating ZIP for documents..."
+            zip -r zip/tutorial-docs.zip docs
+            echo "Docs ZIP created: $(ls -lh zip/tutorial-docs.zip)"
           else
-            echo "Docs directory does not exist. Skipping ZIP creation."
+            echo "Docs directory is empty or missing. Skipping ZIP creation."
           fi
 
-      # Create assets ZIP with better error handling
+      # Create assets ZIP
       - name: Create assets ZIP
         run: |
-          if [ -d "src" ]; then
-            if [ "$(ls -A src)" ]; then
-              echo "Creating ZIP for assets..."
-              zip -r zip/tutorial-assets.zip src
-            else
-              echo "Source directory is empty. Skipping ZIP creation."
-            fi
+          if [ -d "src" ] && [ "$(ls -A src)" ]; then
+            echo "Creating ZIP for assets..."
+            zip -r zip/tutorial-assets.zip src
+            echo "Assets ZIP created: $(ls -lh zip/tutorial-assets.zip)"
           else
-            echo "Source directory does not exist. Skipping ZIP creation."
+            echo "Source directory is empty or missing. Skipping ZIP creation."
           fi
 
-      # Create videos ZIP with better error handling
+      # Create videos ZIP with LFS verification
       - name: Create videos ZIP
         run: |
-          if [ -d "media/video" ]; then
-            if [ "$(ls -A media/video)" ]; then
-              echo "Creating ZIP for videos..."
-              zip -r zip/tutorial-videos.zip media/video
-            else
-              echo "Video directory is empty. Skipping ZIP creation."
-            fi
+          if [ -d "media/video" ] && [ "$(ls -A media/video)" ]; then
+            echo "Creating ZIP for videos..."
+            echo "Video files to include:"
+            find media/video -type f -exec ls -lh {} \;
+            zip -r zip/tutorial-videos.zip media/video
+            echo "Videos ZIP created: $(ls -lh zip/tutorial-videos.zip)"
+            echo "ZIP contents:"
+            unzip -l zip/tutorial-videos.zip | head -10
           else
-            echo "Video directory does not exist. Skipping ZIP creation."
+            echo "Video directory is empty or missing. Skipping ZIP creation."
           fi
 
-      # Debug step: Show ZIP contents
-      - name: List ZIP files
+      # Debug - Show all ZIP files
+      - name: Debug - Show ZIP files
         run: |
-          echo "ZIP directory content:"
-          ls -la zip/
+          echo "=== Final ZIP files ==="
+          ls -la zip/ || echo "No zip directory found"
+          if [ -d "zip" ]; then
+            for zipfile in zip/*.zip; do
+              if [ -f "$zipfile" ]; then
+                echo "ZIP file: $zipfile"
+                echo "Size: $(ls -lh "$zipfile")"
+                echo "Contents:"
+                unzip -l "$zipfile" | head -5
+                echo "---"
+              fi
+            done
+          fi
 
       # Upload ZIP files when triggered by a release
       - name: Upload to Release

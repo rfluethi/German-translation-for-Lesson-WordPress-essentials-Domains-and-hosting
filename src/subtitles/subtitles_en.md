@@ -1,165 +1,167 @@
+**00:00:00,020 --> 00:00:04,000**
 Hello and welcome to learn WordPress.
-*00:00-00:01*
 
+**00:00:04,000 --> 00:00:08,000**
 Say hello to your new WordPress website.
-*00:04-00:06*
 
+**00:00:08,000 --> 00:00:12,078**
 At the moment, it doesn't have a home and feels a bit lonely.
-*00:08-00:11*
 
-Let's change that now. In this lesson, you'll learn how to find a good hosting provider.
-*00:12-00:17*
+**00:00:12,078 --> 00:00:13,922**
+Let's change that now.
 
+**00:00:13,923 --> 00:00:21,279**
+In this lesson, you'll learn how to find a good hosting provider.
+
+**00:00:21,280 --> 00:00:27,540**
 And get the right domain. If you're not sure what that means, don't worry.
-*00:21-00:25*
 
+**00:00:27,540 --> 00:00:30,880**
 We'll explain everything in detail.
-*00:27-00:29*
 
-By the end of this lesson, you'll understand what hosting and domains are, why you need
-*00:30-00:38*
+**00:00:30,880 --> 00:00:33,806**
+By the end of this lesson, you'll understand
 
-both, and how to choose the right provider.
-*00:40-00:44*
+**00:00:33,806 --> 00:00:37,885**
+what hosting and domains are,
 
+**00:00:37,885 --> 00:00:45,799**
+why you need both, and how to choose the right provider.
+
+**00:00:45,799 --> 00:00:49,439**
 Let's start by taking a closer look at hosting.
-*00:45-00:48*
 
+**00:00:49,440 --> 00:00:52,860**
 Your website needs a place to stay.
-*00:49-00:51*
 
+**00:00:52,860 --> 00:00:56,260**
 This place is called hosting.
-*00:52-00:54*
 
+**00:00:56,260 --> 00:01:02,860**
 It's where all your content is stored and where it functions.
-*00:56-00:59*
 
-There are many different types of hosting and if needed, your website can even be moved.
-*01:01-01:07*
+**00:01:02,860 --> 00:01:06,171**
+There are many different types of hosting
 
+**00:01:06,171 --> 00:01:11,159**
+and, if needed, your website can even be moved.
+
+**00:01:11,160 --> 00:01:14,280**
 Your website likes it here.
-*01:09-01:11*
 
+**00:01:14,280 --> 00:01:17,959**
 But is this really the right provider?
-*01:12-01:14*
 
+**00:01:17,959 --> 00:01:22,239**
 Let's ask your website what's important for it.
-*01:16-01:18*
 
+**00:01:22,240 --> 00:01:23,604**
 Reliability.
-*01:20-01:21*
 
+**00:01:23,604 --> 00:01:26,704**
 Your website needs to be online at all times.
-*01:22-01:24*
 
+**00:01:26,704 --> 00:01:34,499**
 A good provider guarantees stable availability and offers reliable support.
-*01:24-01:30*
 
+**00:01:34,500 --> 00:01:35,893**
 Scalability.
-*01:31-01:32*
 
+**00:01:35,893 --> 00:01:42,479**
 If your website grows, your hosting provider should be able to grow with it.
-*01:33-01:37*
 
+**00:01:42,480 --> 00:01:44,787**
 Security.
-*01:38-01:39*
 
+**00:01:44,787 --> 00:01:52,579**
 A good provider protects your website with SSL certificates and firewalls.
-*01:40-01:45*
 
+**00:01:52,580 --> 00:01:55,120**
 User-friendliness.
-*01:47-01:48*
 
+**00:01:55,120 --> 00:02:00,740**
 Managing your hosting should be simple and intuitive.
-*01:50-01:53*
 
+**00:02:00,740 --> 00:02:02,700**
 Value for money.
-*01:55-01:55*
 
+**00:02:02,700 --> 00:02:07,780**
 Your provider should offer a good balance of cost and quality.
-*01:56-02:00*
 
+**00:02:07,780 --> 00:02:11,300**
 Now your website knows what matters.
-*02:01-02:03*
 
+**00:02:11,300 --> 00:02:16,480**
 And it has chosen the right hosting provider.
-*02:05-02:07*
 
+**00:02:16,480 --> 00:02:21,300**
 But how can people find your website?
-*02:10-02:12*
 
+**00:02:21,300 --> 00:02:26,240**
 For that, it needs a domain, its address on the internet.
-*02:15-02:18*
 
+**00:02:26,240 --> 00:02:30,419**
 You can rent one from a domain registrar.
-*02:20-02:22*
 
+**00:02:30,419 --> 00:02:33,959**
 Most hosting providers will handle this for you.
-*02:24-02:26*
 
+**00:02:33,960 --> 00:02:36,180**
 So it's really easy.
-*02:27-02:28*
 
-A domain is unique worldwide.
-*02:30-02:31*
+**00:02:36,180 --> 00:02:42,280**
+A domain is unique worldwide, no one else can use it at the same time.
 
-No one else can use it at the same time.
-*02:32-02:34*
+**00:02:42,280 --> 00:02:47,045**
+It's made up of the second level domain name you choose, for example,  “My-Website”,
 
-It's made up of the second-level domain name you choose,
-*02:35-02:38*
+**00:02:47,045 --> 00:02:53,499**
+and a top-level domain extension like .com .de or .net.
 
-for example, my website,
-*02:38-02:40*
+**00:02:53,500 --> 00:02:56,704**
+You've got hundreds of top-level domain options,
 
-and a top-level domain extension like.com.de or.net.
-*02:40-02:45*
+**00:02:56,704 --> 00:03:00,582**
+as long as the one you want is still available.
 
-You've got hundreds of top-level domain options, as long as the one you want is still available.
-*02:47-02:52*
-
+**00:03:00,583 --> 00:03:06,019**
 If you switch providers, you can take your domain with you.
-*02:54-02:57*
 
+**00:03:06,020 --> 00:03:11,760**
 This way, your website will always be available at the same address.
-*02:59-03:03*
 
-Let's summarize.
-*03:05-03:06*
+**00:03:11,760 --> 00:03:14,130**
+Let's summarize:
 
+**00:03:14,130 --> 00:03:18,599**
 Hosting
-*03:07-03:08*
 
-Hosting stores your WordPress website on a server.
-*03:11-03:14*
+**00:03:18,600 --> 00:03:26,959**
+Hosting stores your WordPress website on a server so that it's accessible at all times.
 
-so that it's accessible at all times.
-*03:16-03:18*
-
+**00:03:26,959 --> 00:03:30,025**
 Domain
-*03:20-03:20*
 
+**00:03:30,025 --> 00:03:34,417**
 Your domain is your website's address on the internet.
-*03:22-03:25*
 
+**00:03:34,417 --> 00:03:38,459**
 It helps visitors find your website.
-*03:27-03:29*
 
+**00:03:38,460 --> 00:03:43,362**
 Together, hosting and a domain ensure that your website stays online
-*03:31-03:35*
 
+**00:03:43,362 --> 00:03:47,187**
 and is always accessible.
-*03:35-03:37*
 
+**00:03:47,188 --> 00:03:52,573**
 Once you've registered a domain and chosen a hosting provider,
-*03:39-03:43*
 
-You can start designing your website.
-*03:45-03:47*
+**00:03:52,573 --> 00:03:56,719**
+you can start designing your website.
 
+**00:03:56,720 --> 00:04:01,690**
 Are you wondering how to do that?
-*03:49-03:52*
 
-We'll show you on learnwordpress.org.
-*03:54-03:56*
-
+**00:04:01,690 --> 00:04:04,520**
+We'll show you on Learn.WordPress.org.

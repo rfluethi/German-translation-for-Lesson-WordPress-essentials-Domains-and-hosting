@@ -102,7 +102,7 @@ Non-vector-based materials are stored in the respective scene directories. Chapt
 - **WordPress Logo in a Frame** – Subject to the [WordPress trademark policy](https://wordpressfoundation.org/trademark-policy/).
 - **Blue Police Box** – Public domain image from [Public Domain Pictures](https://www.publicdomainpictures.net/en/view-image.php?image=37746&picture=blue-police-box-clipart&large=1).
 
-#### c05-s03
+#### c05-s04
 
 - **Blue Police Box** – Public domain image from [Public Domain Pictures](https://www.publicdomainpictures.net/en/view-image.php?image=37746&picture=blue-police-box-clipart&large=1).
 

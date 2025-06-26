@@ -13,6 +13,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Refined character positioning in scene `c05-s04`.
 
 
+- Remove all .DS_Store files (macOS system files)
+- Remove all @eaDir directories (Synology system files) 
+- Remove sync-conflict files from 2025-06-24
+- Update .gitignore to prevent future system files
+- Add new video version 0.2.00
+- Update audio files and subtitles
+- Update animation files and project materials
+- Update documentation and text materials
+
 ## [0.1.02] - 2025-03-18
 
 ### Improved

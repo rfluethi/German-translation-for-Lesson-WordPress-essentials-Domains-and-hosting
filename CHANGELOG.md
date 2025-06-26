@@ -2,57 +2,75 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.2.00] - 2025-06-XX
+## [Unreleased]
+
+## [0.2.00] - 2025-06-26
 
 ### Added
-- Created new scene `c05-s03` to provide a more detailed explanation of the domain.
 
-### Improved
-- Refined character positioning in scene `c05-s04`.
+- New scene `c05-s03` providing detailed domain explanation
+- Complete synthetic audio files for both German and English versions
+- Enhanced subtitle files in multiple formats (MD, SRT, VTT)
+- Updated video project files with latest configurations
+- Comprehensive documentation updates including shotlist and text materials
 
+### Changed
 
-- Remove all .DS_Store files (macOS system files)
-- Remove all @eaDir directories (Synology system files) 
-- Remove sync-conflict files from 2025-06-24
-- Update .gitignore to prevent future system files
-- Add new video version 0.2.00
-- Update audio files and subtitles
-- Update animation files and project materials
-- Update documentation and text materials
+- Extended various scenes based on user feedback from previous version
+- Updated character positioning in scene `c05-s04` for better visual flow
+- Refined video timing and chapter synchronization
+- Enhanced overall video quality and production standards
+
+### Fixed
+
+- Corrected various spelling errors throughout the content
+- Resolved timing issues in subtitle synchronization
+- Fixed audio-visual alignment in multiple scenes
+
+### Technical
+
+- **Repository Maintenance**: Removed all system-generated files (.DS_Store, @eaDir directories)
+- **Version Control**: Enhanced .gitignore configuration to prevent future system file inclusion
+- **Code Quality**: Resolved sync-conflict files and improved repository cleanliness
+- **Documentation**: Updated project documentation to reflect current state
 
 ## [0.1.02] - 2025-03-18
 
 ### Improved
-- Optimized the walking animation of the WordPress character in scenes `c03-s01` and `c03-s03`.
-- Optimized the fireworks video for the background of scene `c06-s05` to reduce file size.
-- The image material inserted in various formats.
-- The shot list revised and completed.
+
+- Optimized WordPress character walking animation in scenes `c03-s01` and `c03-s03`
+- Reduced file size of fireworks video background in scene `c06-s05`
+- Enhanced image material integration across various formats
+- Completed and revised shot list documentation
 
 ## [0.1.01] - 2025-03-14
 
 ### Fixed
-- Bug fixes
+
+- General bug fixes and stability improvements
 
 ## [0.1.00] - 2025-03-13
 
 ### Changed
-- Updated storyboard
+
+- Updated storyboard with improved visual flow
 
 ### Added
-- Created the first version of the animated short film
-- Added missing text materials
-- Translated quizzes
+
+- Initial animated short film version
+- Complete text materials in both languages
+- Translated quiz content for German audience
 
 ## [0.0.01] - 2025-01-04
 
 ### Added
 
-- Initial repository structure created.
-- Creation of the text material in English
-- First rough translation of the text material into German.
-- English published version structured and inserted as starting position.
-- English version of the storyboard created.
-- Rough draft of the storyboard in German.
-- Rough draft of the shortlist.
+- Initial repository structure and project setup
+- English text material creation
+- First German translation draft
+- English published version as baseline
+- Storyboard development (English and German drafts)
+- Initial shot list documentation

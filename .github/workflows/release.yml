@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          lfs: true
 
       # Debug step: Show directory structure for troubleshooting
       - name: List repository structure
@@ -23,6 +25,8 @@ jobs:
           ls -la
           echo "\nDocs directory content (if exists):"
           ls -la docs || echo "docs directory not found"
+          echo "\nMedia/video directory content (if exists):"
+          ls -la media/video || echo "media/video directory not found"
 
       # Create docs ZIP with better error handling
       - name: Create docs ZIP

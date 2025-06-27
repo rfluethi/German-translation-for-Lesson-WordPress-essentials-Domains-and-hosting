@@ -1,6 +1,6 @@
 # GitHub Actions Workflows - Übersicht
 
-Nach der Aufräumung gibt es nur noch **3 wichtige Workflow-Dateien**:
+Nach der Aufräumung gibt es nur noch **2 wichtige Workflow-Dateien**:
 
 ## 📁 Aktuelle Workflows
 
@@ -18,10 +18,10 @@ Nach der Aufräumung gibt es nur noch **3 wichtige Workflow-Dateien**:
 - **Zweck:** Identisch mit `release.yml` - Entwicklungskopie
 - **Verwendung:** Zum Testen von Verbesserungen
 
-### 3. `release-backup.yml` 💾 **BACKUP**
-- **Status:** 🔴 **Backup des ursprünglichen Workflows**
-- **Zweck:** Sicherheitskopie der ursprünglichen Version
-- **Hinweis:** ⚠️ **Funktioniert NICHT** - erstellt nur Pointer-Dateien
+### 3. `release-backup.yml.disabled` 💾 **DEAKTIVIERT**
+- **Status:** 🔴 **Deaktiviert - verursachte Konflikte**
+- **Zweck:** Altes Workflow (erstellt nur Pointer-Dateien)
+- **Hinweis:** ⚠️ **War das Problem** - wurde fälschlicherweise ausgeführt!
 
 ## 🎯 Verwendung
 
@@ -39,10 +39,14 @@ Nach der Aufräumung gibt es nur noch **3 wichtige Workflow-Dateien**:
 - ❌ `release-simple.yml`
 - ❌ `release-ultimate.yml`
 - ❌ `release-working.yml`
+- ❌ `release-backup.yml` (jetzt deaktiviert - verursachte Konflikte!)
 
 ## 🎉 Ergebnis:
-- **Nur 3 Dateien** statt 8
-- **Klare Struktur:** Aktiv / Development / Backup
+- **Nur 2 aktive Dateien** statt 8
+- **Klare Struktur:** Aktiv / Development
 - **Einfache Wartung**
 
 **Das aktive Workflow (`release.yml`) sollte das LFS-Problem lösen und ZIP-Dateien mit vollständigen großen Dateien erstellen!**
+
+## 🚨 Problem gelöst:
+**Das `release-backup.yml` wurde deaktiviert, da es fälschlicherweise ausgeführt wurde statt des korrekten LFS-Workflows!**

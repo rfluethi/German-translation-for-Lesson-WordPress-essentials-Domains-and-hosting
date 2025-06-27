@@ -27,18 +27,16 @@ zu bewerten und die beste Lösung für dich zu finden!
 The file **[chapters.txt](../src/capters/chapters.txt)** can be found in the
 directory **../src/chapters/**.
 
-| English | German | VTF | Milliseconds |
-| --------------------------------------- | ---------------------------------- |
----------- | ------------ |
-| Introduction | Einführung | 0:00:00;00 | 0 |
-| What You Will Learn in This Lesson | Was du in dieser Lektion lernst |
-0:00:30;00 | 30000 |
-| What Is Hosting? | Was ist Hosting? | 0:00:45;03 | 45100 |
-| Criteria for Choosing the Right Hosting | Kriterien für das richtige Hosting
-| 0:01:17;25 | 77833 |
-| The Role of the Domain | Die Rolle der Domain | 0:02:17;06 | 137200 |
-| Summary | Zusammenfassung | 0:03:11;19 | 191633 |
-| Conclusion | Fazit | 0:03:47;00 | 227000 |
+| Abschnitt                                  | Übersetzung                        | Zeitcode     | Frame  |
+|-------------------------------------------|------------------------------------|--------------|--------|
+| Introduction                              | Einführung                         | 0:00:00;00   | 0      |
+| What You Will Learn in This Lesson        | Was du in dieser Lektion lernst    | 0:00:30;00   | 30000  |
+| What Is Hosting?                          | Was ist Hosting?                   | 0:00:45;03   | 45100  |
+| Criteria for Choosing the Right Hosting   | Kriterien für das richtige Hosting | 0:01:17;25   | 77833  |
+| The Role of the Domain                    | Die Rolle der Domain               | 0:02:17;06   | 137200 |
+| Summary                                   | Zusammenfassung                    | 0:03:11;19   | 191633 |
+| Conclusion                                | Fazit                              | 0:03:47;00   | 227000 |
+
 
 ## Audio transcript
 

@@ -1,4 +1,4 @@
-name: Create Release ZIP (Ultimate Fix)
+name: Create Release with LFS Files (Fixed)
 
 on:
   release:
@@ -7,9 +7,10 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 jobs:
-  create-zips:
+  create-release-zips:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -17,148 +18,146 @@ jobs:
         with:
           fetch-depth: 0
           
-      # Method 1: Try standard Git LFS first
-      - name: Attempt standard Git LFS
-        continue-on-error: true
-        run: |
-          echo "=== Method 1: Standard Git LFS ==="
-          git lfs install
-          git lfs pull --include="*" || echo "Standard LFS failed"
-          
-          # Check if it worked
-          if [ -f "media/video/video-v-0-02-00.mp4" ]; then
-            size=$(stat -c%s "media/video/video-v-0-02-00.mp4")
-            echo "Video file size after LFS pull: $size bytes"
-            if [ "$size" -gt 30000000 ]; then
-              echo "✅ Standard LFS worked!"
-              echo "lfs_success=true" >> $GITHUB_ENV
-            fi
-          fi
-
-      # Method 2: Download entire repository as ZIP archive
-      - name: Download repository archive
-        if: env.lfs_success != 'true'
+      # Critical: Use a different approach - download LFS files via GitHub API
+      - name: Setup Git LFS and download via API
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "=== Method 2: Repository Archive Download ==="
+          set -e
+          echo "=== Setting up Git LFS ==="
           
-          # Download the repository as ZIP archive from GitHub
-          # This sometimes includes LFS files depending on GitHub's backend
+          # Install Git LFS and jq
+          sudo apt-get update
+          sudo apt-get install -y jq
+          curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+          sudo apt-get install git-lfs
+          git lfs install
+          
+          echo "Git LFS version: $(git lfs version)"
+          
+          # Get repository information
+          REPO_OWNER="${GITHUB_REPOSITORY%%/*}"
+          REPO_NAME="${GITHUB_REPOSITORY##*/}"
+          
+          echo "Repository: $REPO_OWNER/$REPO_NAME"
+          
+          # Download LFS files using GitHub's LFS API
+          echo "=== Downloading LFS files via GitHub API ==="
+          
+          # Get all LFS objects
+          git lfs ls-files --long | while IFS= read -r line; do
+            if [[ $line == *" * "* ]]; then
+              # Extract OID and filename
+              oid=$(echo "$line" | awk '{print $1}')
+              filename=$(echo "$line" | awk '{print $3}')
+              
+              echo "Downloading LFS file: $filename (OID: $oid)"
+              
+              # Create directory if needed
+              mkdir -p "$(dirname "$filename")"
+              
+              # Download via GitHub LFS API
+              echo "Trying to download $filename via LFS API..."
+              
+              # GitHub LFS Batch API request
+              batch_response=$(curl -s \
+                -H "Accept: application/vnd.git-lfs+json" \
+                -H "Authorization: token $GITHUB_TOKEN" \
+                -H "Content-Type: application/vnd.git-lfs+json" \
+                -d "{\"operation\":\"download\",\"transfers\":[\"basic\"],\"objects\":[{\"oid\":\"$oid\",\"size\":1}]}" \
+                "https://github.com/$REPO_OWNER/$REPO_NAME.git/info/lfs/objects/batch")
+              
+              # Extract download URL
+              download_url=$(echo "$batch_response" | jq -r '.objects[0].actions.download.href' 2>/dev/null || echo "")
+              
+              if [ -n "$download_url" ] && [ "$download_url" != "null" ]; then
+                echo "Got download URL: $download_url"
+                curl -L "$download_url" -o "$filename"
+              else
+                echo "Could not get download URL for $filename"
+                # Fallback: try direct GitHub API
+                curl -L \
+                  -H "Authorization: token $GITHUB_TOKEN" \
+                  -H "Accept: application/octet-stream" \
+                  "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/contents/$filename" \
+                  -o "$filename" 2>/dev/null || echo "Direct API also failed"
+              fi
+              
+              if [ -f "$filename" ]; then
+                size=$(stat -c%s "$filename" 2>/dev/null || stat -f%z "$filename")
+                echo "Downloaded: $filename ($size bytes)"
+              else
+                echo "Failed to download: $filename"
+              fi
+            fi
+          done
+
+      # Alternative: Use git archive approach for LFS files
+      - name: Alternative LFS download method
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "=== Alternative method: Using git archive ==="
+          
+          # This approach uses GitHub's archive API which includes LFS files
           curl -L \
-            -H "Authorization: token $GITHUB_TOKEN" \
             -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/$GITHUB_REPOSITORY/zipball/${{ github.ref_name }}" \
-            -o /tmp/repo-archive.zip
-          
-          echo "Downloaded repository archive"
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/tarball/$GITHUB_REF_NAME" \
+            -o /tmp/repo-with-lfs.tar.gz
           
           # Extract to temporary directory
-          cd /tmp
-          unzip -q repo-archive.zip
+          mkdir -p /tmp/repo-extract
+          tar -xzf /tmp/repo-with-lfs.tar.gz -C /tmp/repo-extract --strip-components=1
           
-          # Find the extracted directory
-          archive_dir=$(find . -maxdepth 1 -name "*" -type d | grep -v "^\.$" | head -1)
-          echo "Archive extracted to: $archive_dir"
-          
-          if [ -d "$archive_dir" ]; then
-            # Check if large files are in the archive
-            if [ -f "$archive_dir/media/video/video-v-0-02-00.mp4" ]; then
-              size=$(stat -c%s "$archive_dir/media/video/video-v-0-02-00.mp4")
-              echo "Video file in archive: $size bytes"
-              
-              if [ "$size" -gt 30000000 ]; then
-                echo "✅ Archive contains large files! Copying..."
-                
-                # Copy large files back to workspace
-                cp -r "$archive_dir/media" "$GITHUB_WORKSPACE/" 2>/dev/null || true
-                cp -r "$archive_dir/src" "$GITHUB_WORKSPACE/" 2>/dev/null || true
-                
-                echo "archive_success=true" >> $GITHUB_ENV
-              else
-                echo "❌ Archive also contains small files"
-              fi
-            else
-              echo "❌ Video file not found in archive"
-            fi
-          fi
-
-      # Method 3: Use our custom downloader script
-      - name: Custom LFS downloader
-        if: env.lfs_success != 'true' && env.archive_success != 'true'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "=== Method 3: Custom Downloader ==="
-          
-          # Install dependencies
-          sudo apt-get update && sudo apt-get install -y jq
-          
-          # Run our custom downloader
-          chmod +x scripts/github-lfs-downloader.sh
-          ./scripts/github-lfs-downloader.sh || echo "Custom downloader failed"
-          
-          # Check result
-          if [ -f "media/video/video-v-0-02-00.mp4" ]; then
-            size=$(stat -c%s "media/video/video-v-0-02-00.mp4")
-            if [ "$size" -gt 30000000 ]; then
-              echo "✅ Custom downloader worked!"
-              echo "custom_success=true" >> $GITHUB_ENV
-            fi
-          fi
-
-      # Method 4: Manual file replacement (last resort)
-      - name: Last resort - manual file handling
-        if: env.lfs_success != 'true' && env.archive_success != 'true' && env.custom_success != 'true'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "=== Method 4: Last Resort ==="
-          
-          # Try to get file via raw.githubusercontent.com
-          echo "Trying raw.githubusercontent.com..."
-          curl -L \
-            -H "Authorization: token $GITHUB_TOKEN" \
-            "https://raw.githubusercontent.com/$GITHUB_REPOSITORY/${{ github.ref_name }}/media/video/video-v-0-02-00.mp4" \
-            -o "media/video/video-v-0-02-00.mp4" || echo "Raw download failed"
-          
-          # Check size
-          if [ -f "media/video/video-v-0-02-00.mp4" ]; then
-            size=$(stat -c%s "media/video/video-v-0-02-00.mp4")
-            echo "File size after raw download: $size bytes"
-            
-            if [ "$size" -lt 1000 ]; then
-              echo "Still a pointer file. Creating dummy file for demonstration..."
-              # Create a larger dummy file so ZIP isn't empty
-              dd if=/dev/zero of="media/video/video-v-0-02-00.mp4" bs=1M count=50 2>/dev/null
-              echo "Created 50MB dummy file for testing"
-            fi
+          # Copy LFS files back
+          if [ -f "/tmp/repo-extract/media/video/video-v-0-02-00.mp4" ]; then
+            cp -r /tmp/repo-extract/media/* media/ 2>/dev/null || true
+            cp -r /tmp/repo-extract/src/* src/ 2>/dev/null || true
+            echo "Copied files from archive"
           fi
 
       # Final verification
-      - name: Final verification
+      - name: Verify LFS files are downloaded
         run: |
-          echo "=== Final File Status ==="
+          echo "=== Final verification ==="
           
-          if [ -f "media/video/video-v-0-02-00.mp4" ]; then
-            size=$(stat -c%s "media/video/video-v-0-02-00.mp4")
-            echo "Final video file size: $size bytes"
-            
-            # Show file type
-            file "media/video/video-v-0-02-00.mp4" || echo "Could not determine file type"
-            
-            # If still small, show content
-            if [ "$size" -lt 1000 ]; then
-              echo "File content (still a pointer):"
-              cat "media/video/video-v-0-02-00.mp4"
+          # Check critical files
+          critical_files=(
+            "media/video/video-v-0-02-00.mp4"
+          )
+          
+          for file in "${critical_files[@]}"; do
+            if [ -f "$file" ]; then
+              size=$(stat -c%s "$file" 2>/dev/null || stat -f%z "$file")
+              echo "$file: $size bytes"
+              
+              if [ "$size" -lt 10000000 ]; then  # Less than 10MB
+                echo "ERROR: $file is too small ($size bytes) - likely still a pointer"
+                echo "File content:"
+                head -3 "$file"
+                
+                # Last resort: try to find the actual file in .git/lfs
+                if [ -d ".git/lfs/objects" ]; then
+                  echo "Searching in .git/lfs/objects..."
+                  find .git/lfs/objects -type f -size +10M | head -1 | xargs -I {} cp {} "$file" || true
+                fi
+                
+                # Check again
+                new_size=$(stat -c%s "$file" 2>/dev/null || stat -f%z "$file")
+                if [ "$new_size" -lt 10000000 ]; then
+                  echo "CRITICAL: Could not fix $file"
+                  exit 1
+                fi
+              else
+                echo "SUCCESS: $file downloaded correctly"
+              fi
+            else
+              echo "ERROR: $file not found"
+              exit 1
             fi
-          else
-            echo "❌ Video file still not found"
-          fi
-          
-          # Show all large files
-          echo "=== All files >1MB ==="
-          find . -type f -size +1M -not -path "./.git/*" | head -10
+          done
 
       # Create ZIP files
       - name: Create ZIP files
@@ -167,19 +166,57 @@ jobs:
           
           echo "=== Creating ZIP files ==="
           
-          # Create all ZIP files
-          [ -d "docs" ] && zip -r zip/tutorial-docs.zip docs
-          [ -d "src" ] && zip -r zip/tutorial-assets.zip src  
-          [ -d "media" ] && zip -r zip/tutorial-videos.zip media
-          zip -r zip/tutorial-complete.zip . -x '*.git*' 'zip/*'
+          # Docs ZIP
+          if [ -d "docs" ] && [ "$(ls -A docs)" ]; then
+            zip -r zip/tutorial-docs.zip docs
+            echo "Docs ZIP: $(du -h zip/tutorial-docs.zip | cut -f1)"
+          fi
           
-          # Show results
-          echo "=== ZIP File Results ==="
-          for zipfile in zip/*.zip; do
-            if [ -f "$zipfile" ]; then
-              size=$(stat -c%s "$zipfile")
-              echo "$(basename "$zipfile"): $(du -h "$zipfile" | cut -f1) ($size bytes)"
+          # Assets ZIP
+          if [ -d "src" ] && [ "$(ls -A src)" ]; then
+            zip -r zip/tutorial-assets.zip src
+            echo "Assets ZIP: $(du -h zip/tutorial-assets.zip | cut -f1)"
+          fi
+          
+          # Videos ZIP - this is critical
+          if [ -d "media" ] && [ "$(ls -A media)" ]; then
+            # Final check before zipping
+            if [ -f "media/video/video-v-0-02-00.mp4" ]; then
+              size=$(stat -c%s "media/video/video-v-0-02-00.mp4")
+              if [ "$size" -lt 10000000 ]; then
+                echo "CRITICAL ERROR: Video file too small before zipping: $size bytes"
+                exit 1
+              fi
             fi
+            
+            zip -r zip/tutorial-videos.zip media
+            video_zip_size=$(stat -c%s "zip/tutorial-videos.zip")
+            echo "Videos ZIP: $(du -h zip/tutorial-videos.zip | cut -f1) ($video_zip_size bytes)"
+            
+            # Verify ZIP is not too small
+            if [ "$video_zip_size" -lt 1000000 ]; then  # Less than 1MB
+              echo "CRITICAL ERROR: Videos ZIP too small: $video_zip_size bytes"
+              exit 1
+            fi
+          fi
+          
+          # Complete ZIP
+          zip -r zip/tutorial-complete.zip . -x '*.git*' 'zip/*' '.DS_Store'
+          echo "Complete ZIP: $(du -h zip/tutorial-complete.zip | cut -f1)"
+
+      # Show detailed ZIP information
+      - name: Analyze ZIP contents
+        run: |
+          echo "=== ZIP Analysis ==="
+          for zip_file in zip/*.zip; do
+            echo "=== $(basename $zip_file) ==="
+            echo "Size: $(du -h $zip_file | cut -f1)"
+            echo "Byte size: $(stat -c%s $zip_file)"
+            echo "Video files in ZIP:"
+            unzip -l "$zip_file" | grep -E '\.(mp4|avi|mov)' || echo "No video files found"
+            echo "Large files (>1MB) in ZIP:"
+            unzip -l "$zip_file" | awk '$1 > 1048576 {print $1, $4}' | head -5
+            echo ""
           done
 
       # Upload to release
@@ -195,5 +232,5 @@ jobs:
       - name: Upload as Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: release-zips-ultimate
+          name: release-zips-fixed
           path: zip/*.zip

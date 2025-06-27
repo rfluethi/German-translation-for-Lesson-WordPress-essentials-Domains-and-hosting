@@ -26,7 +26,9 @@ jobs:
           set -e
           echo "=== Setting up Git LFS ==="
           
-          # Install Git LFS
+          # Install Git LFS and jq
+          sudo apt-get update
+          sudo apt-get install -y jq
           curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
           sudo apt-get install git-lfs
           git lfs install
@@ -55,12 +57,31 @@ jobs:
               mkdir -p "$(dirname "$filename")"
               
               # Download via GitHub LFS API
-              curl -L \
+              echo "Trying to download $filename via LFS API..."
+              
+              # GitHub LFS Batch API request
+              batch_response=$(curl -s \
                 -H "Accept: application/vnd.git-lfs+json" \
                 -H "Authorization: token $GITHUB_TOKEN" \
-                "https://github.com/$REPO_OWNER/$REPO_NAME.git/info/lfs/objects/batch" \
+                -H "Content-Type: application/vnd.git-lfs+json" \
                 -d "{\"operation\":\"download\",\"transfers\":[\"basic\"],\"objects\":[{\"oid\":\"$oid\",\"size\":1}]}" \
-                -s | jq -r '.objects[0].actions.download.href' | xargs -I {} curl -L {} -o "$filename"
+                "https://github.com/$REPO_OWNER/$REPO_NAME.git/info/lfs/objects/batch")
+              
+              # Extract download URL
+              download_url=$(echo "$batch_response" | jq -r '.objects[0].actions.download.href' 2>/dev/null || echo "")
+              
+              if [ -n "$download_url" ] && [ "$download_url" != "null" ]; then
+                echo "Got download URL: $download_url"
+                curl -L "$download_url" -o "$filename"
+              else
+                echo "Could not get download URL for $filename"
+                # Fallback: try direct GitHub API
+                curl -L \
+                  -H "Authorization: token $GITHUB_TOKEN" \
+                  -H "Accept: application/octet-stream" \
+                  "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/contents/$filename" \
+                  -o "$filename" 2>/dev/null || echo "Direct API also failed"
+              fi
               
               if [ -f "$filename" ]; then
                 size=$(stat -c%s "$filename" 2>/dev/null || stat -f%z "$filename")

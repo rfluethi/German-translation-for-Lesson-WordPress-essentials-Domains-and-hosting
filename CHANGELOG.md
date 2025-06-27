@@ -7,35 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
-
-- Git LFS (Large File Storage) integration for large files
-- Automatic management of video and audio files with Git LFS
-- Extended release pipeline with LFS support
-- **New ZIP files in releases with complete LFS files:**
-  - **tutorial-complete.zip** - Complete project with all large files (recommended)
-  - **tutorial-assets.zip** - Source assets with project files
-  - **tutorial-videos.zip** - Video files with full LFS content
-  - **tutorial-docs.zip** - Documentation only
-- **Important:** Use tutorial-complete.zip instead of "Source code" for complete files
-
-### Changed
-
-- Release script (.github/workflows/release.yml) extended with LFS support
-- .gitattributes configured for automatic LFS management
-- Improved ZIP creation with git archive for LFS files
-
-### Technical Details
-
-- Large files are automatically managed with Git LFS:
-  - media/video/video-v-0-02-00.mp4 (39MB)
-  - src/assets/video/video-v-0-02-00.cmproj/ (225MB)
-  - All MP4 files in src/assets/animation/
-  - All WAV and M4A audio files
-  - Project files (.cmproj, .moho)
-  - Design files (.psd, .ai, .afdesign)
-
-## [0.2.00] - 2025-06-26
+## [0.2.00] - 2025-06-27
 
 ### Features Added
 
@@ -52,24 +24,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refined video timing and chapter synchronization
 - Enhanced overall video quality and production standards
 
-### Issues Fixed
+### Added
+- Integrated **Git LFS (Large File Storage)** for handling large files.
+- Automated management of video and audio files via Git LFS.
+- Extended release pipeline to support Git LFS.
+- **New ZIP packages available in releases:**
+  - `tutorial-complete.zip` – Full project including all large files (recommended).
+  - `tutorial-assets.zip` – Source assets and project files.
+  - `tutorial-videos.zip` – All video files managed via LFS.
+  - `tutorial-docs.zip` – Documentation only.
+- **Important:** Use `tutorial-complete.zip` instead of "Source code" to ensure all required files are included.
 
-- Corrected various spelling errors throughout the content
-- Resolved timing issues in subtitle synchronization
-- Fixed audio-visual alignment in multiple scenes
+### Changed
+- Updated release workflow (`.github/workflows/release.yml`) to include LFS support.
+- Configured `.gitattributes` for seamless Git LFS integration.
+- Improved ZIP generation using `git archive` to include LFS-managed files.
 
-### Technical
+### Features
+- Added new scene `c05-s03` with a detailed domain explanation.
+- Generated full synthetic audio tracks in both German and English.
+- Enhanced subtitle availability: now provided in Markdown (MD), SRT, and VTT formats.
+- Updated video project files with the latest configurations.
+- Expanded and refined documentation, including a comprehensive shotlist and text materials.
 
-- **Repository Maintenance**: Removed all system-generated files
-  (.DS_Store, @eaDir directories)
+### Improved
+- Extended several scenes based on user feedback from the previous release.
+- Adjusted character positions in scene `c05-s04` for improved visual composition.
+- Fine-tuned video timing and chapter synchronization.
+- Increased overall video production quality.
 
-- **Version Control**: Enhanced .gitignore configuration to prevent future
-  system file inclusion
+### Fixed
+- Corrected various spelling mistakes throughout the project.
+- Fixed subtitle timing and synchronization issues.
+- Resolved audio-visual misalignments in several scenes.
 
-- **Code Quality**: Resolved sync-conflict files and improved repository
-  cleanliness
-
-- **Documentation**: Updated project documentation to reflect current state
+### Technical Enhancements
+- **Repository Maintenance:** Removed all system-generated files (e.g., `.DS_Store`, `@eaDir`).
+- **Version Control:** Improved `.gitignore` to prevent future inclusion of system files.
+- **Code Cleanliness:** Resolved sync conflicts and cleaned up the repository.
+- **Documentation:** Updated all documentation to reflect the latest project state.
 
 ## [0.1.02] - 2025-03-18
 

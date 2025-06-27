@@ -94,6 +94,46 @@ echo "✅ Alle Commits gepusht?"
 echo "✅ Alle LFS-Dateien hochgeladen? (git lfs push --all)"
 echo "✅ GitHub Repository hat LFS aktiviert?"
 echo "✅ Release-Tag erstellt?"
+echo ""
+
+# LFS-Download Test
+echo "9. LFS-Download Test (lokal):"
+echo "Teste lokalen LFS-Download..."
+if command -v git &> /dev/null; then
+    # Simuliere den GitHub Actions Prozess
+    echo "Simuliere GitHub Actions LFS-Download:"
+    export GIT_LFS_SKIP_SMUDGE=0
+    git lfs pull --include="*" || echo "❌ LFS Pull fehlgeschlagen"
+    
+    # Prüfe kritische Datei nach Pull
+    if [ -f "media/video/video-v-0-02-00.mp4" ]; then
+        size=$(stat -c%s "media/video/video-v-0-02-00.mp4" 2>/dev/null || stat -f%z "media/video/video-v-0-02-00.mp4")
+        if [ "$size" -gt 1000000 ]; then
+            echo "✅ LFS-Download Test erfolgreich ($size bytes)"
+        else
+            echo "❌ LFS-Download Test fehlgeschlagen - Datei zu klein ($size bytes)"
+        fi
+    else
+        echo "❌ LFS-Download Test fehlgeschlagen - Datei nicht gefunden"
+    fi
+else
+    echo "❌ Git nicht verfügbar für Test"
+fi
+echo ""
+
+# GitHub Actions spezifische Checks
+echo "10. GitHub Actions Kompatibilität:"
+if grep -q "lfs: false" .github/workflows/release*.yml 2>/dev/null; then
+    echo "✅ Workflow verwendet manuellen LFS-Download"
+else
+    echo "⚠️  Workflow könnte LFS-Probleme haben"
+fi
+
+if grep -q "GIT_LFS_SKIP_SMUDGE=0" .github/workflows/release*.yml 2>/dev/null; then
+    echo "✅ Workflow setzt GIT_LFS_SKIP_SMUDGE=0"
+else
+    echo "⚠️  Workflow setzt möglicherweise nicht GIT_LFS_SKIP_SMUDGE=0"
+fi
 echo
 
 echo "=== Test abgeschlossen ==="

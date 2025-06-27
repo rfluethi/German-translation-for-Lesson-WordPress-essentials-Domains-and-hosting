@@ -23,6 +23,7 @@ jobs:
         run: |
           git lfs pull
           git lfs fetch --all
+          git lfs checkout
 
       # Debug step: Show directory structure for troubleshooting
       - name: List repository structure
@@ -52,9 +53,18 @@ jobs:
           echo "Checking file size and content for media/video/video-v-0-02-00.mp4:"
           ls -lh media/video/video-v-0-02-00.mp4 || echo "File not found"
           file media/video/video-v-0-02-00.mp4 || echo "File not found"
-          head -5 media/video/video-v-0-02-00.mp4 || echo "File not found"
+          echo "\nChecking if file is a pointer or actual file:"
+          head -5 media/video/video-v-0-02-00.mp4 | cat || echo "File not found"
           echo "\nListing all files in media/video:"
           ls -lh media/video/
+
+      # Force download of all LFS files before zipping
+      - name: Force download all LFS files
+        run: |
+          echo "Forcing download of all LFS files..."
+          git lfs pull --include="*" --exclude=""
+          git lfs checkout --force
+          echo "LFS files downloaded and checked out"
 
       # Create docs ZIP with better error handling
       - name: Create docs ZIP
@@ -78,6 +88,8 @@ jobs:
           if [ -d "src" ]; then
             if [ "$(ls -A src)" ]; then
               echo "Creating ZIP for assets (including LFS files)..."
+              # Ensure all LFS files are downloaded before zipping
+              git lfs pull --include="src/**" --exclude=""
               zip -r zip/tutorial-assets.zip src
               echo "Assets ZIP created with LFS files included"
             else
@@ -93,6 +105,8 @@ jobs:
           if [ -d "media/video" ]; then
             if [ "$(ls -A media/video)" ]; then
               echo "Creating ZIP for videos (including LFS files)..."
+              # Ensure all LFS files are downloaded before zipping
+              git lfs pull --include="media/**" --exclude=""
               zip -r zip/tutorial-videos.zip media/video
               echo "Videos ZIP created with LFS files included"
             else
@@ -106,6 +120,8 @@ jobs:
       - name: Create complete project ZIP
         run: |
           echo "Creating complete project ZIP with all LFS files..."
+          # Ensure all LFS files are downloaded before zipping
+          git lfs pull --include="*" --exclude=""
           zip -r zip/tutorial-complete.zip . -x '*.git*' 'zip/*'
           echo "Complete project ZIP created with all LFS files included"
 
@@ -117,6 +133,16 @@ jobs:
           echo "\nZIP file sizes:"
           for zipfile in zip/*.zip; do
             echo "$(basename "$zipfile"): $(du -h "$zipfile" | cut -f1)"
+          done
+
+      # Debug step: Check ZIP contents for LFS files
+      - name: Check ZIP contents for LFS files
+        run: |
+          echo "Checking ZIP contents for LFS files..."
+          for zipfile in zip/*.zip; do
+            echo "\n=== Contents of $(basename "$zipfile") ==="
+            unzip -l "$zipfile" | grep -E "\.(mp4|wav|m4a|cmproj|moho)" | head -10
+            echo "Total size: $(du -h "$zipfile" | cut -f1)"
           done
 
       # Upload ZIP files when triggered by a release

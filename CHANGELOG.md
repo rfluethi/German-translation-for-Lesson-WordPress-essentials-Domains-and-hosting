@@ -12,8 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Git LFS (Large File Storage) integration for large files
 - Automatic management of video and audio files with Git LFS
 - Extended release pipeline with LFS support
-- New ZIP files in releases: tutorial-complete.zip with all LFS files
-- Documentation for Git LFS setup (GIT_LFS_SETUP.md)
+- **New ZIP files in releases with complete LFS files:**
+  - **tutorial-complete.zip** - Complete project with all large files (recommended)
+  - **tutorial-assets.zip** - Source assets with project files
+  - **tutorial-videos.zip** - Video files with full LFS content
+  - **tutorial-docs.zip** - Documentation only
+- **Important:** Use tutorial-complete.zip instead of "Source code" for complete files
 
 ### Changed
 

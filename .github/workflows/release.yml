@@ -68,8 +68,7 @@ jobs:
           if [ -d "src" ]; then
             if [ "$(ls -A src)" ]; then
               echo "Creating ZIP for assets (including LFS files)..."
-              # Use git archive to include LFS files properly
-              git archive --format=zip --output=zip/tutorial-assets.zip HEAD src/
+              zip -r zip/tutorial-assets.zip src
               echo "Assets ZIP created with LFS files included"
             else
               echo "Source directory is empty. Skipping ZIP creation."
@@ -84,8 +83,7 @@ jobs:
           if [ -d "media/video" ]; then
             if [ "$(ls -A media/video)" ]; then
               echo "Creating ZIP for videos (including LFS files)..."
-              # Use git archive to include LFS files properly
-              git archive --format=zip --output=zip/tutorial-videos.zip HEAD media/video/
+              zip -r zip/tutorial-videos.zip media/video
               echo "Videos ZIP created with LFS files included"
             else
               echo "Video directory is empty. Skipping ZIP creation."
@@ -98,7 +96,7 @@ jobs:
       - name: Create complete project ZIP
         run: |
           echo "Creating complete project ZIP with all LFS files..."
-          git archive --format=zip --output=zip/tutorial-complete.zip HEAD
+          zip -r zip/tutorial-complete.zip . -x '*.git*' 'zip/*'
           echo "Complete project ZIP created with all LFS files included"
 
       # Debug step: Show ZIP contents and sizes

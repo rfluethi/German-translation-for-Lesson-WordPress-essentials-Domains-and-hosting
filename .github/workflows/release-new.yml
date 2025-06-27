@@ -1,0 +1,201 @@
+name: Create and upload ZIP files for release with LFS
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  packages: write
+  actions: read
+
+jobs:
+  zip_and_upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository with basic setup
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Critical: Setup Git LFS with proper GitHub credentials
+      - name: Setup Git LFS with GitHub authentication
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "=== Setting up Git LFS authentication ==="
+          
+          # Configure git with GitHub token
+          git config --global credential.helper store
+          echo "https://x-access-token:${GITHUB_TOKEN}@github.com" > ~/.git-credentials
+          
+          # Initialize Git LFS
+          git lfs install --system
+          
+          echo "Git LFS version: $(git lfs version)"
+          
+          # Show LFS environment for debugging
+          echo "=== LFS Environment ==="
+          git lfs env | head -20
+
+      # Download all LFS files using GitHub API approach
+      - name: Download LFS files via GitHub API
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "=== Downloading LFS files via GitHub API ==="
+          
+          # Get repository info
+          OWNER="${GITHUB_REPOSITORY%%/*}"
+          REPO="${GITHUB_REPOSITORY##*/}"
+          
+          echo "Repository: $OWNER/$REPO"
+          echo "SHA: $GITHUB_SHA"
+          
+          # List all LFS files in the repository
+          echo "=== LFS files to download ==="
+          git lfs ls-files --long || echo "No LFS files found via git lfs ls-files"
+          
+          # Alternative: Use git lfs pull with authentication
+          echo "=== Attempting LFS pull with authentication ==="
+          GIT_LFS_SKIP_SMUDGE=0 git lfs pull --include="*"
+          
+          echo "=== LFS pull completed ==="
+
+      # Verify LFS files are properly downloaded
+      - name: Verify LFS files
+        run: |
+          echo "=== Verifying LFS files ==="
+          
+          # Check critical large files
+          critical_files=(
+            "media/video/video-v-0-02-00.mp4"
+          )
+          
+          for file in "${critical_files[@]}"; do
+            if [ -f "$file" ]; then
+              size=$(stat -c%s "$file" 2>/dev/null || stat -f%z "$file")
+              echo "$file: $size bytes"
+              
+              # Check if it's a pointer file (LFS pointer files are small text files)
+              if [ "$size" -lt 1000 ]; then
+                echo "ERROR: $file appears to be a pointer file (size: $size bytes)"
+                echo "Content preview:"
+                head -5 "$file"
+                
+                # Try to download this specific file
+                echo "Attempting to download $file specifically..."
+                git lfs pull --include="$file"
+                
+                # Check size again
+                new_size=$(stat -c%s "$file" 2>/dev/null || stat -f%z "$file")
+                echo "New size after pull: $new_size bytes"
+                
+                if [ "$new_size" -lt 1000 ]; then
+                  echo "CRITICAL ERROR: Could not download $file properly"
+                  exit 1
+                fi
+              else
+                echo "SUCCESS: $file downloaded correctly ($size bytes)"
+              fi
+            else
+              echo "WARNING: $file not found"
+            fi
+          done
+
+      # Create docs ZIP
+      - name: Create docs ZIP
+        run: |
+          mkdir -p zip
+          if [ -d "docs" ] && [ "$(ls -A docs)" ]; then
+            echo "Creating docs ZIP..."
+            zip -r zip/tutorial-docs.zip docs
+            echo "Docs ZIP size: $(du -h zip/tutorial-docs.zip | cut -f1)"
+          else
+            echo "Docs directory empty or not found"
+          fi
+
+      # Create assets ZIP with LFS validation
+      - name: Create assets ZIP
+        run: |
+          if [ -d "src" ] && [ "$(ls -A src)" ]; then
+            echo "Creating assets ZIP with LFS files..."
+            
+            # Final check for LFS files in src
+            echo "Checking for large files in src directory:"
+            find src -type f -size +1M | while read file; do
+              size=$(du -h "$file" | cut -f1)
+              echo "Large file: $file ($size)"
+            done
+            
+            zip -r zip/tutorial-assets.zip src
+            echo "Assets ZIP size: $(du -h zip/tutorial-assets.zip | cut -f1)"
+          else
+            echo "Source directory empty or not found"
+          fi
+
+      # Create videos ZIP with critical validation
+      - name: Create videos ZIP
+        run: |
+          if [ -d "media/video" ] && [ "$(ls -A media/video)" ]; then
+            echo "Creating videos ZIP..."
+            
+            # Critical validation for video files
+            if [ -f "media/video/video-v-0-02-00.mp4" ]; then
+              size=$(stat -c%s "media/video/video-v-0-02-00.mp4" 2>/dev/null || stat -f%z "media/video/video-v-0-02-00.mp4")
+              echo "Main video file size: $size bytes"
+              
+              if [ "$size" -lt 1000000 ]; then  # Less than 1MB = likely pointer
+                echo "CRITICAL: Main video file is too small - likely a pointer file!"
+                echo "Content:"
+                head -10 "media/video/video-v-0-02-00.mp4"
+                exit 1
+              fi
+            fi
+            
+            zip -r zip/tutorial-videos.zip media/video
+            echo "Videos ZIP size: $(du -h zip/tutorial-videos.zip | cut -f1)"
+          else
+            echo "Video directory empty or not found"
+          fi
+
+      # Create complete project ZIP
+      - name: Create complete project ZIP
+        run: |
+          echo "Creating complete project ZIP..."
+          zip -r zip/tutorial-complete.zip . -x '*.git*' 'zip/*' '.DS_Store' '*/.DS_Store'
+          echo "Complete ZIP size: $(du -h zip/tutorial-complete.zip | cut -f1)"
+
+      # Show final ZIP information
+      - name: Show ZIP file information
+        run: |
+          echo "=== Final ZIP files ==="
+          ls -lh zip/
+          
+          echo -e "\n=== ZIP file contents verification ==="
+          for zipfile in zip/*.zip; do
+            echo "=== Contents of $(basename "$zipfile") ==="
+            unzip -l "$zipfile" | grep -E "\.(mp4|wav|m4a)" | head -5
+            echo "File count: $(unzip -l "$zipfile" | tail -1 | awk '{print $2}')"
+            echo "Total size: $(du -h "$zipfile" | cut -f1)"
+            echo ""
+          done
+
+      # Upload to release
+      - name: Upload to Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: zip/*.zip
+          fail_on_unmatched_files: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Upload as artifacts for manual testing
+      - name: Upload Artifacts
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: tutorial-zips
+          path: zip/*.zip

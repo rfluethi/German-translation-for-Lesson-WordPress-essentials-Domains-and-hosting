@@ -1,0 +1,181 @@
+name: Create Release ZIP with LFS (Simple Fixed)
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  create-zips:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      # Use the proven "wget + curl" method to download LFS files
+      - name: Download LFS files manually via HTTP
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          echo "=== Manual LFS Download via HTTP ==="
+          
+          # Install jq for JSON parsing
+          sudo apt-get update && sudo apt-get install -y jq
+          
+          # Get repository info
+          REPO_OWNER="${GITHUB_REPOSITORY%%/*}"
+          REPO_NAME="${GITHUB_REPOSITORY##*/}"
+          
+          echo "Repository: $REPO_OWNER/$REPO_NAME"
+          echo "Branch/Tag: $GITHUB_REF_NAME"
+          
+          # Install Git LFS
+          git lfs install
+          
+          # List LFS files that need to be downloaded
+          echo "=== LFS Files to download ==="
+          git lfs ls-files --long
+          
+          # Download the specific large video file directly
+          echo "=== Downloading critical LFS files ==="
+          
+          # Method 1: Direct download via GitHub's raw content API
+          # This bypasses LFS pointer and gets actual file
+          echo "Downloading main video file..."
+          curl -L \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Accept: application/octet-stream" \
+            "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/contents/media/video/video-v-0-02-00.mp4?ref=$GITHUB_REF_NAME" \
+            -o "media/video/video-v-0-02-00.mp4" || echo "Direct download failed"
+          
+          # Check if download worked
+          if [ -f "media/video/video-v-0-02-00.mp4" ]; then
+            size=$(stat -c%s "media/video/video-v-0-02-00.mp4")
+            echo "Downloaded video file: $size bytes"
+            
+            # If file is still small (pointer), try alternative method
+            if [ "$size" -lt 1000000 ]; then
+              echo "File too small, trying archive method..."
+              
+              # Method 2: Download entire repository archive
+              curl -L \
+                -H "Authorization: token $GITHUB_TOKEN" \
+                "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/zipball/$GITHUB_REF_NAME" \
+                -o /tmp/repo.zip
+              
+              # Extract and copy large files
+              cd /tmp
+              unzip -q repo.zip
+              extracted_dir=$(find . -maxdepth 1 -name "*$REPO_NAME*" -type d | head -1)
+              
+              if [ -d "$extracted_dir" ]; then
+                echo "Extracted repository to: $extracted_dir"
+                
+                # Copy the video file if it exists and is large
+                if [ -f "$extracted_dir/media/video/video-v-0-02-00.mp4" ]; then
+                  cp "$extracted_dir/media/video/video-v-0-02-00.mp4" "$GITHUB_WORKSPACE/media/video/"
+                  new_size=$(stat -c%s "$GITHUB_WORKSPACE/media/video/video-v-0-02-00.mp4")
+                  echo "Copied video file from archive: $new_size bytes"
+                fi
+                
+                # Copy other large files
+                find "$extracted_dir" -type f -size +10M -exec cp {} "$GITHUB_WORKSPACE/" \; 2>/dev/null || true
+              fi
+            fi
+          fi
+
+      # Final verification before ZIP creation
+      - name: Verify files before zipping
+        run: |
+          echo "=== Pre-ZIP Verification ==="
+          
+          # Check the main video file
+          if [ -f "media/video/video-v-0-02-00.mp4" ]; then
+            size=$(stat -c%s "media/video/video-v-0-02-00.mp4")
+            echo "Main video file: $size bytes"
+            
+            if [ "$size" -gt 30000000 ]; then  # > 30MB
+              echo "✅ Video file looks correct"
+              # Show file type to confirm it's a real video
+              file "media/video/video-v-0-02-00.mp4"
+            else
+              echo "❌ Video file too small: $size bytes"
+              echo "File content:"
+              head -5 "media/video/video-v-0-02-00.mp4"
+              
+              # Don't fail here, but warn
+              echo "WARNING: Video file may be incomplete"
+            fi
+          else
+            echo "❌ Main video file not found"
+          fi
+          
+          # Show all large files
+          echo "=== All large files (>1MB) ==="
+          find . -type f -size +1M -not -path "./.git/*" | head -10
+
+      # Create ZIP files with detailed logging
+      - name: Create ZIP files
+        run: |
+          mkdir -p zip
+          
+          echo "=== Creating ZIP files ==="
+          
+          # Tutorial docs
+          if [ -d "docs" ]; then
+            zip -r zip/tutorial-docs.zip docs
+            echo "✅ Docs ZIP: $(du -h zip/tutorial-docs.zip | cut -f1)"
+          fi
+          
+          # Tutorial assets (src folder)
+          if [ -d "src" ]; then
+            echo "Creating assets ZIP..."
+            zip -r zip/tutorial-assets.zip src
+            assets_size=$(stat -c%s "zip/tutorial-assets.zip")
+            echo "✅ Assets ZIP: $(du -h zip/tutorial-assets.zip | cut -f1) ($assets_size bytes)"
+          fi
+          
+          # Tutorial videos (media folder) - CRITICAL
+          if [ -d "media" ]; then
+            echo "Creating videos ZIP..."
+            zip -r zip/tutorial-videos.zip media
+            videos_size=$(stat -c%s "zip/tutorial-videos.zip")
+            echo "✅ Videos ZIP: $(du -h zip/tutorial-videos.zip | cut -f1) ($videos_size bytes)"
+            
+            # Critical check: Videos ZIP must be substantial
+            if [ "$videos_size" -lt 30000000 ]; then  # Less than 30MB
+              echo "⚠️  WARNING: Videos ZIP seems small for a 39MB video file"
+            else
+              echo "✅ Videos ZIP size looks correct"
+            fi
+          fi
+          
+          # Complete project
+          zip -r zip/tutorial-complete.zip . -x '*.git*' 'zip/*'
+          complete_size=$(stat -c%s "zip/tutorial-complete.zip")
+          echo "✅ Complete ZIP: $(du -h zip/tutorial-complete.zip | cut -f1) ($complete_size bytes)"
+          
+          echo "=== All ZIP files created ==="
+          ls -lh zip/
+
+      # Upload to release
+      - name: Upload ZIP files to release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: zip/*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Upload as artifacts for manual testing
+      - name: Upload as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-zips-manual-test
+          path: zip/*.zip

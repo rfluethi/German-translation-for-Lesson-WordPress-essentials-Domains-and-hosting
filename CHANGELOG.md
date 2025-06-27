@@ -1,4 +1,3 @@
-
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -7,6 +6,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+### Added
+- Git LFS (Large File Storage) Integration für große Dateien
+- Automatische Verwaltung von Video- und Audiodateien mit Git LFS
+- Erweiterte Release-Pipeline mit LFS-Unterstützung
+- Neue ZIP-Dateien in Releases: tutorial-complete.zip mit allen LFS-Dateien
+- Dokumentation für Git LFS Setup (GIT_LFS_SETUP.md)
+
+### Changed
+- Release-Skript (.github/workflows/release.yml) erweitert um LFS-Unterstützung
+- .gitattributes konfiguriert für automatische LFS-Verwaltung
+- Verbesserte ZIP-Erstellung mit git archive für LFS-Dateien
+
+### Technical Details
+- Große Dateien werden automatisch mit Git LFS verwaltet:
+  - media/video/video-v-0-02-00.mp4 (39MB)
+  - src/assets/video/video-v-0-02-00.cmproj/ (225MB)
+  - Alle MP4-Dateien in src/assets/animation/
+  - Alle WAV- und M4A-Audiodateien
+  - Projektdateien (.cmproj, .moho)
+  - Design-Dateien (.psd, .ai, .afdesign)
 
 ## [0.2.00] - 2025-06-26
 

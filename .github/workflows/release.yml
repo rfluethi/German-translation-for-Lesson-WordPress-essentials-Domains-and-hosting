@@ -13,8 +13,16 @@ jobs:
   zip_and_upload:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout repository with LFS
         uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      # Ensure all LFS files are downloaded
+      - name: Download all LFS files
+        run: |
+          git lfs pull
+          git lfs fetch --all
 
       # Debug step: Show directory structure for troubleshooting
       - name: List repository structure
@@ -23,6 +31,20 @@ jobs:
           ls -la
           echo "\nDocs directory content (if exists):"
           ls -la docs || echo "docs directory not found"
+          echo "\nMedia directory content:"
+          ls -la media/video || echo "media/video directory not found"
+          echo "\nSource assets directory content:"
+          ls -la src/assets/video || echo "src/assets/video directory not found"
+
+      # Verify LFS files are downloaded
+      - name: Verify LFS files
+        run: |
+          echo "Checking LFS files..."
+          git lfs ls-files
+          echo "\nChecking if large video file exists:"
+          ls -lh media/video/video-v-0-02-00.mp4 || echo "Large video file not found"
+          echo "\nChecking if cmproj directory exists:"
+          ls -la src/assets/video/video-v-0-02-00.cmproj/ || echo "cmproj directory not found"
 
       # Create docs ZIP with better error handling
       - name: Create docs ZIP
@@ -40,13 +62,15 @@ jobs:
             echo "Docs directory does not exist. Skipping ZIP creation."
           fi
 
-      # Create assets ZIP with better error handling
+      # Create assets ZIP with LFS support
       - name: Create assets ZIP
         run: |
           if [ -d "src" ]; then
             if [ "$(ls -A src)" ]; then
-              echo "Creating ZIP for assets..."
-              zip -r zip/tutorial-assets.zip src
+              echo "Creating ZIP for assets (including LFS files)..."
+              # Use git archive to include LFS files properly
+              git archive --format=zip --output=zip/tutorial-assets.zip HEAD src/
+              echo "Assets ZIP created with LFS files included"
             else
               echo "Source directory is empty. Skipping ZIP creation."
             fi
@@ -54,13 +78,15 @@ jobs:
             echo "Source directory does not exist. Skipping ZIP creation."
           fi
 
-      # Create videos ZIP with better error handling
+      # Create videos ZIP with LFS support
       - name: Create videos ZIP
         run: |
           if [ -d "media/video" ]; then
             if [ "$(ls -A media/video)" ]; then
-              echo "Creating ZIP for videos..."
-              zip -r zip/tutorial-videos.zip media/video
+              echo "Creating ZIP for videos (including LFS files)..."
+              # Use git archive to include LFS files properly
+              git archive --format=zip --output=zip/tutorial-videos.zip HEAD media/video/
+              echo "Videos ZIP created with LFS files included"
             else
               echo "Video directory is empty. Skipping ZIP creation."
             fi
@@ -68,11 +94,22 @@ jobs:
             echo "Video directory does not exist. Skipping ZIP creation."
           fi
 
-      # Debug step: Show ZIP contents
+      # Create complete project ZIP with all LFS files
+      - name: Create complete project ZIP
+        run: |
+          echo "Creating complete project ZIP with all LFS files..."
+          git archive --format=zip --output=zip/tutorial-complete.zip HEAD
+          echo "Complete project ZIP created with all LFS files included"
+
+      # Debug step: Show ZIP contents and sizes
       - name: List ZIP files
         run: |
           echo "ZIP directory content:"
-          ls -la zip/
+          ls -lh zip/
+          echo "\nZIP file sizes:"
+          for zipfile in zip/*.zip; do
+            echo "$(basename "$zipfile"): $(du -h "$zipfile" | cut -f1)"
+          done
 
       # Upload ZIP files when triggered by a release
       - name: Upload to Release

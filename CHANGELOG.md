@@ -8,25 +8,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Git LFS (Large File Storage) Integration für große Dateien
-- Automatische Verwaltung von Video- und Audiodateien mit Git LFS
-- Erweiterte Release-Pipeline mit LFS-Unterstützung
-- Neue ZIP-Dateien in Releases: tutorial-complete.zip mit allen LFS-Dateien
-- Dokumentation für Git LFS Setup (GIT_LFS_SETUP.md)
+
+- Git LFS (Large File Storage) integration for large files
+- Automatic management of video and audio files with Git LFS
+- Extended release pipeline with LFS support
+- New ZIP files in releases: tutorial-complete.zip with all LFS files
+- Documentation for Git LFS setup (GIT_LFS_SETUP.md)
 
 ### Changed
-- Release-Skript (.github/workflows/release.yml) erweitert um LFS-Unterstützung
-- .gitattributes konfiguriert für automatische LFS-Verwaltung
-- Verbesserte ZIP-Erstellung mit git archive für LFS-Dateien
+
+- Release script (.github/workflows/release.yml) extended with LFS support
+- .gitattributes configured for automatic LFS management
+- Improved ZIP creation with git archive for LFS files
 
 ### Technical Details
-- Große Dateien werden automatisch mit Git LFS verwaltet:
+
+- Large files are automatically managed with Git LFS:
   - media/video/video-v-0-02-00.mp4 (39MB)
   - src/assets/video/video-v-0-02-00.cmproj/ (225MB)
-  - Alle MP4-Dateien in src/assets/animation/
-  - Alle WAV- und M4A-Audiodateien
-  - Projektdateien (.cmproj, .moho)
-  - Design-Dateien (.psd, .ai, .afdesign)
+  - All MP4 files in src/assets/animation/
+  - All WAV and M4A audio files
+  - Project files (.cmproj, .moho)
+  - Design files (.psd, .ai, .afdesign)
 
 ## [0.2.00] - 2025-06-26
 

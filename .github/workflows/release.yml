@@ -46,6 +46,16 @@ jobs:
           echo "\nChecking if cmproj directory exists:"
           ls -la src/assets/video/video-v-0-02-00.cmproj/ || echo "cmproj directory not found"
 
+      # Check LFS file size and content before zipping
+      - name: Check LFS file size and content
+        run: |
+          echo "Checking file size and content for media/video/video-v-0-02-00.mp4:"
+          ls -lh media/video/video-v-0-02-00.mp4 || echo "File not found"
+          file media/video/video-v-0-02-00.mp4 || echo "File not found"
+          head -5 media/video/video-v-0-02-00.mp4 || echo "File not found"
+          echo "\nListing all files in media/video:"
+          ls -lh media/video/
+
       # Create docs ZIP with better error handling
       - name: Create docs ZIP
         run: |

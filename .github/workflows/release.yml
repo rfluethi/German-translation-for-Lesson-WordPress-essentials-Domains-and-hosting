@@ -17,108 +17,20 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          lfs: true
           
-      # Critical: Use a different approach - download LFS files via GitHub API
-      - name: Setup Git LFS and download via API
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Setup Git LFS properly  
+      - name: Setup Git LFS
         run: |
-          set -e
-          echo "=== Setting up Git LFS ==="
-          
-          # Install Git LFS and jq
-          sudo apt-get update
-          sudo apt-get install -y jq
-          curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-          sudo apt-get install git-lfs
           git lfs install
-          
           echo "Git LFS version: $(git lfs version)"
-          
-          # Get repository information
-          REPO_OWNER="${GITHUB_REPOSITORY%%/*}"
-          REPO_NAME="${GITHUB_REPOSITORY##*/}"
-          
-          echo "Repository: $REPO_OWNER/$REPO_NAME"
-          
-          # Download LFS files using GitHub's LFS API
-          echo "=== Downloading LFS files via GitHub API ==="
-          
-          # Get all LFS objects
-          git lfs ls-files --long | while IFS= read -r line; do
-            if [[ $line == *" * "* ]]; then
-              # Extract OID and filename
-              oid=$(echo "$line" | awk '{print $1}')
-              filename=$(echo "$line" | awk '{print $3}')
-              
-              echo "Downloading LFS file: $filename (OID: $oid)"
-              
-              # Create directory if needed
-              mkdir -p "$(dirname "$filename")"
-              
-              # Download via GitHub LFS API
-              echo "Trying to download $filename via LFS API..."
-              
-              # GitHub LFS Batch API request
-              batch_response=$(curl -s \
-                -H "Accept: application/vnd.git-lfs+json" \
-                -H "Authorization: token $GITHUB_TOKEN" \
-                -H "Content-Type: application/vnd.git-lfs+json" \
-                -d "{\"operation\":\"download\",\"transfers\":[\"basic\"],\"objects\":[{\"oid\":\"$oid\",\"size\":1}]}" \
-                "https://github.com/$REPO_OWNER/$REPO_NAME.git/info/lfs/objects/batch")
-              
-              # Extract download URL
-              download_url=$(echo "$batch_response" | jq -r '.objects[0].actions.download.href' 2>/dev/null || echo "")
-              
-              if [ -n "$download_url" ] && [ "$download_url" != "null" ]; then
-                echo "Got download URL: $download_url"
-                curl -L "$download_url" -o "$filename"
-              else
-                echo "Could not get download URL for $filename"
-                # Fallback: try direct GitHub API
-                curl -L \
-                  -H "Authorization: token $GITHUB_TOKEN" \
-                  -H "Accept: application/octet-stream" \
-                  "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/contents/$filename" \
-                  -o "$filename" 2>/dev/null || echo "Direct API also failed"
-              fi
-              
-              if [ -f "$filename" ]; then
-                size=$(stat -c%s "$filename" 2>/dev/null || stat -f%z "$filename")
-                echo "Downloaded: $filename ($size bytes)"
-              else
-                echo "Failed to download: $filename"
-              fi
-            fi
-          done
+          echo "=== LFS files in repository ==="
+          git lfs ls-files --long
+          echo "=== Pulling LFS files ==="
+          git lfs pull
+          echo "=== LFS pull completed ==="
 
-      # Alternative: Use git archive approach for LFS files
-      - name: Alternative LFS download method
-        if: failure()
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "=== Alternative method: Using git archive ==="
-          
-          # This approach uses GitHub's archive API which includes LFS files
-          curl -L \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer $GITHUB_TOKEN" \
-            "https://api.github.com/repos/$GITHUB_REPOSITORY/tarball/$GITHUB_REF_NAME" \
-            -o /tmp/repo-with-lfs.tar.gz
-          
-          # Extract to temporary directory
-          mkdir -p /tmp/repo-extract
-          tar -xzf /tmp/repo-with-lfs.tar.gz -C /tmp/repo-extract --strip-components=1
-          
-          # Copy LFS files back
-          if [ -f "/tmp/repo-extract/media/video/video-v-0-02-00.mp4" ]; then
-            cp -r /tmp/repo-extract/media/* media/ 2>/dev/null || true
-            cp -r /tmp/repo-extract/src/* src/ 2>/dev/null || true
-            echo "Copied files from archive"
-          fi
-
-      # Final verification
+      # Verify LFS files are downloaded
       - name: Verify LFS files are downloaded
         run: |
           echo "=== Final verification ==="
@@ -137,19 +49,7 @@ jobs:
                 echo "ERROR: $file is too small ($size bytes) - likely still a pointer"
                 echo "File content:"
                 head -3 "$file"
-                
-                # Last resort: try to find the actual file in .git/lfs
-                if [ -d ".git/lfs/objects" ]; then
-                  echo "Searching in .git/lfs/objects..."
-                  find .git/lfs/objects -type f -size +10M | head -1 | xargs -I {} cp {} "$file" || true
-                fi
-                
-                # Check again
-                new_size=$(stat -c%s "$file" 2>/dev/null || stat -f%z "$file")
-                if [ "$new_size" -lt 10000000 ]; then
-                  echo "CRITICAL: Could not fix $file"
-                  exit 1
-                fi
+                exit 1
               else
                 echo "SUCCESS: $file downloaded correctly"
               fi

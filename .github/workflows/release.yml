@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   packages: write
+  actions: read
 
 jobs:
   zip_and_upload:
@@ -17,13 +18,33 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-      # Ensure all LFS files are downloaded
-      - name: Download all LFS files
+      # Install Git LFS and ensure all files are downloaded
+      - name: Setup Git LFS and download all files
         run: |
-          git lfs pull
+          # Install git-lfs (should already be available on ubuntu-latest)
+          git lfs version
+          
+          # Configure git-lfs
+          git lfs install
+          
+          # Fetch all LFS objects from all refs
           git lfs fetch --all
+          
+          # Pull all LFS files to working directory
+          git lfs pull
+          
+          # Ensure all LFS files are checked out
           git lfs checkout
+          
+          # Verify LFS setup
+          echo "Git LFS status:"
+          git lfs env
+          
+          echo "LFS files tracked:"
+          git lfs track
 
       # Debug step: Show directory structure for troubleshooting
       - name: List repository structure
@@ -37,15 +58,39 @@ jobs:
           echo "\nSource assets directory content:"
           ls -la src/assets/video || echo "src/assets/video directory not found"
 
-      # Verify LFS files are downloaded
+      # Verify LFS files are properly downloaded
       - name: Verify LFS files
         run: |
-          echo "Checking LFS files..."
+          echo "=== LFS files status ==="
           git lfs ls-files
-          echo "\nChecking if large video file exists:"
-          ls -lh media/video/video-v-0-02-00.mp4 || echo "Large video file not found"
-          echo "\nChecking if cmproj directory exists:"
-          ls -la src/assets/video/video-v-0-02-00.cmproj/ || echo "cmproj directory not found"
+          
+          echo -e "\n=== Checking specific large files ==="
+          echo "Large video file:"
+          if [ -f "media/video/video-v-0-02-00.mp4" ]; then
+            ls -lh media/video/video-v-0-02-00.mp4
+            echo "File type: $(file media/video/video-v-0-02-00.mp4)"
+            echo "File size: $(du -h media/video/video-v-0-02-00.mp4)"
+            # Check if it's a pointer file or actual content
+            if file media/video/video-v-0-02-00.mp4 | grep -q "text"; then
+              echo "WARNING: This appears to be a pointer file!"
+              echo "Content preview:"
+              head -5 media/video/video-v-0-02-00.mp4
+            else
+              echo "SUCCESS: This appears to be the actual video file!"
+            fi
+          else
+            echo "ERROR: media/video/video-v-0-02-00.mp4 not found"
+          fi
+          
+          echo -e "\n=== Checking cmproj directory ==="
+          if [ -d "src/assets/video/video-v-0-02-00.cmproj" ]; then
+            echo "cmproj directory contents:"
+            ls -la src/assets/video/video-v-0-02-00.cmproj/
+            echo "Total size of cmproj directory:"
+            du -sh src/assets/video/video-v-0-02-00.cmproj/
+          else
+            echo "ERROR: src/assets/video/video-v-0-02-00.cmproj directory not found"
+          fi
 
       # Check LFS file size and content before zipping
       - name: Check LFS file size and content
@@ -58,13 +103,38 @@ jobs:
           echo "\nListing all files in media/video:"
           ls -lh media/video/
 
-      # Force download of all LFS files before zipping
+      # Force re-download of all LFS files if needed
       - name: Force download all LFS files
         run: |
-          echo "Forcing download of all LFS files..."
-          git lfs pull --include="*" --exclude=""
-          git lfs checkout --force
-          echo "LFS files downloaded and checked out"
+          echo "=== Force downloading all LFS files ==="
+          
+          # Remove any existing LFS objects and re-download
+          git lfs fetch --all --force
+          
+          # Pull all LFS files for current branch
+          git lfs pull --include="*"
+          
+          # Checkout all LFS files
+          git lfs checkout
+          
+          echo "=== Verifying critical files after force download ==="
+          # Check if the main video file is properly downloaded
+          if [ -f "media/video/video-v-0-02-00.mp4" ]; then
+            file_type=$(file media/video/video-v-0-02-00.mp4)
+            file_size=$(stat -f%z media/video/video-v-0-02-00.mp4 2>/dev/null || stat -c%s media/video/video-v-0-02-00.mp4)
+            
+            echo "Video file type: $file_type"
+            echo "Video file size: $file_size bytes"
+            
+            if [ "$file_size" -lt 1000 ]; then
+              echo "ERROR: File too small, likely a pointer file"
+              echo "Content:"
+              cat media/video/video-v-0-02-00.mp4
+              exit 1
+            else
+              echo "SUCCESS: Video file appears to be downloaded correctly"
+            fi
+          fi
 
       # Create docs ZIP with better error handling
       - name: Create docs ZIP
@@ -88,10 +158,25 @@ jobs:
           if [ -d "src" ]; then
             if [ "$(ls -A src)" ]; then
               echo "Creating ZIP for assets (including LFS files)..."
-              # Ensure all LFS files are downloaded before zipping
-              git lfs pull --include="src/**" --exclude=""
+              
+              # Verify LFS files before zipping
+              echo "Verifying LFS files in src directory:"
+              find src -name "*.mp4" -o -name "*.cmproj" -o -name "*.wav" -o -name "*.m4a" | while read file; do
+                if [ -f "$file" ]; then
+                  size=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file")
+                  echo "$file: $size bytes"
+                  if [ "$size" -lt 1000 ]; then
+                    echo "WARNING: $file might be a pointer file (size: $size bytes)"
+                  fi
+                fi
+              done
+              
+              # Create the ZIP file
               zip -r zip/tutorial-assets.zip src
               echo "Assets ZIP created with LFS files included"
+              
+              # Verify ZIP contents
+              echo "Assets ZIP file size: $(du -h zip/tutorial-assets.zip | cut -f1)"
             else
               echo "Source directory is empty. Skipping ZIP creation."
             fi
@@ -105,10 +190,28 @@ jobs:
           if [ -d "media/video" ]; then
             if [ "$(ls -A media/video)" ]; then
               echo "Creating ZIP for videos (including LFS files)..."
-              # Ensure all LFS files are downloaded before zipping
-              git lfs pull --include="media/**" --exclude=""
+              
+              # Verify LFS files before zipping
+              echo "Verifying LFS files in media/video directory:"
+              find media/video -name "*.mp4" -o -name "*.mov" -o -name "*.avi" | while read file; do
+                if [ -f "$file" ]; then
+                  size=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file")
+                  echo "$file: $size bytes"
+                  if [ "$size" -lt 1000 ]; then
+                    echo "ERROR: $file appears to be a pointer file (size: $size bytes)"
+                    echo "Content:"
+                    head -3 "$file"
+                    exit 1
+                  fi
+                fi
+              done
+              
+              # Create the ZIP file
               zip -r zip/tutorial-videos.zip media/video
               echo "Videos ZIP created with LFS files included"
+              
+              # Verify ZIP contents
+              echo "Videos ZIP file size: $(du -h zip/tutorial-videos.zip | cut -f1)"
             else
               echo "Video directory is empty. Skipping ZIP creation."
             fi
@@ -120,10 +223,32 @@ jobs:
       - name: Create complete project ZIP
         run: |
           echo "Creating complete project ZIP with all LFS files..."
-          # Ensure all LFS files are downloaded before zipping
-          git lfs pull --include="*" --exclude=""
-          zip -r zip/tutorial-complete.zip . -x '*.git*' 'zip/*'
+          
+          # Final verification of critical LFS files
+          echo "=== Final verification before creating complete ZIP ==="
+          critical_files=(
+            "media/video/video-v-0-02-00.mp4"
+          )
+          
+          for file in "${critical_files[@]}"; do
+            if [ -f "$file" ]; then
+              size=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file")
+              echo "$file: $size bytes"
+              if [ "$size" -lt 1000 ]; then
+                echo "ERROR: $file is likely a pointer file!"
+                exit 1
+              fi
+            else
+              echo "WARNING: $file not found"
+            fi
+          done
+          
+          # Create complete ZIP excluding git and existing zip files
+          zip -r zip/tutorial-complete.zip . -x '*.git*' 'zip/*' '.DS_Store' '*/.DS_Store'
           echo "Complete project ZIP created with all LFS files included"
+          
+          # Show final ZIP size
+          echo "Complete ZIP file size: $(du -h zip/tutorial-complete.zip | cut -f1)"
 
       # Debug step: Show ZIP contents and sizes
       - name: List ZIP files

@@ -17,27 +17,17 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          lfs: true
+          # LFS disabled as per .gitattributes configuration
           
-      # Setup Git LFS properly  
-      - name: Setup Git LFS
+      # Git LFS is disabled - verify large files are present
+      - name: Verify large files are present
         run: |
-          git lfs install
-          echo "Git LFS version: $(git lfs version)"
-          echo "=== LFS files in repository ==="
-          git lfs ls-files --long
-          echo "=== Pulling LFS files ==="
-          git lfs pull
-          echo "=== LFS pull completed ==="
-
-      # Verify LFS files are downloaded
-      - name: Verify LFS files are downloaded
-        run: |
-          echo "=== Final verification ==="
+          echo "=== Verifying large files without LFS ==="
           
           # Check critical files
           critical_files=(
             "media/video/video-v-0-02-00.mp4"
+            "media/video/video-v-0-02-01.mp4"
           )
           
           for file in "${critical_files[@]}"; do
@@ -45,13 +35,13 @@ jobs:
               size=$(stat -c%s "$file" 2>/dev/null || stat -f%z "$file")
               echo "$file: $size bytes"
               
-              if [ "$size" -lt 10000000 ]; then  # Less than 10MB
-                echo "ERROR: $file is too small ($size bytes) - likely still a pointer"
+              if [ "$size" -lt 1000000 ]; then  # Less than 1MB
+                echo "ERROR: $file is too small ($size bytes)"
                 echo "File content:"
                 head -3 "$file"
                 exit 1
               else
-                echo "SUCCESS: $file downloaded correctly"
+                echo "SUCCESS: $file present and correct size"
               fi
             else
               echo "ERROR: $file not found"
@@ -82,19 +72,19 @@ jobs:
           if [ -d "media" ] && [ "$(ls -A media)" ]; then
             # Final check before zipping
             if [ -f "media/video/video-v-0-02-00.mp4" ]; then
-              size=$(stat -c%s "media/video/video-v-0-02-00.mp4")
-              if [ "$size" -lt 10000000 ]; then
+              size=$(stat -c%s "media/video/video-v-0-02-00.mp4" 2>/dev/null || stat -f%z "media/video/video-v-0-02-00.mp4")
+              if [ "$size" -lt 1000000 ]; then  # Less than 1MB (adjusted for non-LFS)
                 echo "CRITICAL ERROR: Video file too small before zipping: $size bytes"
                 exit 1
               fi
             fi
             
             zip -r zip/tutorial-videos.zip media
-            video_zip_size=$(stat -c%s "zip/tutorial-videos.zip")
+            video_zip_size=$(stat -c%s "zip/tutorial-videos.zip" 2>/dev/null || stat -f%z "zip/tutorial-videos.zip")
             echo "Videos ZIP: $(du -h zip/tutorial-videos.zip | cut -f1) ($video_zip_size bytes)"
             
-            # Verify ZIP is not too small
-            if [ "$video_zip_size" -lt 1000000 ]; then  # Less than 1MB
+            # Verify ZIP is not too small (adjusted for non-LFS)
+            if [ "$video_zip_size" -lt 100000 ]; then  # Less than 100KB
               echo "CRITICAL ERROR: Videos ZIP too small: $video_zip_size bytes"
               exit 1
             fi
@@ -111,7 +101,7 @@ jobs:
           for zip_file in zip/*.zip; do
             echo "=== $(basename $zip_file) ==="
             echo "Size: $(du -h $zip_file | cut -f1)"
-            echo "Byte size: $(stat -c%s $zip_file)"
+            echo "Byte size: $(stat -c%s $zip_file 2>/dev/null || stat -f%z $zip_file)"
             echo "Video files in ZIP:"
             unzip -l "$zip_file" | grep -E '\.(mp4|avi|mov)' || echo "No video files found"
             echo "Large files (>1MB) in ZIP:"

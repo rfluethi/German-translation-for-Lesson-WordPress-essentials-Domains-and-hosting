@@ -17,12 +17,23 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          # LFS disabled as per .gitattributes configuration
+          lfs: true
           
-      # Git LFS is disabled - verify large files are present
-      - name: Verify large files are present
+      # Setup Git LFS properly  
+      - name: Setup Git LFS
         run: |
-          echo "=== Verifying large files without LFS ==="
+          git lfs install
+          echo "Git LFS version: $(git lfs version)"
+          echo "=== LFS files in repository ==="
+          git lfs ls-files --long
+          echo "=== Pulling LFS files ==="
+          git lfs pull
+          echo "=== LFS pull completed ==="
+
+      # Verify LFS files are downloaded
+      - name: Verify LFS files are downloaded
+        run: |
+          echo "=== Final verification ==="
           
           # Check critical files
           critical_files=(
@@ -35,13 +46,13 @@ jobs:
               size=$(stat -c%s "$file" 2>/dev/null || stat -f%z "$file")
               echo "$file: $size bytes"
               
-              if [ "$size" -lt 1000000 ]; then  # Less than 1MB
-                echo "ERROR: $file is too small ($size bytes)"
+              if [ "$size" -lt 10000000 ]; then  # Less than 10MB
+                echo "ERROR: $file is too small ($size bytes) - likely still a pointer"
                 echo "File content:"
                 head -3 "$file"
                 exit 1
               else
-                echo "SUCCESS: $file present and correct size"
+                echo "SUCCESS: $file downloaded correctly"
               fi
             else
               echo "ERROR: $file not found"
@@ -71,20 +82,22 @@ jobs:
           # Videos ZIP - this is critical
           if [ -d "media" ] && [ "$(ls -A media)" ]; then
             # Final check before zipping
-            if [ -f "media/video/video-v-0-02-00.mp4" ]; then
-              size=$(stat -c%s "media/video/video-v-0-02-00.mp4" 2>/dev/null || stat -f%z "media/video/video-v-0-02-00.mp4")
-              if [ "$size" -lt 1000000 ]; then  # Less than 1MB (adjusted for non-LFS)
-                echo "CRITICAL ERROR: Video file too small before zipping: $size bytes"
-                exit 1
+            for video_file in "media/video/video-v-0-02-00.mp4" "media/video/video-v-0-02-01.mp4"; do
+              if [ -f "$video_file" ]; then
+                size=$(stat -c%s "$video_file" 2>/dev/null || stat -f%z "$video_file")
+                if [ "$size" -lt 10000000 ]; then  # Less than 10MB
+                  echo "CRITICAL ERROR: Video file $video_file too small before zipping: $size bytes"
+                  exit 1
+                fi
               fi
-            fi
+            done
             
             zip -r zip/tutorial-videos.zip media
             video_zip_size=$(stat -c%s "zip/tutorial-videos.zip" 2>/dev/null || stat -f%z "zip/tutorial-videos.zip")
             echo "Videos ZIP: $(du -h zip/tutorial-videos.zip | cut -f1) ($video_zip_size bytes)"
             
-            # Verify ZIP is not too small (adjusted for non-LFS)
-            if [ "$video_zip_size" -lt 100000 ]; then  # Less than 100KB
+            # Verify ZIP is not too small
+            if [ "$video_zip_size" -lt 1000000 ]; then  # Less than 1MB
               echo "CRITICAL ERROR: Videos ZIP too small: $video_zip_size bytes"
               exit 1
             fi

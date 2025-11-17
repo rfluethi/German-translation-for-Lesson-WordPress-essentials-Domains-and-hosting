@@ -37,8 +37,7 @@ jobs:
           
           # Check critical files
           critical_files=(
-            "media/video/video-v-0-02-00.mp4"
-            "media/video/video-v-0-02-01.mp4"
+            "media/video/video-v-1-00-00.mp4"
           )
           
           for file in "${critical_files[@]}"; do
@@ -82,7 +81,7 @@ jobs:
           # Videos ZIP - this is critical
           if [ -d "media" ] && [ "$(ls -A media)" ]; then
             # Final check before zipping
-            for video_file in "media/video/video-v-0-02-00.mp4" "media/video/video-v-0-02-01.mp4"; do
+            for video_file in "media/video/video-v-1-00-00.mp4"; do
               if [ -f "$video_file" ]; then
                 size=$(stat -c%s "$video_file" 2>/dev/null || stat -f%z "$video_file")
                 if [ "$size" -lt 10000000 ]; then  # Less than 10MB

@@ -116,7 +116,7 @@ Benutzerfreundlichkeit.
 
 Die Verwaltung sollte einfach und intuitiv sein.
 
-Preisleistung.
+Preis-Leistung.
 
 Dein Anbieter sollte ein gutes Preis-Leistungs-Verhältnis bieten.
 
@@ -140,7 +140,7 @@ Die Domain ist weltweit einzigartig: Niemand sonst kann sie zur selben Zeit
 nutzen.
 
 Sie besteht aus der von dir gewählten Second-Level-Domain, zum Beispiel meine
-Webseite und einer Top-Level-Domain wie .com .de oder .net.
+Webseite und einer Top-Level-Domain wie .com, .de oder .net.
 
 Für die Top-Level-Domain stehen dir Hunderte Optionen offen, solange sie noch
 frei ist. 
@@ -315,7 +315,7 @@ We'll show you on Learn.WordPress.org.
 ### German
 
 In dieser Lektion heißen wir dich willkommen und zeigen dir die Grundlagen, die
-du brauchst, um deine eigene WordPress-Webseite online zu bringen. Du erfährst
+du brauchst, um deine eigene WordPress-Website online zu bringen. Du erfährst
 Schritt für Schritt, was es mit **Domains** und **Hosting** auf sich hat –
 ganz einfach und anschaulich erklärt.
 

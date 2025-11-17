@@ -8,6 +8,8 @@ This repository contains the German translation and localization of the "WordPre
 - [German Translation of 'WordPress essentials: Domains and hosting' Lesson.](#german-translation-of-wordpress-essentials-domains-and-hosting-lesson)
   - [Table of Contents](#table-of-contents)
   - [Original Resources](#original-resources)
+    - [English Resources (original)](#english-resources-original)
+    - [German Resources](#german-resources)
   - [Produced Resources](#produced-resources)
     - [Video](#video)
     - [Text Materials](#text-materials)
@@ -73,8 +75,8 @@ people:
 
 - **[Wes Theron](https://profiles.wordpress.org/west7/)** – _Producer (Original English Version)_
 - **[Rico F. Lüthi](https://profiles.wordpress.org/rfluethi/)** – _Producer (German Version), including Design, Animation & Scriptwriting_
-- **???** – _Content Reviewer & Proofreader_
-- **???** – _German Voice Actor_
+- **[Sandra W.](https://profiles.wordpress.org/ursha/)** – _Content Reviewer & Proofreader_
+- **[Sandra W.](https://profiles.wordpress.org/ursha/)** – _German Voice Actress_
 
 A huge thank you to all contributors who helped bring this project to life! 🚀
 

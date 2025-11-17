@@ -22,7 +22,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed 377 files from previous versions
 - Updated video project structure to v-1-00-00
 
-## [1.0.00] - 2025-11-17
+## [1.0.00] - 2025-11-17 [YANKED]
+
+**Note: This release has been yanked/withdrawn.**
 
 ### Release
 

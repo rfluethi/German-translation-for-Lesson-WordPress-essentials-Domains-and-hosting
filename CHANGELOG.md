@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.00] - 2025-11-17
+
+### Release
+
+- **First stable release** of the German translation project
+- All documentation updated and finalized
+- Updated table of contents in README and documentation files
+- Repository is production-ready
+
+### Documentation
+
+- Fixed broken paths in README.md
+- Updated docs/text-material.md
+- Updated src/subtitles/subtitles_de.md
+- All documentation reviewed and finalized
+
 ## [0.2.00] - 2025-06-27
 
 ### Features Added
@@ -103,5 +119,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - English published version as baseline
 - Storyboard development (English and German drafts)
 - Initial shot list documentation
-
-

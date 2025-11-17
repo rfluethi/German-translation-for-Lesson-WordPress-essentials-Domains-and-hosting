@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.01] - 2025-11-17
+
+### Changed
+
+- Updated to video version 1.00.00
+- Removed old video versions (v-0-02-00 and v-0-02-01)
+- Updated German subtitle files (SRT and VTT formats)
+- Cleaned up obsolete video project files and media assets
+
+### Technical
+
+- Uploaded 103 LFS objects (~78 MB) for new video version
+- Removed 377 files from previous versions
+- Updated video project structure to v-1-00-00
+
 ## [1.0.00] - 2025-11-17
 
 ### Release

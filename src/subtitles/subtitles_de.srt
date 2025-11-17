@@ -1,4 +1,4 @@
-﻿1
+1
 00:00:00,020 --> 00:00:03,960
 Hallo und herzlich willkommen bei Learn WordPress.
 
@@ -88,7 +88,8 @@ Deine Webseite muss immer online sein.
 
 23
 00:01:26,150 --> 00:01:34,640
-Ein guter Anbieter garantiert eine stabile Erreichbarkeit und bietet zuverlässigen Support.
+Ein guter Anbieter garantiert eine stabile Erreichbarkeit und bietet
+zuverlässigen Support.
 
 24
 00:01:34,640 --> 00:01:36,099
@@ -116,7 +117,7 @@ Die Verwaltung sollte einfach und intuitiv sein.
 
 30
 00:02:00,680 --> 00:02:02,800
-Preisleistung
+Preis-Leistung
 
 31
 00:02:02,800 --> 00:02:07,740
@@ -160,15 +161,17 @@ Niemand sonst kann sie zur selben Zeit nutzen.
 
 41
 00:02:42,199 --> 00:02:47,799
-Sie besteht aus der von dir gewählten Second-Level-Domain, zum Beispiel „Meine-Webseite“
+Sie besteht aus der von dir gewählten Second-Level-Domain, zum Beispiel
+„Meine-Webseite“
 
 42
 00:02:47,799 --> 00:02:53,399
-und einer Top-Level-Domain wie .com .de oder .net.
+und einer Top-Level-Domain wie .com, .de oder .net.
 
 43
 00:02:53,400 --> 00:03:00,620
-Für die Top-Level-Domain stehen dir hunderte Optionen offen, solange sie noch frei ist.
+Für die Top-Level-Domain stehen dir hunderte Optionen offen, solange sie noch
+frei ist.
 
 44
 00:03:00,620 --> 00:03:05,940
@@ -208,11 +211,11 @@ Sie zeigt Besuchern den Weg zu deiner Webseite.
 
 53
 00:03:38,420 --> 00:03:43,253
-Beides zusammen stellt sicher, dass deine Webseite immer online
+Beides zusammen stellt sicher, dass deine Webseite immer online ist
 
 54
 00:03:43,253 --> 00:03:47,339
- und problemlos erreicht werden kann.
+und problemlos erreicht werden kann.
 
 55
 00:03:47,340 --> 00:03:52,428
@@ -229,4 +232,3 @@ Du fragst dich jetzt sicher, wie du das machen kannst?
 58
 00:04:01,800 --> 00:04:04,520
 Das zeigen wir dir auf Learn.WordPress.org
-

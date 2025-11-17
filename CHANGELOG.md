@@ -7,24 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.01] - 2025-11-17
-
-### Changed
-
-- Updated to video version 1.00.00
-- Removed old video versions (v-0-02-00 and v-0-02-01)
-- Updated German subtitle files (SRT and VTT formats)
-- Cleaned up obsolete video project files and media assets
-
-### Technical
-
-- Uploaded 103 LFS objects (~78 MB) for new video version
-- Removed 377 files from previous versions
-- Updated video project structure to v-1-00-00
-
-## [1.0.00] - 2025-11-17 [YANKED]
-
-**Note: This release has been yanked/withdrawn.**
+## [1.0.00] - 2025-11-17
 
 ### Release
 
@@ -33,12 +16,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated table of contents in README and documentation files
 - Repository is production-ready
 
+### Changed
+
+- Updated to video version 1.00.00
+- Removed old video versions (v-0-02-00 and v-0-02-01)
+- Updated German subtitle files (SRT and VTT formats)
+- Cleaned up obsolete video project files and media assets
+
 ### Documentation
 
 - Fixed broken paths in README.md
 - Updated docs/text-material.md
 - Updated src/subtitles/subtitles_de.md
 - All documentation reviewed and finalized
+
+### Technical
+
+- Uploaded 103 LFS objects (~78 MB) for new video version
+- Removed 377 files from previous versions
+- Updated video project structure to v-1-00-00
 
 ## [0.2.00] - 2025-06-27
 

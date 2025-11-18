@@ -37,6 +37,7 @@ efforts.
 
 ### German Resources
 - Lesson Title: WordPress-Grundlagen: Domains und Hosting
+- WordPress.tv https://wordpress.tv/2025/11/18/wordpress-grundlagen-domains-und-hosting/
 - GitHub Issue for the German Translation: [German translation for Lesson "WordPress essentials: Domains and hosting" · Issue #2955 · WordPress/Learn](https://github.com/WordPress/Learn/issues/2955)
 
 ## Produced Resources

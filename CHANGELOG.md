@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.01] - 2026-02-11
+
+### Changed
+
+- Strip English audio tracks and English subtitles from videos to prevent YouTube from auto-selecting the English version on upload
+- Fix `.vtt` file headers to ensure compatibility with WordPress.tv uploads
+- Updated animations, storyboard images, audio files, and documentation
+
+### Fixed
+
+- Fix `.gitattributes`: Replace outdated v0.02.00/v0.02.01 references with v1.00.00
+- Fix LFS pointer tracking for video, audio, and project files
+- Fix broken path in REPOSITORY_STRUCTURE.md
+- Remove orphaned `.gitattributes.backup` from tracking
+
+### Documentation
+
+- Translate CODE_OF_CONDUCT.md to English
+- Translate SECURITY.md to English
+- Translate pull request template to English
+- Translate bug report issue template to English
+
+### Technical
+
+- Add `*.backup` pattern to `.gitignore`
+- Properly register 110+ LFS objects for v1.00.00 media files
+
 ## [1.0.00] - 2025-11-17
 
 ### Release

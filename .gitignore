@@ -50,6 +50,7 @@ Gemfile.lock
 
 # Other unwanted files
 *.bak
+*.backup
 *.orig
 *.old
 

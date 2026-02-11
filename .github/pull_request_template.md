@@ -1,28 +1,25 @@
 
 # Pull Request Template
 
-## Beschreibung
+## Description
 
-Bitte beschreiben Sie die Änderungen, die Sie vorgenommen haben.
+Please describe the changes you have made.
 
-## Änderungstyp
+## Type of Change
 
-- [ ] Bugfix (eine Änderung, die ein Problem behebt)
-- [ ] Neue Funktion (eine Änderung, die neue Funktionalität hinzufügt)
-- [ ] Breaking Change (eine Änderung, die bestehende Funktionalität bricht)
-- [ ] Dokumentation
+- [ ] Bug fix (a change that fixes an issue)
+- [ ] New feature (a change that adds new functionality)
+- [ ] Breaking change (a change that breaks existing functionality)
+- [ ] Documentation
 
-## Checkliste
+## Checklist
 
-- [ ] Mein Code folgt den Style-Richtlinien dieses Projekts
-- [ ] Ich habe die Dokumentation aktualisiert
-- [ ] Ich habe neue Tests hinzugefügt
-- [ ] Alle Tests sind erfolgreich durchgelaufen
-- [ ] Ich habe die CHANGELOG.md aktualisiert
+- [ ] My code follows the style guidelines of this project
+- [ ] I have updated the documentation
+- [ ] I have added new tests
+- [ ] All tests have passed successfully
+- [ ] I have updated the CHANGELOG.md
 
-## Zusätzliche Notizen
+## Additional Notes
 
-Fügen Sie hier zusätzliche Informationen hinzu, die für die Reviewer
-wichtig sein könnten.
-
-
+Add any additional information here that may be relevant for reviewers.

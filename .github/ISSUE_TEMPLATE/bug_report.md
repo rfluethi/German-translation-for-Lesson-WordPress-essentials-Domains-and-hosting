@@ -1,45 +1,43 @@
 ---
 name: Bug Report
-about: Erstellen Sie einen Report, um uns zu helfen, das Problem zu verbessern
+about: Create a report to help us improve
 title: '[BUG] '
 labels: bug
 assignees: ''
 
 ---
 
-## Beschreibung des Bugs
+## Bug Description
 
-Eine klare und prägnante Beschreibung des Problems.
+A clear and concise description of the problem.
 
-## Schritte zur Reproduktion
+## Steps to Reproduce
 
-1. Gehen Sie zu '...'
-2. Klicken Sie auf '....'
-3. Scrollen Sie zu '....'
-4. Sehen Sie den Fehler
+1. Go to '...'
+2. Click on '...'
+3. Scroll to '...'
+4. See the error
 
-## Erwartetes Verhalten
+## Expected Behavior
 
-Eine Beschreibung dessen, was Sie erwartet haben.
+A description of what you expected to happen.
 
 ## Screenshots
 
-Fügen Sie Screenshots hinzu, um Ihr Problem zu erklären.
+Add screenshots to help explain your problem.
 
-## Desktop (bitte vervollständigen)
+## Desktop (please complete)
 
-- OS: [z.B. macOS]
-- Browser: [z.B. Chrome]
-- Version: [z.B. 22]
+- OS: [e.g. macOS]
+- Browser: [e.g. Chrome]
+- Version: [e.g. 22]
 
-## Zusätzlicher Kontext
+## Additional Context
 
-Fügen Sie hier weiteren Kontext zum Problem hinzu.
+Add any other context about the problem here.
 
-## Checkliste
+## Checklist
 
-- [ ] Ich habe die Dokumentation überprüft
-- [ ] Ich habe nach ähnlichen Issues gesucht
-- [ ] Ich habe die Issue-Richtlinien gelesen
-
-
+- [ ] I have reviewed the documentation
+- [ ] I have searched for similar issues
+- [ ] I have read the issue guidelines

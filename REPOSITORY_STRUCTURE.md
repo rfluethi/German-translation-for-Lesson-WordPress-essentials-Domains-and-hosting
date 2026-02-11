@@ -29,12 +29,13 @@ purpose of each directory and file.
 ├── REPOSITORY_STRUCTURE.md # This file, detailing the repository's structure
 └── README.md               # Main description of the GitHub repository
 ```
+
 ## Production Documents
 
 This repository includes essential production documents for creating and
 localizing the learning materials. For details about specific content such as
 **Text Materials** and **Quiz**, refer to the
-[README](WordPress-essentials-Domains-and-hosting/Git-Repro/German-translation-for-Lesson-WordPress-essentials-Domains-and-hosting/README.md)
+[README](README.md)
 file.
 
 ### Storyboard
@@ -49,5 +50,3 @@ The **Shot List** ([shotlist](docs/shotlist.md)) includes:
 - A detailed list of scenes and corresponding resources.
 - References to media files and their licenses.
 - Notes on timing, transitions, and production requirements.
-
-

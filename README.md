@@ -8,6 +8,8 @@ This repository contains the German translation and localization of the "WordPre
 - [German Translation of 'WordPress essentials: Domains and hosting' Lesson.](#german-translation-of-wordpress-essentials-domains-and-hosting-lesson)
   - [Table of Contents](#table-of-contents)
   - [Original Resources](#original-resources)
+    - [English Resources (original)](#english-resources-original)
+    - [German Resources](#german-resources)
   - [Produced Resources](#produced-resources)
     - [Video](#video)
     - [Text Materials](#text-materials)
@@ -35,6 +37,7 @@ efforts.
 
 ### German Resources
 - Lesson Title: WordPress-Grundlagen: Domains und Hosting
+- WordPress.tv https://wordpress.tv/2025/11/18/wordpress-grundlagen-domains-und-hosting/
 - GitHub Issue for the German Translation: [German translation for Lesson "WordPress essentials: Domains and hosting" · Issue #2955 · WordPress/Learn](https://github.com/WordPress/Learn/issues/2955)
 
 ## Produced Resources
@@ -73,8 +76,8 @@ people:
 
 - **[Wes Theron](https://profiles.wordpress.org/west7/)** – _Producer (Original English Version)_
 - **[Rico F. Lüthi](https://profiles.wordpress.org/rfluethi/)** – _Producer (German Version), including Design, Animation & Scriptwriting_
-- **???** – _Content Reviewer & Proofreader_
-- **???** – _German Voice Actor_
+- **[Sandra W.](https://profiles.wordpress.org/ursha/)** – _Content Reviewer & Proofreader_
+- **[Sandra W.](https://profiles.wordpress.org/ursha/)** – _German Voice Actress_
 
 A huge thank you to all contributors who helped bring this project to life! 🚀
 
@@ -84,13 +87,13 @@ the list! 😊
 ## Contributing
 
 Contributions are highly welcome! If you'd like to help, please check the
-[CONTRIBUTING](WordPress-essentials-Domains-and-hosting/Git-Repro/German-translation-for-Lesson-WordPress-essentials-Domains-and-hosting/CONTRIBUTING.md)
+[CONTRIBUTING](CONTRIBUTING.md)
 file for details.
 
 ## Downloadable Release Files
 
 The latest versions and change history are documented in the
-[CHANGELOG](WordPress-essentials-Domains-and-hosting/Git-Repro/German-translation-for-Lesson-WordPress-essentials-Domains-and-hosting/CHANGELOG.md).
+[CHANGELOG](CHANGELOG.md).
 
 ### Releases
 
@@ -110,7 +113,7 @@ These files are automatically generated with Git LFS support to ensure all large
 
 This repository uses different licenses for its components:
 
-- **Code:** Licensed under the [MIT License](Development-Programmierung/typing-trainer/backend/node_modules/ms/license.md).
+- **Code:** Licensed under the [MIT License](LICENSE).
 - **Content:** Licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
   You can read the full license text [here](https://creativecommons.org/licenses/by/4.0/legalcode).
 
@@ -123,5 +126,3 @@ details.
 ## Contact
 
 For any questions or suggestions, feel free to reach out to the project maintainer at [mail@rfluethi.com](mailto:mail@rfluethi.com). You can also join the discussion on [WordPress Slack](https://make.wordpress.org/chat/) for community support.
-
-

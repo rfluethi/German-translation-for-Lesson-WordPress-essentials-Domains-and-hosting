@@ -10,9 +10,11 @@
 *.m4a filter=lfs diff=lfs merge=lfs -text
 *.mp3 filter=lfs diff=lfs merge=lfs -text
 *.aac filter=lfs diff=lfs merge=lfs -text
+*.flac filter=lfs diff=lfs merge=lfs -text
 # Project files and compressed content
 *.cmproj filter=lfs diff=lfs merge=lfs -text
 src/assets/video/video-v-0-02-00.cmproj/** filter=lfs diff=lfs merge=lfs -text
+src/assets/video/video-v-0-02-01.cmproj/** filter=lfs diff=lfs merge=lfs -text
 *.moho filter=lfs diff=lfs merge=lfs -text
 *.tscproj filter=lfs diff=lfs merge=lfs -text
 # Large design files
@@ -25,3 +27,4 @@ src/assets/video/video-v-0-02-00.cmproj/** filter=lfs diff=lfs merge=lfs -text
 *.7z filter=lfs diff=lfs merge=lfs -text
 # Specific large files explicitly tracked
 media/video/video-v-0-02-00.mp4 filter=lfs diff=lfs merge=lfs -text
+media/video/video-v-0-02-01.mp4 filter=lfs diff=lfs merge=lfs -text

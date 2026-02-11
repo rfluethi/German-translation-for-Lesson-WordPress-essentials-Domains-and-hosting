@@ -87,7 +87,7 @@ Benutzerfreundlichkeit
 Die Verwaltung sollte einfach und intuitiv sein.
 
 **00:02:00,680 – 00:02:02,800**
-Preisleistung
+Preis-Leistung
 
 **00:02:02,800 – 00:02:07,740**
 Dein Anbieter sollte ein gutes Preis-Leistungs-Verhältnis bieten.
@@ -124,7 +124,7 @@ Sie besteht aus der von dir gewählten Second-Level-Domain, zum Beispiel
 „Meine-Webseite“
 
 **00:02:47,799 – 00:02:53,399**
-und einer Top-Level-Domain wie .com .de oder .net.
+und einer Top-Level-Domain wie .com, .de oder .net.
 
 **00:02:53,400 – 00:03:00,620**
 Für die Top-Level-Domain stehen dir hunderte Optionen offen, solange sie noch
@@ -158,7 +158,7 @@ Die Domain ist die Adresse deiner Webseite im Internet.
 Sie zeigt Besuchern den Weg zu deiner Webseite.
 
 **00:03:38,420 – 00:03:43,253**
-Beides zusammen stellt sicher, dass deine Webseite immer online
+Beides zusammen stellt sicher, dass deine Webseite immer online ist
 
 **00:03:43,253 – 00:03:47,339**
 und problemlos erreicht werden kann.

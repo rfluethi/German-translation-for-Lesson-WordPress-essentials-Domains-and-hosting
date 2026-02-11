@@ -1,51 +1,48 @@
 
-# Verhaltensrichtlinien für Mitwirkende
+# Contributor Code of Conduct
 
-## Unser Versprechen
+## Our Pledge
 
-Als Mitwirkende und Betreuer versprechen wir, eine einladende und respektvolle
-Umgebung für alle zu schaffen, unabhängig von Alter, Körpergröße,
-Behinderung, ethnischer Zugehörigkeit, Geschlechtsidentität und -ausdruck,
-Erfahrungsniveau, Bildung, sozialem Status, Name, Nationalität, persönlichem
-Aussehen, Rasse, Religion oder sexueller Identität und Orientierung.
+As contributors and maintainers, we pledge to create a welcoming and respectful
+environment for everyone, regardless of age, body size, disability, ethnicity,
+gender identity and expression, level of experience, education, socioeconomic
+status, name, nationality, personal appearance, race, religion, or sexual
+identity and orientation.
 
-## Unser Verhalten
+## Our Standards
 
-Beispiele für Verhalten, das zu einer positiven Umgebung beiträgt:
+Examples of behavior that contributes to a positive environment:
 
-* Freundliche und inklusive Sprache verwenden
-* Respektvoll sein gegenüber unterschiedlichen Standpunkten und Erfahrungen
-* Kritik konstruktiv annehmen
-* Fokus auf das Beste für die Community
-* Empathie gegenüber anderen Community-Mitgliedern zeigen
+* Using welcoming and inclusive language
+* Being respectful of differing viewpoints and experiences
+* Accepting constructive criticism gracefully
+* Focusing on what is best for the community
+* Showing empathy towards other community members
 
-Beispiele für inakzeptables Verhalten:
+Examples of unacceptable behavior:
 
-* Sexuelle Sprache oder Bilder verwenden
-* Trolling, beleidigende/abwertende Kommentare und persönliche oder politische Angriffe
-* Öffentliche oder private Belästigung
-* Andere personenbezogene Daten ohne ausdrückliche Erlaubnis veröffentlichen
-* Anderes unethisches oder unprofessionelles Verhalten
+* Using sexualized language or imagery
+* Trolling, insulting or derogatory comments, and personal or political attacks
+* Public or private harassment
+* Publishing others' personal information without explicit permission
+* Other unethical or unprofessional conduct
 
-## Unsere Verantwortlichkeiten
+## Our Responsibilities
 
-Projektbetreuer sind verantwortlich für die Klärung der Standards für
-akzeptables Verhalten und werden angemessene und faire korrigierende Maßnahmen
-ergreifen.
+Project maintainers are responsible for clarifying the standards of acceptable
+behavior and are expected to take appropriate and fair corrective action.
 
-## Anwendungsbereich
+## Scope
 
-Diese Verhaltensrichtlinien gelten sowohl innerhalb der Projekträume als auch
-in der Öffentlichkeit, wenn eine Person das Projekt oder seine Community
-vertritt.
+This Code of Conduct applies both within project spaces and in public when an
+individual is representing the project or its community.
 
-## Durchsetzung
+## Enforcement
 
-Fälle von missbräuchlichem, belästigendem oder anderweitig inakzeptablem
-Verhalten können an [mail@rfluethi.com](mailto:mail@rfluethi.com) gemeldet
-werden. Alle Beschwerden werden überprüft und untersucht und führen zu einer
-Reaktion, die als angemessen und notwendig erachtet wird. Das Projektteam ist
-verpflichtet, die Vertraulichkeit in Bezug auf den Reporter eines Vorfalls zu
-wahren.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be
+reported to [mail@rfluethi.com](mailto:mail@rfluethi.com). All complaints will
+be reviewed and investigated and will result in a response that is deemed
+necessary and appropriate. The project team is obligated to maintain
+confidentiality with regard to the reporter of an incident.
 
 

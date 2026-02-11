@@ -1,31 +1,30 @@
 
-# Sicherheitsrichtlinien
+# Security Policy
 
-## Unterstützte Versionen
+## Supported Versions
 
-| Version | Unterstützt          |
-| ------- | ------------------ |
-| 1.0.x   | :white_check_mark: |
+| Version | Supported            |
+| ------- | -------------------- |
+| 1.0.x   | :white_check_mark:   |
 
-## Sicherheitslücken melden
+## Reporting a Vulnerability
 
-Wenn Sie eine Sicherheitslücke gefunden haben, melden Sie diese bitte direkt an
-[mail@rfluethi.com](mailto:mail@rfluethi.com). Bitte veröffentlichen Sie keine
-Details der Sicherheitslücke öffentlich, bis eine Lösung bereitgestellt
-wurde.
+If you have discovered a security vulnerability, please report it directly to
+[mail@rfluethi.com](mailto:mail@rfluethi.com). Please do not disclose any
+details of the vulnerability publicly until a fix has been provided.
 
-## Verantwortungsvolle Offenlegung
+## Responsible Disclosure
 
-1. Melden Sie die Sicherheitslücke direkt an die oben genannte E-Mail-Adresse
-2. Beschreiben Sie die Lücke so detailliert wie möglich
-3. Fügen Sie Schritte zur Reproduktion hinzu
-4. Warten Sie auf unsere Antwort
-5. Wir werden die Lücke analysieren und eine Lösung entwickeln
-6. Nach der Veröffentlichung der Lösung können Sie die Details öffentlich diskutieren
+1. Report the vulnerability directly to the email address listed above
+2. Describe the vulnerability in as much detail as possible
+3. Include steps to reproduce the issue
+4. Wait for our response
+5. We will analyze the vulnerability and develop a fix
+6. Once the fix has been released, you may publicly discuss the details
 
-## Sicherheitsupdates
+## Security Updates
 
-Wir veröffentlichen regelmäßig Sicherheitsupdates. Bitte halten Sie Ihre
-Installation immer auf dem neuesten Stand.
+We regularly publish security updates. Please ensure that your installation is
+always kept up to date.
 
 
